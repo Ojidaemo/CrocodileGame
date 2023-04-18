@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResultsView: UIView {
+final class ResultsView: UIView {
 
     lazy var imageOne = createImageView(image: UIImage(named: "Avatar1")!)
     lazy var imageTwo = createImageView(image: UIImage(named: "Avatar2")!)
@@ -27,9 +27,6 @@ class ResultsView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let backgroundImage = UIImage(named: "background")
-        let backgroundColor = UIColor(patternImage: backgroundImage!)
-        self.backgroundColor = backgroundColor
         setupViews()
         setupConstraints()
     }
@@ -37,6 +34,14 @@ class ResultsView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    private let backgroundView: UIImageView = {
+        let background = UIImageView()
+        background.image = UIImage(named: "background")
+        background.contentMode = .scaleToFill
+        background.translatesAutoresizingMaskIntoConstraints = false
+        return background
+    }()
     
     private let labelStack: UIStackView = {
         let stack = UIStackView()
@@ -49,15 +54,18 @@ class ResultsView: UIView {
     
     lazy var restartGame: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = #colorLiteral(red: 0.4549019608, green: 0.6549019608, blue: 0.1882352941, alpha: 1)
+        button.backgroundColor = UIColor(named: "ButtonColour")
         button.layer.cornerRadius = 10
         button.setTitle("Начать сначала", for: .normal)
+        button.titleLabel?.numberOfLines = 0
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: "Bhavuka", size: 20)
         button.addTarget(self, action: #selector(restartPressed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    //MARK: - Methods
     
     @objc func restartPressed() {
         
@@ -108,6 +116,7 @@ class ResultsView: UIView {
     }
     
     private func setupViews() {
+        self.addSubview(backgroundView)
         labelOne.addSubview(imageOne)
         labelOne.addSubview(scoreLabelOne)
         labelOne.addSubview(teamOneScore)
@@ -121,10 +130,20 @@ class ResultsView: UIView {
         self.addSubview(labelStack)
         self.addSubview(restartGame)
     }
+}
+
+//MARK: - Constraints
+
+extension ResultsView {
     
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
+            
+            backgroundView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             restartGame.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             restartGame.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),

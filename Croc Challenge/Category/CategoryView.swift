@@ -7,13 +7,10 @@
 
 import UIKit
 
-class CategoryView: UIView {
+final class CategoryView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let backgroundImage = UIImage(named: "background")
-        let backgroundColor = UIColor(patternImage: backgroundImage!)
-        self.backgroundColor = backgroundColor
         setupCheckmarkImages()
         setupViews()
         setupConstraints()
@@ -33,20 +30,26 @@ class CategoryView: UIView {
     lazy var imageThree = createImageView(image: UIImage(named: "Avatar2")!)
     lazy var imageFour = createImageView(image: UIImage(named: "Avatar3")!)
     
+    private let backgroundView: UIImageView = {
+        let background = UIImageView()
+        background.image = UIImage(named: "background")
+        background.contentMode = .scaleToFill
+        background.translatesAutoresizingMaskIntoConstraints = false
+        return background
+    }()
+    
     private let buttonsStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.distribution = .fillEqually
         stack.spacing = 25
         stack.translatesAutoresizingMaskIntoConstraints = false
-        
         return stack
-        
     }()
     
     lazy var categoryOne: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = #colorLiteral(red: 0.7483206391, green: 0.3211311698, blue: 0.8083065748, alpha: 1)
+        button.backgroundColor = UIColor(named: "CategoryOne")
         button.layer.cornerRadius = 10
         button.setTitle("Животные", for: .normal)
         button.setTitleColor(.white, for: .selected)
@@ -69,7 +72,7 @@ class CategoryView: UIView {
     
     lazy var categoryTwo: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.831372549, blue: 0.1568627451, alpha: 1)
+        button.backgroundColor = UIColor(named: "CategoryTwo")
         button.layer.cornerRadius = 10
         button.setTitle("Еда", for: .normal)
         button.setTitleColor(.white, for: .selected)
@@ -83,7 +86,7 @@ class CategoryView: UIView {
     
     lazy var categoryThree: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.5333333333, blue: 0.8470588235, alpha: 1)
+        button.backgroundColor = UIColor(named: "CategoryThree")
         button.layer.cornerRadius = 10
         button.setTitle("Личности", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -95,7 +98,7 @@ class CategoryView: UIView {
     
     lazy var categoryFour: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.2745098039, blue: 0.2745098039, alpha: 1)
+        button.backgroundColor = UIColor(named: "CategoryFour")
         button.layer.cornerRadius = 10
         button.setTitle("Хобби", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -107,7 +110,7 @@ class CategoryView: UIView {
     
     lazy var startGame: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = #colorLiteral(red: 0.4549019608, green: 0.6549019608, blue: 0.1882352941, alpha: 1)
+        button.backgroundColor = UIColor(named: "ButtonColour")
         button.layer.cornerRadius = 10
         button.setTitle("Начать игру", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -120,19 +123,12 @@ class CategoryView: UIView {
     private func createCheckmarkImage() -> UIImageView {
         let image = UIImageView()
         image.isHidden = true
-        image.image = UIImage(systemName: "checkmark.circle")
+        image.image = UIImage(named: "Checkmark")
         image.tintColor = .white
         image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
         return image
-    }
-    
-    private func setupCheckmarkImages() {
-        checkmarkImageOne = createCheckmarkImage()
-        checkmarkImageTwo = createCheckmarkImage()
-        checkmarkImageThree = createCheckmarkImage()
-        checkmarkImageFour = createCheckmarkImage()
     }
     
     func createImageView(image: UIImage) -> UIImageView {
@@ -144,12 +140,19 @@ class CategoryView: UIView {
         return imageView
     }
     
+    //MARK: - Methods
+    
+    private func setupCheckmarkImages() {
+        checkmarkImageOne = createCheckmarkImage()
+        checkmarkImageTwo = createCheckmarkImage()
+        checkmarkImageThree = createCheckmarkImage()
+        checkmarkImageFour = createCheckmarkImage()
+    }
+    
     private func updateButtonAppearance(_ button: UIButton, checkmarkView: UIImageView) {
         button.isSelected ? (checkmarkView.isHidden = false) : (checkmarkView.isHidden = true)
         
     }
-    
-    //MARK: - Buttons' methods
     
     @objc func categoryOneTapped() {
         categoryOne.isSelected = !categoryOne.isSelected
@@ -177,6 +180,7 @@ class CategoryView: UIView {
     }
     
     private func setupViews() {
+        self.addSubview(backgroundView)
         categoryOne.addSubview(imageEllipse)
         categoryOne.addSubview(checkmarkImageOne)
         imageEllipse.addSubview(imageOne)
@@ -190,10 +194,20 @@ class CategoryView: UIView {
         self.addSubview(startGame)
         self.addSubview(buttonsStack)
     }
+}
+
+//MARK: - Constraints
+
+extension CategoryView {
     
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
+            
+            backgroundView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             imageEllipse.leadingAnchor.constraint(equalTo: categoryOne.leadingAnchor, constant: 25),
             imageEllipse.centerYAnchor.constraint(equalTo: categoryOne.centerYAnchor),
