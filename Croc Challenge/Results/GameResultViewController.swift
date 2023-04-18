@@ -8,13 +8,27 @@
 import UIKit
 
 class GameResultViewController: UIViewController {
+    
+    private let resultsView = ResultsView()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .clear
+        view.addSubview(resultsView)
+        setupConstraints()
     }
     
-
-
+    private func setupConstraints() {
+        
+        resultsView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            resultsView.topAnchor.constraint(equalTo: view.topAnchor),
+            resultsView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            resultsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            resultsView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            
+        ])
+    }
 }

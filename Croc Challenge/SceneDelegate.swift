@@ -19,8 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     let viewController = MainViewController()
     let categoryVC = CategoryViewController()
+    let resultVC = GameResultViewController()
 
-    window?.rootViewController = categoryVC
+    window?.rootViewController = resultVC
     window?.makeKeyAndVisible()
   }
 

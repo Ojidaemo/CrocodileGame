@@ -22,6 +22,8 @@
 		87F8947529EEB2CF0098BC12 /* AddSubviewStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947429EEB2CF0098BC12 /* AddSubviewStack.swift */; };
 		87F8947729EEB30A0098BC12 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947629EEB30A0098BC12 /* CategoryView.swift */; };
 		87F8947929EEB3700098BC12 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947829EEB3700098BC12 /* ResultsView.swift */; };
+		87F8947E29EEC1940098BC12 /* Bhavuka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87F8947D29EEC1940098BC12 /* Bhavuka.ttf */; };
+		87F8948029EEC1A10098BC12 /* Cookie.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87F8947F29EEC1A10098BC12 /* Cookie.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		87F8947429EEB2CF0098BC12 /* AddSubviewStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubviewStack.swift; sourceTree = "<group>"; };
 		87F8947629EEB30A0098BC12 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		87F8947829EEB3700098BC12 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		87F8947D29EEC1940098BC12 /* Bhavuka.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bhavuka.ttf; sourceTree = "<group>"; };
+		87F8947F29EEC1A10098BC12 /* Cookie.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cookie.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 				7C8A3E3E29ED8310004A9985 /* CorrectViewController.swift */,
 				7C8A3E4029ED831E004A9985 /* WrongViewController.swift */,
 				87F8947229EEB2A50098BC12 /* Results */,
+				87F8947C29EEC1360098BC12 /* Fonts */,
 				87F8947329EEB2B20098BC12 /* Extensions */,
 				7C8A3E6B29ED97A0004A9985 /* Assets.xcassets */,
 				7C8A3E1D29ED7DE2004A9985 /* LaunchScreen.storyboard */,
@@ -116,6 +121,15 @@
 				87F8947429EEB2CF0098BC12 /* AddSubviewStack.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		87F8947C29EEC1360098BC12 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				87F8947F29EEC1A10098BC12 /* Cookie.ttf */,
+				87F8947D29EEC1940098BC12 /* Bhavuka.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,7 +191,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C8A3E6C29ED97A0004A9985 /* Assets.xcassets in Resources */,
+				87F8947E29EEC1940098BC12 /* Bhavuka.ttf in Resources */,
 				7C8A3E1F29ED7DE2004A9985 /* LaunchScreen.storyboard in Resources */,
+				87F8948029EEC1A10098BC12 /* Cookie.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
