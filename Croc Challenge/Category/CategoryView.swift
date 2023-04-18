@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol startGameProtocol: AnyObject {
+    func startGamePressed(sender: UIButton)
+}
+
 final class CategoryView: UIView {
+    
+    weak var delegateStartGame: startGameProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,7 +54,7 @@ final class CategoryView: UIView {
     }()
     
     lazy var categoryOne: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton()
         button.backgroundColor = UIColor(named: Resources.Colors.buttonViolet)
         button.layer.cornerRadius = 10
         button.setTitle("Животные", for: .normal)
@@ -71,7 +77,7 @@ final class CategoryView: UIView {
     }()
     
     lazy var categoryTwo: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton()
         button.backgroundColor = UIColor(named: Resources.Colors.buttonLightGreen)
         button.layer.cornerRadius = 10
         button.setTitle("Еда", for: .normal)
@@ -85,7 +91,7 @@ final class CategoryView: UIView {
     }()
     
     lazy var categoryThree: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton()
         button.backgroundColor = UIColor(named: Resources.Colors.buttonBlue)
         button.layer.cornerRadius = 10
         button.setTitle("Личности", for: .normal)
@@ -97,7 +103,7 @@ final class CategoryView: UIView {
     }()
     
     lazy var categoryFour: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton()
         button.backgroundColor = UIColor(named: Resources.Colors.buttonRed)
         button.layer.cornerRadius = 10
         button.setTitle("Хобби", for: .normal)
@@ -175,8 +181,8 @@ final class CategoryView: UIView {
         updateButtonAppearance(categoryTwo, checkmarkView: checkmarkImageFour)
     }
     
-    @objc func startGamePressed() {
-        
+    @objc func startGamePressed(_ sender: UIButton) {
+        delegateStartGame?.startGamePressed(sender: sender)
     }
     
     private func setupViews() {

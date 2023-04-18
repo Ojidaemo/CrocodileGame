@@ -15,8 +15,13 @@ class GameResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
+        setDelegates()
         view.addSubview(resultsView)
         setupConstraints()
+    }
+    
+    func setDelegates() {
+        resultsView.delegateRestartGame = self
     }
     
     private func setupConstraints() {
@@ -30,5 +35,12 @@ class GameResultViewController: UIViewController {
             resultsView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             
         ])
+    }
+}
+
+extension GameResultViewController: restartGameProtocol {
+    func restartGamePressed(sender: UIButton) {
+        let mainVC = MainViewController()
+        self.navigationController?.pushViewController(mainVC, animated: true)
     }
 }
