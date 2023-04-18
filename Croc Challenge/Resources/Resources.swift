@@ -15,6 +15,7 @@ enum Resources {
         static let buttonViolet = "CategoryOne"
         static let buttonBlue = "CategoryThree"
         static let buttonLightGreen = "CategoryTwo"
+        static let buttonOrange = "ButtonOrange"
     }
     
     enum Image {
