@@ -18,6 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window = UIWindow(windowScene: windowScene)
 
     let viewController = MainViewController()
+    let categoryVC = CategoryViewController()
+    let resultVC = GameResultViewController()
 
     window?.rootViewController = viewController
     window?.makeKeyAndVisible()
