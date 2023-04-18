@@ -14,8 +14,13 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
+        setDelegates()
         view.addSubview(categoryView)
         setupConstraints()
+    }
+    
+    func setDelegates() {
+        categoryView.delegateStartGame = self
     }
     
     private func setupConstraints() {
@@ -29,5 +34,12 @@ class CategoryViewController: UIViewController {
             categoryView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             
         ])
+    }
+}
+
+extension CategoryViewController: startGameProtocol {
+    func startGamePressed(sender: UIButton) {
+        let gameVC = GameViewController()
+        self.navigationController?.pushViewController(gameVC, animated: true)
     }
 }

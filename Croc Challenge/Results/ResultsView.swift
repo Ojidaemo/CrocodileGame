@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol restartGameProtocol: AnyObject {
+    func restartGamePressed(sender: UIButton)
+}
+
 final class ResultsView: UIView {
+    
+    weak var delegateRestartGame: restartGameProtocol?
 
     lazy var imageOne = createImageView(image: UIImage(named: Resources.Image.cowboy)!)
     lazy var imageTwo = createImageView(image: UIImage(named: Resources.Image.burger)!)
@@ -67,8 +73,8 @@ final class ResultsView: UIView {
     
     //MARK: - Methods
     
-    @objc func restartPressed() {
-        
+    @objc func restartPressed(_ sender: UIButton) {
+        delegateRestartGame?.restartGamePressed(sender: sender)
     }
     
     func createLabelWithTeamName(title: String) -> UILabel {
