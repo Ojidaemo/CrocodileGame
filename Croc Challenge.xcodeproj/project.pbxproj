@@ -10,16 +10,16 @@
 		73099D2229EEEE03003857A5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 73099D2129EEEE03003857A5 /* SnapKit */; };
 		7C8A3E1329ED7DE0004A9985 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E1229ED7DE0004A9985 /* AppDelegate.swift */; };
 		7C8A3E1529ED7DE0004A9985 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E1429ED7DE0004A9985 /* SceneDelegate.swift */; };
-		7C8A3E1729ED7DE0004A9985 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E1629ED7DE0004A9985 /* MainViewController.swift */; };
 		7C8A3E1F29ED7DE2004A9985 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8A3E1D29ED7DE2004A9985 /* LaunchScreen.storyboard */; };
 		7C8A3E3729ED82BB004A9985 /* RoolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E3629ED82BB004A9985 /* RoolsViewController.swift */; };
 		7C8A3E3929ED82CC004A9985 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E3829ED82CC004A9985 /* TeamViewController.swift */; };
 		7C8A3E3B29ED82E9004A9985 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E3A29ED82E9004A9985 /* CategoryViewController.swift */; };
-		7C8A3E3D29ED8304004A9985 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E3C29ED8304004A9985 /* GameViewController.swift */; };
 		7C8A3E3F29ED8310004A9985 /* CorrectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E3E29ED8310004A9985 /* CorrectViewController.swift */; };
 		7C8A3E4129ED831E004A9985 /* WrongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E4029ED831E004A9985 /* WrongViewController.swift */; };
 		7C8A3E4329ED832B004A9985 /* GameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E4229ED832B004A9985 /* GameResultViewController.swift */; };
 		7C8A3E6C29ED97A0004A9985 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C8A3E6B29ED97A0004A9985 /* Assets.xcassets */; };
+		7C8A3E9329EF12AA004A9985 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E9229EF12AA004A9985 /* MainViewController.swift */; };
+		7C8A3E9629EF12CD004A9985 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E9529EF12CD004A9985 /* GameViewController.swift */; };
 		87F8947529EEB2CF0098BC12 /* AddSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947429EEB2CF0098BC12 /* AddSubviews.swift */; };
 		87F8947729EEB30A0098BC12 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947629EEB30A0098BC12 /* CategoryView.swift */; };
 		87F8947929EEB3700098BC12 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947829EEB3700098BC12 /* ResultsView.swift */; };
@@ -32,17 +32,17 @@
 		7C8A3E0F29ED7DE0004A9985 /* Croc Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Croc Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8A3E1229ED7DE0004A9985 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C8A3E1429ED7DE0004A9985 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7C8A3E1629ED7DE0004A9985 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7C8A3E1E29ED7DE2004A9985 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C8A3E2029ED7DE2004A9985 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C8A3E3629ED82BB004A9985 /* RoolsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoolsViewController.swift; sourceTree = "<group>"; };
 		7C8A3E3829ED82CC004A9985 /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		7C8A3E3A29ED82E9004A9985 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		7C8A3E3C29ED8304004A9985 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7C8A3E3E29ED8310004A9985 /* CorrectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectViewController.swift; sourceTree = "<group>"; };
 		7C8A3E4029ED831E004A9985 /* WrongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongViewController.swift; sourceTree = "<group>"; };
 		7C8A3E4229ED832B004A9985 /* GameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewController.swift; sourceTree = "<group>"; };
 		7C8A3E6B29ED97A0004A9985 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7C8A3E9229EF12AA004A9985 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7C8A3E9529EF12CD004A9985 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		87F8947429EEB2CF0098BC12 /* AddSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubviews.swift; sourceTree = "<group>"; };
 		87F8947629EEB30A0098BC12 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		87F8947829EEB3700098BC12 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
@@ -82,13 +82,13 @@
 		7C8A3E1129ED7DE0004A9985 /* Croc Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				7C8A3E9129EF12AA004A9985 /* Main */,
 				7C8A3E1229ED7DE0004A9985 /* AppDelegate.swift */,
 				7C8A3E1429ED7DE0004A9985 /* SceneDelegate.swift */,
-				7C8A3E1629ED7DE0004A9985 /* MainViewController.swift */,
 				7C8A3E3629ED82BB004A9985 /* RoolsViewController.swift */,
+				7C8A3E9429EF12CD004A9985 /* Game */,
 				7C8A3E3829ED82CC004A9985 /* TeamViewController.swift */,
 				87F8947129EEB29A0098BC12 /* Category */,
-				7C8A3E3C29ED8304004A9985 /* GameViewController.swift */,
 				7C8A3E3E29ED8310004A9985 /* CorrectViewController.swift */,
 				7C8A3E4029ED831E004A9985 /* WrongViewController.swift */,
 				87F8947229EEB2A50098BC12 /* Results */,
@@ -100,6 +100,22 @@
 				7C8A3E2029ED7DE2004A9985 /* Info.plist */,
 			);
 			path = "Croc Challenge";
+			sourceTree = "<group>";
+		};
+		7C8A3E9129EF12AA004A9985 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7C8A3E9229EF12AA004A9985 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7C8A3E9429EF12CD004A9985 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				7C8A3E9529EF12CD004A9985 /* GameViewController.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 		87F8947129EEB29A0098BC12 /* Category */ = {
@@ -223,8 +239,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C8A3E3D29ED8304004A9985 /* GameViewController.swift in Sources */,
-				7C8A3E1729ED7DE0004A9985 /* MainViewController.swift in Sources */,
 				87F8947929EEB3700098BC12 /* ResultsView.swift in Sources */,
 				87F8947729EEB30A0098BC12 /* CategoryView.swift in Sources */,
 				7C8A3E1329ED7DE0004A9985 /* AppDelegate.swift in Sources */,
@@ -232,7 +246,9 @@
 				87F8947529EEB2CF0098BC12 /* AddSubviews.swift in Sources */,
 				7C8A3E1529ED7DE0004A9985 /* SceneDelegate.swift in Sources */,
 				7C8A3E4329ED832B004A9985 /* GameResultViewController.swift in Sources */,
+				7C8A3E9329EF12AA004A9985 /* MainViewController.swift in Sources */,
 				87F8948329EED8C10098BC12 /* Resources.swift in Sources */,
+				7C8A3E9629EF12CD004A9985 /* GameViewController.swift in Sources */,
 				7C8A3E3B29ED82E9004A9985 /* CategoryViewController.swift in Sources */,
 				7C8A3E3929ED82CC004A9985 /* TeamViewController.swift in Sources */,
 				7C8A3E4129ED831E004A9985 /* WrongViewController.swift in Sources */,
