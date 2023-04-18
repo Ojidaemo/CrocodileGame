@@ -20,7 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let viewController = MainViewController()
         let categoryVC = CategoryViewController()
         let resultVC = GameResultViewController()
-        let navController = UINavigationController(rootViewController: resultVC)
+        let teamViewController = TeamViewController()
+        let roolsViewController = RoolsViewController()
+        let navController = UINavigationController(rootViewController: roolsViewController)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
     }
