@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73099D2229EEEE03003857A5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 73099D2129EEEE03003857A5 /* SnapKit */; };
 		7C8A3E1329ED7DE0004A9985 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E1229ED7DE0004A9985 /* AppDelegate.swift */; };
 		7C8A3E1529ED7DE0004A9985 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E1429ED7DE0004A9985 /* SceneDelegate.swift */; };
 		7C8A3E1729ED7DE0004A9985 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E1629ED7DE0004A9985 /* MainViewController.swift */; };
@@ -55,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73099D2229EEEE03003857A5 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +161,9 @@
 			dependencies = (
 			);
 			name = "Croc Challenge";
+			packageProductDependencies = (
+				73099D2129EEEE03003857A5 /* SnapKit */,
+			);
 			productName = "Croc Challenge";
 			productReference = 7C8A3E0F29ED7DE0004A9985 /* Croc Challenge.app */;
 			productType = "com.apple.product-type.application";
@@ -187,6 +192,9 @@
 				Base,
 			);
 			mainGroup = 7C8A3E0629ED7DE0004A9985;
+			packageReferences = (
+				73099D2029EEEE03003857A5 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 7C8A3E1029ED7DE0004A9985 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -372,8 +380,9 @@
 				INFOPLIST_FILE = "Croc Challenge/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -381,9 +390,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Artem-Gorelov.Croc-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -399,8 +411,9 @@
 				INFOPLIST_FILE = "Croc Challenge/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -408,9 +421,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Artem-Gorelov.Croc-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -436,6 +452,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		73099D2029EEEE03003857A5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		73099D2129EEEE03003857A5 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73099D2029EEEE03003857A5 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7C8A3E0729ED7DE0004A9985 /* Project object */;
 }
