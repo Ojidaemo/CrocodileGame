@@ -59,7 +59,7 @@ final class ResultsView: UIView {
         button.setTitle("Начать сначала", for: .normal)
         button.titleLabel?.numberOfLines = 0
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Bhavuka", size: 20)
+        button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.addTarget(self, action: #selector(restartPressed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -77,7 +77,7 @@ final class ResultsView: UIView {
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
         label.text = title
-        label.font = UIFont(name: "Bhavuka", size: 20)
+        label.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         label.textColor = .black
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -88,7 +88,7 @@ final class ResultsView: UIView {
         let label = UILabel()
         label.backgroundColor = .white
         label.text = "Очки"
-        label.font = UIFont(name: "Bhavuka", size: 15)
+        label.font = UIFont(name: Resources.Fonts.bhavuka, size: 15)
         label.textColor = .black
         label.contentMode = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -99,7 +99,7 @@ final class ResultsView: UIView {
         let label = UILabel()
         label.backgroundColor = .clear
         label.text = text
-        label.font = UIFont(name: "Cookie", size: 65)
+        label.font = UIFont(name: Resources.Fonts.cookie, size: 65)
         label.textColor = .black
         label.contentMode = .center
         label.translatesAutoresizingMaskIntoConstraints = false
