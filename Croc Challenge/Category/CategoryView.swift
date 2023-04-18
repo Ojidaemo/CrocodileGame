@@ -61,7 +61,7 @@ final class CategoryView: UIView {
         button.setTitleColor(.white, for: .selected)
         button.setTitleColor(.white, for: .normal)
         button.tintColor = .clear
-        button.titleLabel?.font = UIFont(name: "Bhavuka", size: 20)
+        button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.addTarget(self, action: #selector(categoryOneTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -84,7 +84,7 @@ final class CategoryView: UIView {
         button.setTitleColor(.white, for: .selected)
         button.setTitleColor(.white, for: .normal)
         button.tintColor = .clear
-        button.titleLabel?.font = UIFont(name: "Bhavuka", size: 20)
+        button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.addTarget(self, action: #selector(categoryTwoTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -96,7 +96,7 @@ final class CategoryView: UIView {
         button.layer.cornerRadius = 10
         button.setTitle("Личности", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Bhavuka", size: 20)
+        button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.addTarget(self, action: #selector(categoryThreeTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -108,7 +108,7 @@ final class CategoryView: UIView {
         button.layer.cornerRadius = 10
         button.setTitle("Хобби", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Bhavuka", size: 20)
+        button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.addTarget(self, action: #selector(categoryFourTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -120,7 +120,7 @@ final class CategoryView: UIView {
         button.layer.cornerRadius = 10
         button.setTitle("Начать игру", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Bhavuka", size: 20)
+        button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.addTarget(self, action: #selector(startGamePressed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
