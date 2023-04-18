@@ -8,14 +8,196 @@
 import UIKit
 
 class TeamViewController: UIViewController {
+    
+    lazy var imageOne = createImageView(image: UIImage(named: Resources.Image.cowboy)!)
+    lazy var imageTwo = createImageView(image: UIImage(named: Resources.Image.burger)!)
+    lazy var imageThree = createImageView(image: UIImage(named: Resources.Image.nails)!)
+    
+    lazy var labelOne = createLabelWithTeamName(title: "Ковбои")
+    lazy var labelTwo = createLabelWithTeamName(title: "Стройняшки")
+    lazy var labelThree = createLabelWithTeamName(title: "Красотки")
+    
+    lazy var imageClose = imageCloseButton
+    
+    
+    private let backgroundView: UIImageView = {
+        let background = UIImageView()
+        background.image = UIImage(named: Resources.Image.backGround)
+        background.contentMode = .scaleToFill
+        background.translatesAutoresizingMaskIntoConstraints = false
+        return background
+    }()
+    
+    private let labelStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.distribution = .fillEqually
+        stack.spacing = 30
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    lazy var playersReadyButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
+        button.layer.cornerRadius = 10
+        button.setTitle("Игроки готовы", for: .normal)
+        button.titleLabel?.numberOfLines = 0
+        button.setTitleColor(.white, for: .normal)
+        button.layer.shadowOffset = CGSize(width: 4, height: 4)
+        button.layer.shadowOpacity = 0.3
+        button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var addTeamButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor(named: Resources.Colors.buttonOrange)
+        button.layer.cornerRadius = 10
+        button.setTitle("Добавить команду", for: .normal)
+        button.titleLabel?.numberOfLines = 0
+        button.setTitleColor(.white, for: .normal)
+        button.layer.shadowOffset = CGSize(width: 0, height: 4)
+        button.layer.shadowOpacity = 0.3
+        button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    
+    //MARK: - Methods
+    
+    let imageCloseButton: UIImageView = {
+        let imageButton = UIImageView()
+        imageButton.image = UIImage(named: "close 1")
+        imageButton.backgroundColor = .red
+        imageButton.translatesAutoresizingMaskIntoConstraints = false
+        return imageButton
+    }()
+    
+    let imageCloseButtonTwo: UIImageView = {
+        let imageButton = UIImageView()
+        imageButton.image = UIImage(named: "close 2")
+        imageButton.translatesAutoresizingMaskIntoConstraints = false
+        return imageButton
+    }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    func createTeamScoreLabel(text: String) -> UILabel {
+        let label = UILabel()
+        label.backgroundColor = .clear
+        label.text = text
+        label.font = UIFont(name: Resources.Fonts.cookie, size: 65)
+        label.textColor = .black
+        label.contentMode = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }
     
-
- 
-
+    func createImageView(image: UIImage) -> UIImageView {
+        let imageView = UIImageView()
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        return imageView
+    }
+    
+    func createLabelWithTeamName(title: String) -> UILabel {
+        let label = UILabel()
+        label.backgroundColor = .white
+        label.layer.cornerRadius = 10
+        label.layer.masksToBounds = true
+        label.text = title
+        label.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
+        label.textColor = .black
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .clear
+        setupConstraints()
+    }
 }
+
+//MARK: - Constraints
+
+extension TeamViewController {
+    
+    private func setupConstraints() {
+        
+        view.addSubviews(backgroundView, labelStack, playersReadyButton, addTeamButton)
+        labelOne.addSubviewsToLabel(imageOne, imageClose)
+        labelTwo.addSubviewsToLabel(imageTwo, imageClose)
+        labelThree.addSubviewsToLabel(imageThree, imageClose)
+        labelStack.addArrangedSubviews(labelOne, labelTwo, labelThree)
+        
+        NSLayoutConstraint.activate([
+            
+            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            addTeamButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            addTeamButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            addTeamButton.heightAnchor.constraint(equalToConstant: 63),
+            addTeamButton.bottomAnchor.constraint(equalTo: playersReadyButton.topAnchor,constant: -10),
+            
+            playersReadyButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            playersReadyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            playersReadyButton.heightAnchor.constraint(equalToConstant: 63),
+            playersReadyButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -60),
+            
+            imageOne.leadingAnchor.constraint(equalTo: labelOne.leadingAnchor, constant: 25),
+            imageOne.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
+            
+            
+            
+            imageClose.trailingAnchor.constraint(equalTo: labelOne.trailingAnchor, constant: -25),
+            imageClose.heightAnchor.constraint(equalToConstant: 30),
+            imageClose.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
+//            imageCloseButtonTwo.trailingAnchor.constraint(equalTo: labelOne.trailingAnchor, constant: -15),
+//            imageCloseButtonTwo.heightAnchor.constraint(equalToConstant: 30),
+//            imageCloseOne.topAnchor.constraint(equalTo: labelOne.topAnchor, constant: 25),
+            
+            imageTwo.leadingAnchor.constraint(equalTo: labelTwo.leadingAnchor, constant: 25),
+            imageTwo.centerYAnchor.constraint(equalTo: labelTwo.centerYAnchor),
+            
+//            imageClose.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -15),
+//            imageClose.heightAnchor.constraint(equalToConstant: 30),
+            
+//            scoreLabelTwo.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -15),
+//            scoreLabelTwo.bottomAnchor.constraint(equalTo: labelTwo.bottomAnchor, constant: -8),
+            
+//            teamTwoScore.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -15),
+//            teamTwoScore.bottomAnchor.constraint(equalTo: scoreLabelTwo.topAnchor, constant: 10),
+            
+            imageThree.leadingAnchor.constraint(equalTo: labelThree.leadingAnchor, constant: 25),
+            imageThree.centerYAnchor.constraint(equalTo: labelThree.centerYAnchor),
+            
+//            imageClose.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -15),
+//            imageClose.heightAnchor.constraint(equalToConstant: 30),
+//
+//            scoreLabelThree.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -15),
+//            scoreLabelThree.bottomAnchor.constraint(equalTo: labelThree.bottomAnchor, constant: -8),
+            
+//            teamThreeScore.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -15),
+//            teamThreeScore.bottomAnchor.constraint(equalTo: scoreLabelThree.topAnchor, constant: 10),
+            
+            labelStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            labelStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            labelStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 110),
+            labelStack.heightAnchor.constraint(equalToConstant: 360)
+            
+        ])
+    }
+}
+
+
+
+

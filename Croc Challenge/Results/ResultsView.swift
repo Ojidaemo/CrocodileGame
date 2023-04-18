@@ -136,7 +136,14 @@ extension ResultsView {
     
     private func setupConstraints() {
         
+        self.addSubviews(backgroundView, labelStack, restartGame)
+        labelOne.addSubviewsToLabel(imageOne, scoreLabelOne, teamOneScore)
+        labelTwo.addSubviewsToLabel(imageTwo, scoreLabelTwo, teamTwoScore)
+        labelThree.addSubviewsToLabel(imageThree, scoreLabelThree, teamThreeScore)
+        labelStack.addArrangedSubviews(labelOne, labelTwo, labelThree)
+        
         NSLayoutConstraint.activate([
+            
             
             backgroundView.topAnchor.constraint(equalTo: topAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
