@@ -25,14 +25,14 @@ final class CategoryView: UIView {
     private var checkmarkImageThree: UIImageView!
     private var checkmarkImageFour: UIImageView!
     
-    lazy var imageOne = createImageView(image: UIImage(named: "frog")!)
-    lazy var imageTwo = createImageView(image: UIImage(named: "Avatar1")!)
-    lazy var imageThree = createImageView(image: UIImage(named: "Avatar2")!)
-    lazy var imageFour = createImageView(image: UIImage(named: "Avatar3")!)
+    lazy var imageOne = createImageView(image: UIImage(named: Resources.Image.frog)!)
+    lazy var imageTwo = createImageView(image: UIImage(named: Resources.Image.burger)!)
+    lazy var imageThree = createImageView(image: UIImage(named: Resources.Image.cowboy)!)
+    lazy var imageFour = createImageView(image: UIImage(named: Resources.Image.nails)!)
     
     private let backgroundView: UIImageView = {
         let background = UIImageView()
-        background.image = UIImage(named: "background")
+        background.image = UIImage(named: Resources.Image.backGround)
         background.contentMode = .scaleToFill
         background.translatesAutoresizingMaskIntoConstraints = false
         return background
@@ -49,7 +49,7 @@ final class CategoryView: UIView {
     
     lazy var categoryOne: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(named: "CategoryOne")
+        button.backgroundColor = UIColor(named: Resources.Colors.buttonViolet)
         button.layer.cornerRadius = 10
         button.setTitle("Животные", for: .normal)
         button.setTitleColor(.white, for: .selected)
@@ -63,7 +63,7 @@ final class CategoryView: UIView {
     
     private var imageEllipse: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "Ellipse")
+        image.image = UIImage(named: Resources.Image.whiteCircle)
         image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
@@ -72,7 +72,7 @@ final class CategoryView: UIView {
     
     lazy var categoryTwo: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(named: "CategoryTwo")
+        button.backgroundColor = UIColor(named: Resources.Colors.buttonLightGreen)
         button.layer.cornerRadius = 10
         button.setTitle("Еда", for: .normal)
         button.setTitleColor(.white, for: .selected)
@@ -86,7 +86,7 @@ final class CategoryView: UIView {
     
     lazy var categoryThree: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(named: "CategoryThree")
+        button.backgroundColor = UIColor(named: Resources.Colors.buttonBlue)
         button.layer.cornerRadius = 10
         button.setTitle("Личности", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -98,7 +98,7 @@ final class CategoryView: UIView {
     
     lazy var categoryFour: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(named: "CategoryFour")
+        button.backgroundColor = UIColor(named: Resources.Colors.buttonRed)
         button.layer.cornerRadius = 10
         button.setTitle("Хобби", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -110,7 +110,7 @@ final class CategoryView: UIView {
     
     lazy var startGame: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(named: "ButtonColour")
+        button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
         button.layer.cornerRadius = 10
         button.setTitle("Начать игру", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -123,7 +123,7 @@ final class CategoryView: UIView {
     private func createCheckmarkImage() -> UIImageView {
         let image = UIImageView()
         image.isHidden = true
-        image.image = UIImage(named: "Checkmark")
+        image.image = UIImage(named: Resources.Image.checkmark)
         image.tintColor = .white
         image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -180,19 +180,13 @@ final class CategoryView: UIView {
     }
     
     private func setupViews() {
-        self.addSubview(backgroundView)
-        categoryOne.addSubview(imageEllipse)
-        categoryOne.addSubview(checkmarkImageOne)
+        categoryOne.addSubviewsToButton(imageEllipse, checkmarkImageOne)
+        categoryTwo.addSubviewsToButton(imageTwo, checkmarkImageTwo)
+        categoryThree.addSubviewsToButton(imageThree, checkmarkImageThree)
+        categoryFour.addSubviewsToButton(imageFour, checkmarkImageFour)
         imageEllipse.addSubview(imageOne)
-        categoryTwo.addSubview(imageTwo)
-        categoryTwo.addSubview(checkmarkImageTwo)
-        categoryThree.addSubview(imageThree)
-        categoryThree.addSubview(checkmarkImageThree)
-        categoryFour.addSubview(imageFour)
-        categoryFour.addSubview(checkmarkImageFour)
         buttonsStack.addArrangedSubviews(categoryOne, categoryTwo, categoryThree, categoryFour)
-        self.addSubview(startGame)
-        self.addSubview(buttonsStack)
+        self.addSubviews(backgroundView, startGame, buttonsStack)
     }
 }
 

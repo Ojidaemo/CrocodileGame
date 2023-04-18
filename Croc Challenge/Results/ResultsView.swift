@@ -9,13 +9,13 @@ import UIKit
 
 final class ResultsView: UIView {
 
-    lazy var imageOne = createImageView(image: UIImage(named: "Avatar1")!)
-    lazy var imageTwo = createImageView(image: UIImage(named: "Avatar2")!)
-    lazy var imageThree = createImageView(image: UIImage(named: "Avatar3")!)
+    lazy var imageOne = createImageView(image: UIImage(named: Resources.Image.cowboy)!)
+    lazy var imageTwo = createImageView(image: UIImage(named: Resources.Image.burger)!)
+    lazy var imageThree = createImageView(image: UIImage(named: Resources.Image.nails)!)
     
-    lazy var labelOne = createTeamLabel(title: "Ковбои")
-    lazy var labelTwo = createTeamLabel(title: "Стройняшки")
-    lazy var labelThree = createTeamLabel(title: "Красотки")
+    lazy var labelOne = createLabelWithTeamName(title: "Ковбои")
+    lazy var labelTwo = createLabelWithTeamName(title: "Стройняшки")
+    lazy var labelThree = createLabelWithTeamName(title: "Красотки")
     
     lazy var scoreLabelOne = createScoreLabel()
     lazy var scoreLabelTwo = createScoreLabel()
@@ -37,7 +37,7 @@ final class ResultsView: UIView {
     
     private let backgroundView: UIImageView = {
         let background = UIImageView()
-        background.image = UIImage(named: "background")
+        background.image = UIImage(named: Resources.Image.backGround)
         background.contentMode = .scaleToFill
         background.translatesAutoresizingMaskIntoConstraints = false
         return background
@@ -54,7 +54,7 @@ final class ResultsView: UIView {
     
     lazy var restartGame: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(named: "ButtonColour")
+        button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
         button.layer.cornerRadius = 10
         button.setTitle("Начать сначала", for: .normal)
         button.titleLabel?.numberOfLines = 0
@@ -71,7 +71,7 @@ final class ResultsView: UIView {
         
     }
     
-    func createTeamLabel(title: String) -> UILabel {
+    func createLabelWithTeamName(title: String) -> UILabel {
         let label = UILabel()
         label.backgroundColor = .white
         label.layer.cornerRadius = 10
@@ -116,19 +116,11 @@ final class ResultsView: UIView {
     }
     
     private func setupViews() {
-        self.addSubview(backgroundView)
-        labelOne.addSubview(imageOne)
-        labelOne.addSubview(scoreLabelOne)
-        labelOne.addSubview(teamOneScore)
-        labelTwo.addSubview(imageTwo)
-        labelTwo.addSubview(scoreLabelTwo)
-        labelTwo.addSubview(teamTwoScore)
-        labelThree.addSubview(imageThree)
-        labelThree.addSubview(scoreLabelThree)
-        labelThree.addSubview(teamThreeScore)
+        self.addSubviews(backgroundView, labelStack, restartGame)
+        labelOne.addSubviewsToLabel(imageOne, scoreLabelOne, teamOneScore)
+        labelTwo.addSubviewsToLabel(imageTwo, scoreLabelTwo, teamTwoScore)
+        labelThree.addSubviewsToLabel(imageThree, scoreLabelThree, teamThreeScore)
         labelStack.addArrangedSubviews(labelOne, labelTwo, labelThree)
-        self.addSubview(labelStack)
-        self.addSubview(restartGame)
     }
 }
 

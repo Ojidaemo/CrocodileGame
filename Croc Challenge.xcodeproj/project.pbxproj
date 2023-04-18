@@ -19,11 +19,12 @@
 		7C8A3E4129ED831E004A9985 /* WrongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E4029ED831E004A9985 /* WrongViewController.swift */; };
 		7C8A3E4329ED832B004A9985 /* GameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E4229ED832B004A9985 /* GameResultViewController.swift */; };
 		7C8A3E6C29ED97A0004A9985 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C8A3E6B29ED97A0004A9985 /* Assets.xcassets */; };
-		87F8947529EEB2CF0098BC12 /* AddSubviewStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947429EEB2CF0098BC12 /* AddSubviewStack.swift */; };
+		87F8947529EEB2CF0098BC12 /* AddSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947429EEB2CF0098BC12 /* AddSubviews.swift */; };
 		87F8947729EEB30A0098BC12 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947629EEB30A0098BC12 /* CategoryView.swift */; };
 		87F8947929EEB3700098BC12 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947829EEB3700098BC12 /* ResultsView.swift */; };
 		87F8947E29EEC1940098BC12 /* Bhavuka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87F8947D29EEC1940098BC12 /* Bhavuka.ttf */; };
 		87F8948029EEC1A10098BC12 /* Cookie.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87F8947F29EEC1A10098BC12 /* Cookie.ttf */; };
+		87F8948329EED8C10098BC12 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8948229EED8C10098BC12 /* Resources.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,11 +42,12 @@
 		7C8A3E4029ED831E004A9985 /* WrongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongViewController.swift; sourceTree = "<group>"; };
 		7C8A3E4229ED832B004A9985 /* GameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewController.swift; sourceTree = "<group>"; };
 		7C8A3E6B29ED97A0004A9985 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		87F8947429EEB2CF0098BC12 /* AddSubviewStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubviewStack.swift; sourceTree = "<group>"; };
+		87F8947429EEB2CF0098BC12 /* AddSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubviews.swift; sourceTree = "<group>"; };
 		87F8947629EEB30A0098BC12 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		87F8947829EEB3700098BC12 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		87F8947D29EEC1940098BC12 /* Bhavuka.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bhavuka.ttf; sourceTree = "<group>"; };
 		87F8947F29EEC1A10098BC12 /* Cookie.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cookie.ttf; sourceTree = "<group>"; };
+		87F8948229EED8C10098BC12 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				7C8A3E3E29ED8310004A9985 /* CorrectViewController.swift */,
 				7C8A3E4029ED831E004A9985 /* WrongViewController.swift */,
 				87F8947229EEB2A50098BC12 /* Results */,
+				87F8948129EED8AA0098BC12 /* Resources */,
 				87F8947C29EEC1360098BC12 /* Fonts */,
 				87F8947329EEB2B20098BC12 /* Extensions */,
 				7C8A3E6B29ED97A0004A9985 /* Assets.xcassets */,
@@ -118,7 +121,7 @@
 		87F8947329EEB2B20098BC12 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				87F8947429EEB2CF0098BC12 /* AddSubviewStack.swift */,
+				87F8947429EEB2CF0098BC12 /* AddSubviews.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -130,6 +133,14 @@
 				87F8947D29EEC1940098BC12 /* Bhavuka.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		87F8948129EED8AA0098BC12 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				87F8948229EED8C10098BC12 /* Resources.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,9 +221,10 @@
 				87F8947729EEB30A0098BC12 /* CategoryView.swift in Sources */,
 				7C8A3E1329ED7DE0004A9985 /* AppDelegate.swift in Sources */,
 				7C8A3E3729ED82BB004A9985 /* RoolsViewController.swift in Sources */,
-				87F8947529EEB2CF0098BC12 /* AddSubviewStack.swift in Sources */,
+				87F8947529EEB2CF0098BC12 /* AddSubviews.swift in Sources */,
 				7C8A3E1529ED7DE0004A9985 /* SceneDelegate.swift in Sources */,
 				7C8A3E4329ED832B004A9985 /* GameResultViewController.swift in Sources */,
+				87F8948329EED8C10098BC12 /* Resources.swift in Sources */,
 				7C8A3E3B29ED82E9004A9985 /* CategoryViewController.swift in Sources */,
 				7C8A3E3929ED82CC004A9985 /* TeamViewController.swift in Sources */,
 				7C8A3E4129ED831E004A9985 /* WrongViewController.swift in Sources */,
