@@ -8,6 +8,12 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = true
+    }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -46,11 +52,15 @@ class MainViewController: UIViewController {
     button.layer.cornerRadius = 10
     button.translatesAutoresizingMaskIntoConstraints = false
     button.backgroundColor = .green
-
-
-
+    button.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
     return button
   }()
+    
+    @objc func startButtonPressed() {
+        self.title = ""
+        let teamVC = TeamViewController()
+        self.navigationController?.pushViewController(teamVC, animated: true)
+    }
 
 
   private lazy var rulesButton: UIButton = {
@@ -61,12 +71,16 @@ class MainViewController: UIViewController {
     button.layer.cornerRadius = 10
     button.translatesAutoresizingMaskIntoConstraints = false
     button.backgroundColor = .green
-
-
-
+    button.addTarget(self, action: #selector(rulesButtonPressed), for: .touchUpInside)
     return button
   }()
-
+    
+    @objc func rulesButtonPressed() {
+        self.navigationController?.isNavigationBarHidden = false
+        self.title = ""
+        let rulesVC = RulesViewController()
+        self.navigationController?.pushViewController(rulesVC, animated: true)
+    }
 
   private lazy var grassImageOne: UIImageView = {
          let theImageView = UIImageView()
