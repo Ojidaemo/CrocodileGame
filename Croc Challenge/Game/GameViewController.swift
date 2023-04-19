@@ -11,14 +11,24 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .systemGreen
+
+        backgroundImageConstraints()
         crocoImageConstraints()
         timeLabelConstraints()
         wordLabelConstraints()
         descriptionLabelConstraints()
         stackViewButtonsConstraints()
     }
+
+
+  private lazy var backroundImage: UIImageView = {
+
+    let image = UIImageView()
+    image.image = UIImage(named: "background")
+    image.translatesAutoresizingMaskIntoConstraints = false
+    return image
+
+  }()
     
     private lazy var crocoImage: UIImageView = {
         let theImageView = UIImageView()
@@ -32,7 +42,7 @@ class GameViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "00:59"
-        label.font = UIFont.systemFont(ofSize: 48)
+      label.font = UIFont.italicSystemFont(ofSize: 48)
         label.textAlignment = .center
         return label
     }()
@@ -42,7 +52,7 @@ class GameViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Картошка"
-        label.font = UIFont.systemFont(ofSize: 48)
+      label.font = UIFont.italicSystemFont(ofSize: 48)
         label.textAlignment = .center
         return label
     }()
@@ -52,7 +62,7 @@ class GameViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "объясни с помощью жестов"
-        label.font = UIFont.systemFont(ofSize: 22)
+        label.font = UIFont.italicSystemFont(ofSize: 20)
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
@@ -66,7 +76,7 @@ class GameViewController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .green
+      button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
         button.addTarget(self, action: #selector(correctButtonPressed), for: .touchUpInside)
         return button
     }()
@@ -84,7 +94,7 @@ class GameViewController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .red
+        button.backgroundColor = UIColor(named: Resources.Colors.buttonRed)
         button.addTarget(self, action: #selector(breakRulesButtonPressed), for: .touchUpInside)
         return button
     }()
@@ -128,6 +138,20 @@ class GameViewController: UIViewController {
         
         return stack
     }()
+
+  func backgroundImageConstraints() {
+
+    view.addSubview(backroundImage)
+    NSLayoutConstraint.activate([
+      backroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      backroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      backroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+      backroundImage.topAnchor.constraint(equalTo: view.topAnchor)
+
+    ])
+
+
+  }
     
     
     func crocoImageConstraints() {
