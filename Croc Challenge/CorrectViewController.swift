@@ -115,8 +115,15 @@ class CorrectViewController: UIViewController {
         element.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 17)
         element.layer.cornerRadius = 10
         element.setTitleColor(.white, for: .normal)
+        element.addTarget(self, action: #selector(transferPressed), for: .touchUpInside)
         return element
     }()
+    
+    @objc func transferPressed() {
+        self.navigationController?.isNavigationBarHidden = true
+        let gameVC = GameViewController()
+        self.navigationController?.pushViewController(gameVC, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

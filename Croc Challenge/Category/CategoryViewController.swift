@@ -14,6 +14,7 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
+        self.title = "Категории"
         setDelegates()
         view.addSubview(categoryView)
         setupConstraints()
@@ -39,6 +40,7 @@ class CategoryViewController: UIViewController {
 
 extension CategoryViewController: startGameProtocol {
     func startGamePressed(sender: UIButton) {
+        self.navigationController?.isNavigationBarHidden = true
         let gameVC = GameViewController()
         self.navigationController?.pushViewController(gameVC, animated: true)
     }

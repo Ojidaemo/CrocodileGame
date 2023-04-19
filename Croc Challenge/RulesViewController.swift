@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RoolsViewController: UIViewController {
+class RulesViewController: UIViewController {
     
     private let backgroundView: UIImageView = {
         let background = UIImageView()

@@ -19,6 +19,13 @@ class TeamViewController: UIViewController {
     
     lazy var imageClose = imageCloseButton
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Кто играет?"
+        view.backgroundColor = .clear
+        setupConstraints()
+    }
+    
     
     private let backgroundView: UIImageView = {
         let background = UIImageView()
@@ -47,6 +54,7 @@ class TeamViewController: UIViewController {
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowOpacity = 0.3
         button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
+        button.addTarget(self, action: #selector(readyButtonPressed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -68,6 +76,12 @@ class TeamViewController: UIViewController {
     
     //MARK: - Methods
     
+    @objc func readyButtonPressed() {
+        self.title = ""
+        let categoryVC = CategoryViewController()
+        self.navigationController?.pushViewController(categoryVC, animated: true)
+    }
+    
     let imageCloseButton: UIImageView = {
         let imageButton = UIImageView()
         imageButton.image = UIImage(named: "close 1")
@@ -82,7 +96,7 @@ class TeamViewController: UIViewController {
         imageButton.translatesAutoresizingMaskIntoConstraints = false
         return imageButton
     }()
-
+    
     
     func createTeamScoreLabel(text: String) -> UILabel {
         let label = UILabel()
@@ -115,12 +129,6 @@ class TeamViewController: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .clear
-        setupConstraints()
     }
 }
 
@@ -161,33 +169,33 @@ extension TeamViewController {
             imageClose.trailingAnchor.constraint(equalTo: labelOne.trailingAnchor, constant: -25),
             imageClose.heightAnchor.constraint(equalToConstant: 30),
             imageClose.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
-//            imageCloseButtonTwo.trailingAnchor.constraint(equalTo: labelOne.trailingAnchor, constant: -15),
-//            imageCloseButtonTwo.heightAnchor.constraint(equalToConstant: 30),
-//            imageCloseOne.topAnchor.constraint(equalTo: labelOne.topAnchor, constant: 25),
+            //            imageCloseButtonTwo.trailingAnchor.constraint(equalTo: labelOne.trailingAnchor, constant: -15),
+            //            imageCloseButtonTwo.heightAnchor.constraint(equalToConstant: 30),
+            //            imageCloseOne.topAnchor.constraint(equalTo: labelOne.topAnchor, constant: 25),
             
             imageTwo.leadingAnchor.constraint(equalTo: labelTwo.leadingAnchor, constant: 25),
             imageTwo.centerYAnchor.constraint(equalTo: labelTwo.centerYAnchor),
             
-//            imageClose.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -15),
-//            imageClose.heightAnchor.constraint(equalToConstant: 30),
+            //            imageClose.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -15),
+            //            imageClose.heightAnchor.constraint(equalToConstant: 30),
             
-//            scoreLabelTwo.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -15),
-//            scoreLabelTwo.bottomAnchor.constraint(equalTo: labelTwo.bottomAnchor, constant: -8),
+            //            scoreLabelTwo.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -15),
+            //            scoreLabelTwo.bottomAnchor.constraint(equalTo: labelTwo.bottomAnchor, constant: -8),
             
-//            teamTwoScore.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -15),
-//            teamTwoScore.bottomAnchor.constraint(equalTo: scoreLabelTwo.topAnchor, constant: 10),
+            //            teamTwoScore.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -15),
+            //            teamTwoScore.bottomAnchor.constraint(equalTo: scoreLabelTwo.topAnchor, constant: 10),
             
             imageThree.leadingAnchor.constraint(equalTo: labelThree.leadingAnchor, constant: 25),
             imageThree.centerYAnchor.constraint(equalTo: labelThree.centerYAnchor),
             
-//            imageClose.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -15),
-//            imageClose.heightAnchor.constraint(equalToConstant: 30),
-//
-//            scoreLabelThree.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -15),
-//            scoreLabelThree.bottomAnchor.constraint(equalTo: labelThree.bottomAnchor, constant: -8),
+            //            imageClose.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -15),
+            //            imageClose.heightAnchor.constraint(equalToConstant: 30),
+            //
+            //            scoreLabelThree.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -15),
+            //            scoreLabelThree.bottomAnchor.constraint(equalTo: labelThree.bottomAnchor, constant: -8),
             
-//            teamThreeScore.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -15),
-//            teamThreeScore.bottomAnchor.constraint(equalTo: scoreLabelThree.topAnchor, constant: 10),
+            //            teamThreeScore.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -15),
+            //            teamThreeScore.bottomAnchor.constraint(equalTo: scoreLabelThree.topAnchor, constant: 10),
             
             labelStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             labelStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),

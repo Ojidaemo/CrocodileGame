@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Changa.ttf</string>
 		<string>Cookie.ttf</string>
 		<string>Bhavuka.ttf</string>
 	</array>
