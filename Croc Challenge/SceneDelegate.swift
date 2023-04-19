@@ -17,12 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        let viewController = MainViewController()
-        let categoryVC = CategoryViewController()
-        let resultVC = GameResultViewController()
-        let teamViewController = TeamViewController()
-        let roolsViewController = RoolsViewController()
-        let navController = UINavigationController(rootViewController: roolsViewController)
+        let mainVC = MainViewController()
+//        let categoryVC = CategoryViewController()
+//        let resultVC = GameResultViewController()
+//        let teamViewController = TeamViewController()
+//        let roolsViewController = RulesViewController()
+        let navController = NavController(rootViewController: mainVC)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
     }

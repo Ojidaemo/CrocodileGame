@@ -11,9 +11,9 @@ class GameResultViewController: UIViewController {
     
     private let resultsView = ResultsView()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Результаты"
         view.backgroundColor = .clear
         setDelegates()
         view.addSubview(resultsView)
@@ -44,3 +44,4 @@ extension GameResultViewController: restartGameProtocol {
         self.navigationController?.pushViewController(mainVC, animated: true)
     }
 }
+    

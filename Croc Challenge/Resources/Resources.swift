@@ -26,10 +26,13 @@ enum Resources {
         static let frog = "frog"
         static let checkmark = "Checkmark"
         static let whiteCircle = "Ellipse"
+        static let arrow = "Arrow"
     }
     
     enum Fonts {
         static let bhavuka = "Bhavuka"
         static let cookie = "Cookie"
+        static let changa = "Changa"
+        static let changaBold = "Changa-Bold"
     }
 }

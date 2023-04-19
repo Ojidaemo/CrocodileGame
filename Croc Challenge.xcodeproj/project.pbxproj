@@ -11,7 +11,7 @@
 		7C8A3E1329ED7DE0004A9985 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E1229ED7DE0004A9985 /* AppDelegate.swift */; };
 		7C8A3E1529ED7DE0004A9985 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E1429ED7DE0004A9985 /* SceneDelegate.swift */; };
 		7C8A3E1F29ED7DE2004A9985 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8A3E1D29ED7DE2004A9985 /* LaunchScreen.storyboard */; };
-		7C8A3E3729ED82BB004A9985 /* RoolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E3629ED82BB004A9985 /* RoolsViewController.swift */; };
+		7C8A3E3729ED82BB004A9985 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E3629ED82BB004A9985 /* RulesViewController.swift */; };
 		7C8A3E3929ED82CC004A9985 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E3829ED82CC004A9985 /* TeamViewController.swift */; };
 		7C8A3E3B29ED82E9004A9985 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E3A29ED82E9004A9985 /* CategoryViewController.swift */; };
 		7C8A3E3F29ED8310004A9985 /* CorrectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E3E29ED8310004A9985 /* CorrectViewController.swift */; };
@@ -26,6 +26,8 @@
 		87F8947E29EEC1940098BC12 /* Bhavuka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87F8947D29EEC1940098BC12 /* Bhavuka.ttf */; };
 		87F8948029EEC1A10098BC12 /* Cookie.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87F8947F29EEC1A10098BC12 /* Cookie.ttf */; };
 		87F8948329EED8C10098BC12 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8948229EED8C10098BC12 /* Resources.swift */; };
+		87F8948629EFEB080098BC12 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8948529EFEB080098BC12 /* NavController.swift */; };
+		87F8948829EFF2760098BC12 /* Changa.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87F8948729EFF2760098BC12 /* Changa.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +36,7 @@
 		7C8A3E1429ED7DE0004A9985 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7C8A3E1E29ED7DE2004A9985 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C8A3E2029ED7DE2004A9985 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C8A3E3629ED82BB004A9985 /* RoolsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoolsViewController.swift; sourceTree = "<group>"; };
+		7C8A3E3629ED82BB004A9985 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		7C8A3E3829ED82CC004A9985 /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		7C8A3E3A29ED82E9004A9985 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		7C8A3E3E29ED8310004A9985 /* CorrectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		87F8947D29EEC1940098BC12 /* Bhavuka.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bhavuka.ttf; sourceTree = "<group>"; };
 		87F8947F29EEC1A10098BC12 /* Cookie.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cookie.ttf; sourceTree = "<group>"; };
 		87F8948229EED8C10098BC12 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		87F8948529EFEB080098BC12 /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
+		87F8948729EFF2760098BC12 /* Changa.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Changa.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +86,11 @@
 		7C8A3E1129ED7DE0004A9985 /* Croc Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				87F8948529EFEB080098BC12 /* NavController.swift */,
 				7C8A3E9129EF12AA004A9985 /* Main */,
 				7C8A3E1229ED7DE0004A9985 /* AppDelegate.swift */,
 				7C8A3E1429ED7DE0004A9985 /* SceneDelegate.swift */,
-				7C8A3E3629ED82BB004A9985 /* RoolsViewController.swift */,
+				7C8A3E3629ED82BB004A9985 /* RulesViewController.swift */,
 				7C8A3E9429EF12CD004A9985 /* Game */,
 				7C8A3E3829ED82CC004A9985 /* TeamViewController.swift */,
 				87F8947129EEB29A0098BC12 /* Category */,
@@ -148,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				87F8947F29EEC1A10098BC12 /* Cookie.ttf */,
+				87F8948729EFF2760098BC12 /* Changa.ttf */,
 				87F8947D29EEC1940098BC12 /* Bhavuka.ttf */,
 			);
 			path = Fonts;
@@ -226,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C8A3E6C29ED97A0004A9985 /* Assets.xcassets in Resources */,
+				87F8948829EFF2760098BC12 /* Changa.ttf in Resources */,
 				87F8947E29EEC1940098BC12 /* Bhavuka.ttf in Resources */,
 				7C8A3E1F29ED7DE2004A9985 /* LaunchScreen.storyboard in Resources */,
 				87F8948029EEC1A10098BC12 /* Cookie.ttf in Resources */,
@@ -242,8 +249,9 @@
 				87F8947929EEB3700098BC12 /* ResultsView.swift in Sources */,
 				87F8947729EEB30A0098BC12 /* CategoryView.swift in Sources */,
 				7C8A3E1329ED7DE0004A9985 /* AppDelegate.swift in Sources */,
-				7C8A3E3729ED82BB004A9985 /* RoolsViewController.swift in Sources */,
+				7C8A3E3729ED82BB004A9985 /* RulesViewController.swift in Sources */,
 				87F8947529EEB2CF0098BC12 /* AddSubviews.swift in Sources */,
+				87F8948629EFEB080098BC12 /* NavController.swift in Sources */,
 				7C8A3E1529ED7DE0004A9985 /* SceneDelegate.swift in Sources */,
 				7C8A3E4329ED832B004A9985 /* GameResultViewController.swift in Sources */,
 				7C8A3E9329EF12AA004A9985 /* MainViewController.swift in Sources */,
