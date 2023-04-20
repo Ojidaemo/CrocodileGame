@@ -51,7 +51,7 @@ class MainViewController: UIViewController {
     button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
     button.layer.cornerRadius = 10
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.backgroundColor = .green
+    button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
     button.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
     return button
   }()
@@ -70,7 +70,7 @@ class MainViewController: UIViewController {
     button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
     button.layer.cornerRadius = 10
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.backgroundColor = .green
+    button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
     button.addTarget(self, action: #selector(rulesButtonPressed), for: .touchUpInside)
     return button
   }()
@@ -91,7 +91,7 @@ class MainViewController: UIViewController {
 
   private lazy var grassImageTwo: UIImageView = {
          let theImageView = UIImageView()
-         theImageView.image = UIImage(named: "grass 3")
+         theImageView.image = UIImage(named: "grass 2")
 
          return theImageView
       }()
