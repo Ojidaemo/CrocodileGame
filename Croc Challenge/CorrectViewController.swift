@@ -15,13 +15,6 @@ class CorrectViewController: UIViewController {
         element.image = UIImage(named: Resources.Image.backGround)
         return element
     }()
-
-    private lazy var stackView: UIStackView = {
-        let element = UIStackView()
-        element.axis = .vertical
-        element.distribution = .fill
-        return element
-    }()
     
     private lazy var firstView: UIView = {
         let element = UIView()
@@ -115,15 +108,8 @@ class CorrectViewController: UIViewController {
         element.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 17)
         element.layer.cornerRadius = 10
         element.setTitleColor(.white, for: .normal)
-        element.addTarget(self, action: #selector(transferPressed), for: .touchUpInside)
         return element
     }()
-    
-    @objc func transferPressed() {
-        self.navigationController?.isNavigationBarHidden = true
-        let gameVC = GameViewController()
-        self.navigationController?.pushViewController(gameVC, animated: true)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,11 +121,9 @@ extension CorrectViewController {
     
     private func setupViews() {
         view.addSubview(backgroundView)
-        view.addSubview(stackView)
-        
-        stackView.addArrangedSubview(firstView)
-        stackView.addArrangedSubview(secondView)
-        stackView.addArrangedSubview(transferButton)
+        view.addSubview(firstView)
+        view.addSubview(secondView)
+        view.addSubview(transferButton)
         
         firstView.addSubview(teamImageInFirstView)
         firstView.addSubview(teamNameInFirstView)
@@ -160,24 +144,22 @@ extension CorrectViewController {
             make.top.bottom.leading.trailing.equalToSuperview()
         }
         
-        stackView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(38)
-            make.leading.trailing.equalToSuperview().inset(12)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(9)
-        }
-        
         firstView.snp.makeConstraints { make in
             make.height.equalTo(96)
-            make.bottom.equalTo(secondView.snp.top).inset(-86)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(38)
+            make.leading.trailing.equalToSuperview().inset(12)
         }
         
         secondView.snp.makeConstraints { make in
             make.height.equalTo(301)
+            make.leading.trailing.equalToSuperview().inset(12)
             make.bottom.equalTo(transferButton.snp.top).inset(-144)
         }
         
         transferButton.snp.makeConstraints { make in
             make.height.equalTo(60)
+            make.leading.trailing.equalToSuperview().inset(12)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(9)
         }
         
         teamImageInFirstView.snp.makeConstraints { make in
@@ -208,7 +190,7 @@ extension CorrectViewController {
         secondLabelInSecondView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(20)
-            make.top.equalTo(firstLabelInSecondView.snp.bottom).inset(-28)
+            make.top.equalTo(firstLabelInSecondView.snp.bottom).inset(-20)
         }
         
         imageInSecondView.snp.makeConstraints { make in
