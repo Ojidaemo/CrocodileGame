@@ -13,8 +13,14 @@ class GameViewController: UIViewController {
     
     var questionsBox = QuestionsBox()
     
+    var secondRemaining = 59
+    var timer = Timer()
+    var isTimerRunning = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        callTimer()
 
         backgroundImageConstraints()
         view.backgroundColor = .systemGreen
@@ -24,6 +30,66 @@ class GameViewController: UIViewController {
         wordLabelConstraints()
         descriptionLabelConstraints()
         stackViewButtonsConstraints()
+    }
+    
+    //MARK: - Methods
+    
+    // timer formatted "00:00"
+    
+    func callTimer() {
+        // Invalidate any existing timer before creating a new one
+        timer.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            if self.secondRemaining != 0 {
+                self.secondRemaining -= 1
+                self.timeLabel.text = String(format: "%02d:%02d", self.secondRemaining / 60, self.secondRemaining % 60)
+            } else {
+                timer.invalidate()
+                self.timeLabel.text = "Время вышло!"
+                self.timeLabel.textColor = .red
+                self.timeLabel.font = .systemFont(ofSize: 20, weight: .bold)
+            }
+        }
+    }
+    
+    @objc func correctButtonPressed() {
+        let bool = true
+        _ = questionsBox.checkAnswerAnimal(bool)
+        questionsBox.nextQuestionAnimals()
+        self.title = ""
+        let correctVC = CorrectViewController()
+        self.navigationController?.pushViewController(correctVC, animated: true)
+    }
+    
+    @objc func breakRulesButtonPressed() {
+        self.title = ""
+        let wrongVC = WrongViewController()
+        self.navigationController?.pushViewController(wrongVC, animated: true)
+    }
+    
+    @objc func restartButtonPressed() {
+        self.navigationController?.isNavigationBarHidden = true
+        timer.invalidate()
+        alertForResetButton()
+
+    }
+    
+    func alertForResetButton() {
+        let alert = UIAlertController(title: "Сбросить игру?", message: "Вы хотите сбросить игру и вернуться в главное меню?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Отмена", style: .default) { (cancel) in
+            self.callTimer()
+        }
+        let action = UIAlertAction(title: "Да", style: .default) { (action) in
+            let mainVC = MainViewController()
+            self.navigationController?.pushViewController(mainVC, animated: true)
+        }
+        alert.addAction(cancel)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
+    
+    func update() {
+//        scoreLabel.text = "Score: \(questionsBox.getScore())" - узнать про picture score
     }
 
 
@@ -88,18 +154,12 @@ class GameViewController: UIViewController {
     }()
     
     @objc func correctButtonPressed(_ sender: UIButton) {
-        questionsBox.getCorrentTeam()
-        questionsBox.rightAnswer()
         self.title = ""
         let correctVC = CorrectViewController()
         self.navigationController?.pushViewController(correctVC, animated: true)
         
     }
-    
-    func update() {
-//        scoreLabel.text = "Score: \(questionsBox.getScore())" - узнать про picture score
-    }
-    
+
     private lazy var breakRulesButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Нарушил Правила", for: .normal)
@@ -113,12 +173,6 @@ class GameViewController: UIViewController {
         return button
     }()
     
-    @objc func breakRulesButtonPressed() {
-        self.title = ""
-        let wrongVC = WrongViewController()
-        self.navigationController?.pushViewController(wrongVC, animated: true)
-    }
-    
     private lazy var restartGameButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Сбросить", for: .normal)
@@ -130,13 +184,6 @@ class GameViewController: UIViewController {
         button.addTarget(self, action: #selector(restartButtonPressed), for: .touchUpInside)
         return button
     }()
-    
-    @objc func restartButtonPressed() {
-        self.navigationController?.isNavigationBarHidden = true
-        let mainVC = MainViewController()
-        self.navigationController?.pushViewController(mainVC, animated: true)
-    }
-    
     
     private lazy var stackViewButtons: UIStackView = {
         let stack = UIStackView()
@@ -152,95 +199,59 @@ class GameViewController: UIViewController {
     }()
 
   func backgroundImageConstraints() {
-
     view.addSubview(backroundImage)
     NSLayoutConstraint.activate([
       backroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       backroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       backroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
       backroundImage.topAnchor.constraint(equalTo: view.topAnchor)
-
     ])
-
-
   }
     
-    
     func crocoImageConstraints() {
-        
         view.addSubview(crocoImage)
-        
         NSLayoutConstraint.activate([
-            
             crocoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             crocoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             crocoImage.widthAnchor.constraint(equalToConstant: 139),
             crocoImage.heightAnchor.constraint(equalToConstant: 139)
-            
         ])
-        
     }
     
-    
     func timeLabelConstraints() {
-        
         view.addSubview(timeLabel)
-        
         NSLayoutConstraint.activate([
-            
             timeLabel.topAnchor.constraint(equalTo: crocoImage.bottomAnchor, constant: 57),
             timeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             timeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25)
-            
         ])
-        
     }
-    
-    
+
     func wordLabelConstraints() {
-        
         view.addSubview(wordLabel)
-        
         NSLayoutConstraint.activate([
-            
             wordLabel.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 85),
             wordLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 63),
             wordLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -63)
-            
         ])
-        
     }
     
-    
     func descriptionLabelConstraints() {
-        
         view.addSubview(descriptionLabel)
-        
         NSLayoutConstraint.activate([
-            
             descriptionLabel.topAnchor.constraint(equalTo: wordLabel.bottomAnchor, constant: 15),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 89),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -89)
-            
         ])
-        
     }
     
-    
-    
     func stackViewButtonsConstraints() {
-        
         view.addSubview(stackViewButtons)
-        
         NSLayoutConstraint.activate([
-            
             stackViewButtons.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 75),
             stackViewButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
             stackViewButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
             stackViewButtons.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
-            
         ])
-        
     }
-    
 }
