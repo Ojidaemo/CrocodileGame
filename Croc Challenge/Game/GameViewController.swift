@@ -9,10 +9,14 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    var questionsBox = QuestionsBox()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         backgroundImageConstraints()
+        view.backgroundColor = .systemGreen
+        //        wordLabel.text = questionsBrain.questionTextGet()
         crocoImageConstraints()
         timeLabelConstraints()
         wordLabelConstraints()
@@ -53,6 +57,8 @@ class GameViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Картошка"
       label.font = UIFont.italicSystemFont(ofSize: 48)
+        label.text = questionsBox.questionTextGetAnimals()
+        label.font = UIFont.systemFont(ofSize: 48)
         label.textAlignment = .center
         return label
     }()
@@ -68,7 +74,6 @@ class GameViewController: UIViewController {
         return label
     }()
     
-    
     private lazy var correctButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Правильно", for: .normal)
@@ -82,9 +87,16 @@ class GameViewController: UIViewController {
     }()
     
     @objc func correctButtonPressed() {
+        let bool = true
+        _ = questionsBox.checkAnswerAnimal(bool)
+        questionsBox.nextQuestionAnimals()
         self.title = ""
         let correctVC = CorrectViewController()
         self.navigationController?.pushViewController(correctVC, animated: true)
+    }
+    
+    func update() {
+//        scoreLabel.text = "Score: \(questionsBox.getScore())" - узнать про picture score
     }
     
     private lazy var breakRulesButton: UIButton = {
@@ -125,7 +137,6 @@ class GameViewController: UIViewController {
     
     
     private lazy var stackViewButtons: UIStackView = {
-        
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 10.0
@@ -135,7 +146,6 @@ class GameViewController: UIViewController {
         stack.addArrangedSubview(breakRulesButton)
         stack.addArrangedSubview(restartGameButton)
         stack.translatesAutoresizingMaskIntoConstraints = false
-        
         return stack
     }()
 
