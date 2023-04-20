@@ -9,7 +9,7 @@ import UIKit
 
 struct Questions {
     var text: String
-    var answer: Bool
+    var answer: String
 }
 
 

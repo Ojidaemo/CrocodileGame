@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D302D5229F15C0900F6970B /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D302D5129F15C0900F6970B /* Questions.swift */; };
 		0D302D5529F15C3C00F6970B /* QuestionsBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D302D5429F15C3C00F6970B /* QuestionsBox.swift */; };
+		0D302D5729F1681800F6970B /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D302D5629F1681800F6970B /* Teams.swift */; };
 		73099D2229EEEE03003857A5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 73099D2129EEEE03003857A5 /* SnapKit */; };
 		7C8A3E1329ED7DE0004A9985 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E1229ED7DE0004A9985 /* AppDelegate.swift */; };
 		7C8A3E1529ED7DE0004A9985 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A3E1429ED7DE0004A9985 /* SceneDelegate.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		0D302D5129F15C0900F6970B /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 		0D302D5429F15C3C00F6970B /* QuestionsBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsBox.swift; sourceTree = "<group>"; };
+		0D302D5629F1681800F6970B /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
 		7C8A3E0F29ED7DE0004A9985 /* Croc Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Croc Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8A3E1229ED7DE0004A9985 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C8A3E1429ED7DE0004A9985 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			children = (
 				0D302D5129F15C0900F6970B /* Questions.swift */,
 				0D302D5429F15C3C00F6970B /* QuestionsBox.swift */,
+				0D302D5629F1681800F6970B /* Teams.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D302D5729F1681800F6970B /* Teams.swift in Sources */,
 				87F8947929EEB3700098BC12 /* ResultsView.swift in Sources */,
 				87F8947729EEB30A0098BC12 /* CategoryView.swift in Sources */,
 				7C8A3E1329ED7DE0004A9985 /* AppDelegate.swift in Sources */,

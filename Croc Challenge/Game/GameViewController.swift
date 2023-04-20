@@ -86,9 +86,9 @@ class GameViewController: UIViewController {
         return button
     }()
     
-    @objc func correctButtonPressed() {
-        let bool = true
-        _ = questionsBox.checkAnswerAnimal(bool)
+    @objc func correctButtonPressed(_ sender: UIButton) {
+        let userAnswer = sender.currentTitle!
+        _ = questionsBox.checkAnswerAnimal(userAnswer)
         questionsBox.nextQuestionAnimals()
         self.title = ""
         let correctVC = CorrectViewController()
