@@ -9,5 +9,13 @@ import Foundation
 
 struct Teams {
     let name: String
-    let score: Int
+    var score: Int
+    
+    static func showTeam() -> [Teams] {
+        var post = [Teams]()
+        post.append(Teams(name: "Ковбои", score: 0))
+        post.append(Teams(name: "Стройняшки", score: 0))
+        post.append(Teams(name: "Красотки", score: 0))
+        return post
+    }
 }

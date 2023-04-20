@@ -9,11 +9,15 @@ import UIKit
 
 struct QuestionsBox {
     
+    var currentTeam = 0
+    var score = 0
     
-    var teams = [Teams(name: "Ковбои", score: 0),
-                 Teams(name: "Стройняшки", score: 0),
-                 Teams(name: "Красотки", score: 0)
-    ]
+    var team = Teams.showTeam()
+    
+    //    var teamsNames = [Teams(name: "Ковбои", score: 0),
+    //                 Teams(name: "Стройняшки", score: 0),
+    //                 Teams(name: "Красотки", score: 0)
+    //    ]
     
     let questionsAnimals = [
         Questions(text: "Слон", answer: "Животные"),
@@ -81,12 +85,41 @@ struct QuestionsBox {
         Questions(text: "Дайвинг", answer: "Хобби")
     ]
     
-    var questionNumber = 0
-    var score = 0
+    mutating func rightAnswer() {
+        team[currentTeam].score += 1
+    }
     
-    mutating func checkAnswerAnimal(_ answer: String) -> Bool {
-        let answer = "Animals"
-        if answer == questionsAnimals[questionNumber].answer {
+    //    mutating func checkAnswerAnimal(_ answer: String) -> Bool {
+    //        let answer = "Животные"
+    //        if answer == questionsFood[currentTeam].answer {
+    //            score += 1
+    //            return true
+    //        } else {
+    //            return false
+    //        }
+    //    }
+    //    mutating func checkAnswerFood(_ answer: String) -> Bool {
+    //        let answer = "Еда"
+    //        if answer == questionsFood[currentTeam].answer {
+    //            score += 1
+    //            return true
+    //        } else {
+    //            return false
+    //        }
+    //    }
+    //
+    //    mutating func checkAnswerPersonality(_ answer: String) -> Bool {
+    //        let answer = "Личности"
+    //        if answer == questionsPersonality[currentTeam].answer {
+    //            score += 1
+    //            return true
+    //        } else {
+    //            return false
+    //        }
+    //    }
+    //
+    mutating func checkAnswerHobby(_ answer: String) -> Bool {
+        if answer == questionsHobby[currentTeam].answer {
             score += 1
             return true
         } else {
@@ -94,78 +127,72 @@ struct QuestionsBox {
         }
     }
     
-//    mutating func checkAnswerFood(_ answer: Bool) -> Bool {
-//        let answer = true
-//        if answer == questionsFood[questionNumber].answer {
-//            score += 1
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
-//
-//    mutating func checkAnswerPersonality(_ answer: Bool) -> Bool {
-//        let answer = true
-//        if answer == questionsPersonality[questionNumber].answer {
-//            score += 1
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
-//
-//    mutating func checkAnswerHobby(_ answer: Bool) -> Bool {
-//        let answer = true
-//        if answer == questionsHobby[questionNumber].answer {
-//            score += 1
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
-
     func questionTextGetAnimals()-> String {
-//        questionsAnimals[questionNumber].text
+        //        questionsAnimals[questionNumber].text
         let question = questionsAnimals
         let randomName = question.randomElement()!
         return randomName.text
     }
     
-//    func questionTextGetFood()-> String {
-////        questionsAnimals[questionNumber].text
-//        let question = questionsFood
-//        let randomName = question.randomElement()!
-//        return randomName.text
-//    }
-//
-//    func questionTextGetPersonality()-> String {
-////        questionsAnimals[questionNumber].text
-//        let question = questionsPersonality
-//        let randomName = question.randomElement()!
-//        return randomName.text
-//    }
-//
-//    func questionTextGetHobby()-> String {
-////        questionsAnimals[questionNumber].text
-//        let question = questionsHobby
-//        let randomName = question.randomElement()!
-//        return randomName.text
-//    }
+    func questionTextGetFood()-> String {
+        //        questionsAnimals[questionNumber].text
+        let question = questionsFood
+        let randomName = question.randomElement()!
+        return randomName.text
+    }
     
-    mutating func nextQuestionAnimals() {
-        if questionNumber + 1 < questionsAnimals.count {
-            questionNumber += 1
-        } else {
-            questionNumber = 0
-            score = 0
+    func questionTextGetPersonality()-> String {
+        //        questionsAnimals[questionNumber].text
+        let question = questionsPersonality
+        let randomName = question.randomElement()!
+        return randomName.text
+    }
+    
+    func questionTextGetHobby()-> String {
+        //        questionsAnimals[questionNumber].text
+        let question = questionsHobby
+        let randomName = question.randomElement()!
+        return randomName.text
+    }
+    
+    
+    mutating func choiceCategory(_ sender: String) -> String {
+       
+        switch sender {
+        case questionsAnimals[currentTeam].answer:
+            let question = questionsAnimals
+            let randomName = question.randomElement()!
+            return randomName.text
+        case questionsFood[currentTeam].answer:
+            let question = questionsFood
+            let randomName = question.randomElement()!
+            return randomName.text
+        case questionsHobby[currentTeam].answer:
+            let question = questionsHobby
+            let randomName = question.randomElement()!
+            return randomName.text
+        case questionsPersonality[currentTeam].answer:
+            let question = questionsPersonality
+            let randomName = question.randomElement()!
+            return randomName.text
+        default:
+            break
         }
+        return "Something"
     }
-    
-    
-    func getScore() -> Int {
-        return score
-    }
+        
+        func getCorrentTeam() -> Teams {
+            team[currentTeam]
+        }
+        
+        func getScore() -> Int {
+            return team[currentTeam].score
+        }
+        
+    mutating func switchTeam() {
+            currentTeam += 1
+        }
+        
     
 }
-
 

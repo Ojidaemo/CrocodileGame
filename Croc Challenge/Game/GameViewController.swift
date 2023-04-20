@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class GameViewController: UIViewController {
     
     var questionsBox = QuestionsBox()
@@ -63,7 +65,6 @@ class GameViewController: UIViewController {
         return label
     }()
     
-    
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -87,12 +88,12 @@ class GameViewController: UIViewController {
     }()
     
     @objc func correctButtonPressed(_ sender: UIButton) {
-        let userAnswer = sender.currentTitle!
-        _ = questionsBox.checkAnswerAnimal(userAnswer)
-        questionsBox.nextQuestionAnimals()
+        questionsBox.getCorrentTeam()
+        questionsBox.rightAnswer()
         self.title = ""
         let correctVC = CorrectViewController()
         self.navigationController?.pushViewController(correctVC, animated: true)
+        
     }
     
     func update() {
@@ -108,6 +109,7 @@ class GameViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: Resources.Colors.buttonRed)
         button.addTarget(self, action: #selector(breakRulesButtonPressed), for: .touchUpInside)
+        questionsBox.switchTeam()
         return button
     }()
     

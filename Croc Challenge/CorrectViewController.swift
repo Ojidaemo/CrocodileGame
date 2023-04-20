@@ -9,7 +9,9 @@ import UIKit
 import SnapKit
 
 class CorrectViewController: UIViewController {
-
+    
+    let question = QuestionsBox()
+    
     private lazy var backgroundView: UIImageView = {
         let element = UIImageView()
         element.image = UIImage(named: Resources.Image.backGround)
@@ -46,7 +48,7 @@ class CorrectViewController: UIViewController {
     
     private lazy var scoreInFirstView: UILabel = {
         let element = UILabel()
-        element.text = "1"
+        element.text = String(question.score)
         element.font = UIFont(name: Resources.Fonts.cookie, size: 65)
         element.textColor = .black
         return element
