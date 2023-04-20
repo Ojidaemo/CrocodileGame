@@ -13,6 +13,7 @@ protocol startGameProtocol: AnyObject {
 
 final class CategoryView: UIView {
     
+    var question = QuestionsBox()
     weak var delegateStartGame: startGameProtocol?
     
     override init(frame: CGRect) {
@@ -160,23 +161,33 @@ final class CategoryView: UIView {
         
     }
     
-    @objc func categoryOneTapped() {
+    @objc func categoryOneTapped(_ sender: UIButton) {
+        let userAnswer = sender.currentTitle!
+        _ = question.choiceCategory(userAnswer)
         categoryOne.isSelected = !categoryOne.isSelected
         updateButtonAppearance(categoryOne, checkmarkView: checkmarkImageOne)
+        
+        
     }
     
-    @objc func categoryTwoTapped() {
+    @objc func categoryTwoTapped(_ sender: UIButton) {
+        let userAnswer = sender.currentTitle!
+        _ = question.choiceCategory(userAnswer)
         categoryTwo.isSelected = !categoryTwo.isSelected
         updateButtonAppearance(categoryTwo, checkmarkView: checkmarkImageTwo)
         
     }
     
-    @objc func categoryThreeTapped() {
+    @objc func categoryThreeTapped(_ sender: UIButton) {
+        let userAnswer = sender.currentTitle!
+        _ = question.choiceCategory(userAnswer)
         categoryTwo.isSelected = !categoryTwo.isSelected
         updateButtonAppearance(categoryTwo, checkmarkView: checkmarkImageThree)
     }
     
-    @objc func categoryFourTapped() {
+    @objc func categoryFourTapped(_ sender: UIButton) {
+        let userAnswer = sender.currentTitle!
+        _ = question.choiceCategory(userAnswer)
         categoryTwo.isSelected = !categoryTwo.isSelected
         updateButtonAppearance(categoryTwo, checkmarkView: checkmarkImageFour)
     }

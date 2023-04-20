@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class GameViewController: UIViewController {
     
     var questionsBox = QuestionsBox()
@@ -129,7 +131,6 @@ class GameViewController: UIViewController {
         return label
     }()
     
-    
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -152,6 +153,13 @@ class GameViewController: UIViewController {
         return button
     }()
     
+    @objc func correctButtonPressed(_ sender: UIButton) {
+        self.title = ""
+        let correctVC = CorrectViewController()
+        self.navigationController?.pushViewController(correctVC, animated: true)
+        
+    }
+
     private lazy var breakRulesButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Нарушил Правила", for: .normal)
@@ -161,6 +169,7 @@ class GameViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: Resources.Colors.buttonRed)
         button.addTarget(self, action: #selector(breakRulesButtonPressed), for: .touchUpInside)
+        questionsBox.switchTeam()
         return button
     }()
     

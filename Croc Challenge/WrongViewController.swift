@@ -10,6 +10,8 @@ import SnapKit
 
 class WrongViewController: UIViewController {
     
+    var questionsBox = QuestionsBox()
+    
     private lazy var backgroundView: UIImageView = {
         let element = UIImageView()
         element.image = UIImage(named: Resources.Image.backGround)
@@ -39,7 +41,7 @@ class WrongViewController: UIViewController {
     
     private lazy var scoreInFirstView: UILabel = {
         let element = UILabel()
-        element.text = "2"
+        element.text = String(questionsBox.getScore())
         element.font = UIFont(name: Resources.Fonts.cookie, size: 65)
         element.textColor = .black
         return element
