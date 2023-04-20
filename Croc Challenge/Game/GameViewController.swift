@@ -54,8 +54,6 @@ class GameViewController: UIViewController {
     
     @objc func correctButtonPressed() {
         let bool = true
-        _ = questionsBox.checkAnswerAnimal(bool)
-        questionsBox.nextQuestionAnimals()
         self.title = ""
         let correctVC = CorrectViewController()
         self.navigationController?.pushViewController(correctVC, animated: true)
@@ -152,13 +150,6 @@ class GameViewController: UIViewController {
         button.addTarget(self, action: #selector(correctButtonPressed), for: .touchUpInside)
         return button
     }()
-    
-    @objc func correctButtonPressed(_ sender: UIButton) {
-        self.title = ""
-        let correctVC = CorrectViewController()
-        self.navigationController?.pushViewController(correctVC, animated: true)
-        
-    }
 
     private lazy var breakRulesButton: UIButton = {
         let button = UIButton(type: .system)
