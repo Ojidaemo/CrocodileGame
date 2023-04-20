@@ -11,8 +11,13 @@ class GameViewController: UIViewController {
     
     var questionsBox = QuestionsBox()
     
+    var secondRemaining = 59
+    var timer = Timer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        callTimer()
 
         backgroundImageConstraints()
         view.backgroundColor = .systemGreen
@@ -22,6 +27,38 @@ class GameViewController: UIViewController {
         wordLabelConstraints()
         descriptionLabelConstraints()
         stackViewButtonsConstraints()
+    }
+    
+    //MARK: - Methods
+    
+    // timer formatted "00:00"
+    
+    func callTimer() {
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            if self.secondRemaining != 0 {
+                self.secondRemaining -= 1
+                self.timeLabel.text = String(format: "%02d:%02d", self.secondRemaining / 60, self.secondRemaining % 60)
+            } else {
+                timer.invalidate()
+                self.timeLabel.text = "Время вышло!"
+                self.timeLabel.textColor = .red
+                self.timeLabel.font = .systemFont(ofSize: 20, weight: .bold)
+            }
+        }
+    }
+    
+    @objc func correctButtonPressed() {
+        let bool = true
+        _ = questionsBox.checkAnswerAnimal(bool)
+        questionsBox.nextQuestionAnimals()
+        self.title = ""
+        let correctVC = CorrectViewController()
+        self.navigationController?.pushViewController(correctVC, animated: true)
+    }
+    
+    func update() {
+//        scoreLabel.text = "Score: \(questionsBox.getScore())" - узнать про picture score
     }
 
 
@@ -85,19 +122,6 @@ class GameViewController: UIViewController {
         button.addTarget(self, action: #selector(correctButtonPressed), for: .touchUpInside)
         return button
     }()
-    
-    @objc func correctButtonPressed() {
-        let bool = true
-        _ = questionsBox.checkAnswerAnimal(bool)
-        questionsBox.nextQuestionAnimals()
-        self.title = ""
-        let correctVC = CorrectViewController()
-        self.navigationController?.pushViewController(correctVC, animated: true)
-    }
-    
-    func update() {
-//        scoreLabel.text = "Score: \(questionsBox.getScore())" - узнать про picture score
-    }
     
     private lazy var breakRulesButton: UIButton = {
         let button = UIButton(type: .system)
@@ -211,9 +235,7 @@ class GameViewController: UIViewController {
     
     
     func descriptionLabelConstraints() {
-        
         view.addSubview(descriptionLabel)
-        
         NSLayoutConstraint.activate([
             
             descriptionLabel.topAnchor.constraint(equalTo: wordLabel.bottomAnchor, constant: 15),
@@ -224,12 +246,8 @@ class GameViewController: UIViewController {
         
     }
     
-    
-    
     func stackViewButtonsConstraints() {
-        
         view.addSubview(stackViewButtons)
-        
         NSLayoutConstraint.activate([
             
             stackViewButtons.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 75),
