@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Teams {
+struct Teams: Equatable {
     let name: String
     var score: Int
     let teamImage: UIImage

@@ -20,29 +20,33 @@ class TeamViewController: UIViewController {
         Teams(name: name, score: 0, teamImage: teamImageDict[name]!)
     }
 
-    lazy var imageOne = createImageView(image: randomTeam()!.teamImage)
-    lazy var imageTwo = createImageView(image: randomTeam()!.teamImage)
+    lazy var teamOne = randomTeam(excluding: nil)
+    lazy var imageOne = createImageView(image: teamOne!.teamImage)
+    lazy var labelOne = createLabelWithTeamName(title: teamOne!.name)
 
-    lazy var labelOne = createLabelWithTeamName(title: randomTeam()!.name)
-    lazy var labelTwo = createLabelWithTeamName(title: randomTeam()!.name)
+    lazy var teamTwo = randomTeam(excluding: teamOne)
+    lazy var imageTwo = createImageView(image: teamTwo!.teamImage)
+    lazy var labelTwo = createLabelWithTeamName(title: teamTwo!.name)
 
-    func randomTeam() -> Teams? {
+    func randomTeam(excluding excludedTeam: Teams?) -> Teams? {
         var availableTeams = teams
         var selectedTeams: [Teams] = []
         
         while !availableTeams.isEmpty {
             let randomIndex = Int.random(in: 0..<availableTeams.count)
             let randomTeam = availableTeams[randomIndex]
-            selectedTeams.append(randomTeam)
-            availableTeams.remove(at: randomIndex)
-            if selectedTeams.count == teams.count {
-                // All teams have been selected
+            
+            if randomTeam != excludedTeam {
+                selectedTeams.append(randomTeam)
+                availableTeams.remove(at: randomIndex)
+            }
+            
+            if selectedTeams.count == teams.count - 1 {
+                // All teams except for the excluded team have been selected
                 break
             }
-
-            return randomTeam
         }
-        return nil
+        return selectedTeams.first
     }
     
     lazy var imageClose = imageCloseButton
