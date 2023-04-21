@@ -7,24 +7,27 @@
 
 import UIKit
 
-
-
 class GameViewController: UIViewController {
     
     var questionsBox = QuestionsBox()
-    var userChoise = ""
+    var categoryChoise = ""
     
     var secondRemaining = 59
     var timer = Timer()
     var isTimerRunning = false
     
+    lazy var word = questionsBox.choiceCategory(categoryChoise)
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        wordLabel.text = word
+        print(word)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("user choise: \(userChoise)")
-
         callTimer()
-
+        
         backgroundImageConstraints()
         view.backgroundColor = .systemGreen
         //        wordLabel.text = questionsBrain.questionTextGet()
@@ -56,15 +59,17 @@ class GameViewController: UIViewController {
     }
     
     @objc func correctButtonPressed() {
-        let bool = true
         self.title = ""
         let correctVC = CorrectViewController()
+        correctVC.categoryChoise = categoryChoise
+//        questionsBox.categoryChoise = word
         self.navigationController?.pushViewController(correctVC, animated: true)
     }
     
     @objc func breakRulesButtonPressed() {
         self.title = ""
         let wrongVC = WrongViewController()
+        wrongVC.categoryChoise = categoryChoise
         self.navigationController?.pushViewController(wrongVC, animated: true)
     }
     
@@ -72,7 +77,7 @@ class GameViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         timer.invalidate()
         alertForResetButton()
-
+        
     }
     
     func alertForResetButton() {
@@ -90,18 +95,18 @@ class GameViewController: UIViewController {
     }
     
     func update() {
-//        scoreLabel.text = "Score: \(questionsBox.getScore())" - узнать про picture score
+        //        scoreLabel.text = "Score: \(questionsBox.getScore())" - узнать про picture score
     }
-
-
-  private lazy var backroundImage: UIImageView = {
-
-    let image = UIImageView()
-    image.image = UIImage(named: "background")
-    image.translatesAutoresizingMaskIntoConstraints = false
-    return image
-
-  }()
+    
+    
+    private lazy var backroundImage: UIImageView = {
+        
+        let image = UIImageView()
+        image.image = UIImage(named: "background")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+        
+    }()
     
     private lazy var crocoImage: UIImageView = {
         let theImageView = UIImageView()
@@ -115,7 +120,7 @@ class GameViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "00:59"
-      label.font = UIFont.italicSystemFont(ofSize: 48)
+        label.font = UIFont.italicSystemFont(ofSize: 48)
         label.textAlignment = .center
         return label
     }()
@@ -124,9 +129,9 @@ class GameViewController: UIViewController {
     lazy var wordLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Картошка"
-      label.font = UIFont.italicSystemFont(ofSize: 48)
-        label.text = questionsBox.questionTextGetAnimals()
+        label.text = word
+        label.numberOfLines = 0
+        label.font = UIFont.italicSystemFont(ofSize: 48)
         label.font = UIFont.systemFont(ofSize: 48)
         label.textAlignment = .center
         return label
@@ -149,11 +154,11 @@ class GameViewController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
-      button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
+        button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
         button.addTarget(self, action: #selector(correctButtonPressed), for: .touchUpInside)
         return button
     }()
-
+    
     private lazy var breakRulesButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Нарушил Правила", for: .normal)
@@ -191,16 +196,16 @@ class GameViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
-
-  func backgroundImageConstraints() {
-    view.addSubview(backroundImage)
-    NSLayoutConstraint.activate([
-      backroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      backroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      backroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-      backroundImage.topAnchor.constraint(equalTo: view.topAnchor)
-    ])
-  }
+    
+    func backgroundImageConstraints() {
+        view.addSubview(backroundImage)
+        NSLayoutConstraint.activate([
+            backroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backroundImage.topAnchor.constraint(equalTo: view.topAnchor)
+        ])
+    }
     
     func crocoImageConstraints() {
         view.addSubview(crocoImage)
@@ -220,7 +225,7 @@ class GameViewController: UIViewController {
             timeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25)
         ])
     }
-
+    
     func wordLabelConstraints() {
         view.addSubview(wordLabel)
         NSLayoutConstraint.activate([

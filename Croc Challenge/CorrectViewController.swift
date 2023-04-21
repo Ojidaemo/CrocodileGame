@@ -10,11 +10,20 @@ import SnapKit
 
 class CorrectViewController: UIViewController {
     
-    let question = QuestionsBox()
+    var questionsBox = QuestionsBox()
+    var categoryChoise = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+    }
+    
+    //TODO: передавать названия команд
+    @objc func transferPressed() {
+        self.navigationController?.isNavigationBarHidden = true
+        let gameVC = GameViewController()
+        gameVC.categoryChoise = categoryChoise
+        self.navigationController?.pushViewController(gameVC, animated: true)
     }
     
     private lazy var backgroundView: UIImageView = {
@@ -46,7 +55,7 @@ class CorrectViewController: UIViewController {
     
     private lazy var scoreInFirstView: UILabel = {
         let element = UILabel()
-        element.text = String(question.score)
+        element.text = String(questionsBox.score)
         element.font = UIFont(name: Resources.Fonts.cookie, size: 65)
         element.textColor = .black
         return element
@@ -118,15 +127,6 @@ class CorrectViewController: UIViewController {
         element.addTarget(self, action: #selector(transferPressed), for: .touchUpInside)
         return element
     }()
-    
-    //TODO: передавать названия команд
-    @objc func transferPressed() {
-           self.navigationController?.isNavigationBarHidden = true
-           let gameVC = GameViewController()
-           self.navigationController?.pushViewController(gameVC, animated: true)
-       }
-    
-
 }
 
 extension CorrectViewController {

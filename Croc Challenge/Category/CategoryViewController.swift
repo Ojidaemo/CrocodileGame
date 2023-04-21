@@ -10,8 +10,8 @@ import UIKit
 class CategoryViewController: UIViewController {
 
     private let categoryView = CategoryView()
-    var question = QuestionsBox()
-    var userAnswer = ""
+    var questionsBox = QuestionsBox()
+    var categoryChoise = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,14 +46,13 @@ extension CategoryViewController: startGameProtocol, ButtonTargetDelegate{
     func startGamePressed(sender: UIButton) {
         self.navigationController?.isNavigationBarHidden = true
         let gameVC = GameViewController()
-        gameVC.userChoise = userAnswer
+        gameVC.categoryChoise = categoryChoise
         self.navigationController?.pushViewController(gameVC, animated: true)
     }
     
     func buttonTapped(sender: UIButton) {
-        userAnswer = sender.currentTitle!
-        _ = question.choiceCategory(userAnswer)
-        print(userAnswer)
+        categoryChoise = sender.currentTitle!
+//        _ = questionsBox.choiceCategory(questionsBox.categoryChoise)
         
         switch sender.tag {
         case 1:
