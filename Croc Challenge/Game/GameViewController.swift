@@ -135,7 +135,7 @@ class GameViewController: UIViewController {
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "объясни с помощью жестов"
+        label.text = questionsBox.getTextExplainWord()
         label.font = UIFont.italicSystemFont(ofSize: 20)
         label.textAlignment = .center
         label.numberOfLines = 0
