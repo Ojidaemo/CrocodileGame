@@ -10,6 +10,8 @@ import UIKit
 class CategoryViewController: UIViewController {
 
     private let categoryView = CategoryView()
+    var question = QuestionsBox()
+    var userAnswer = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,8 @@ class CategoryViewController: UIViewController {
     
     func setDelegates() {
         categoryView.delegateStartGame = self
+        categoryView.delegate = self
+
     }
     
     private func setupConstraints() {
@@ -38,10 +42,19 @@ class CategoryViewController: UIViewController {
     }
 }
 
-extension CategoryViewController: startGameProtocol {
+extension CategoryViewController: startGameProtocol, ButtonTargetDelegate{
     func startGamePressed(sender: UIButton) {
         self.navigationController?.isNavigationBarHidden = true
         let gameVC = GameViewController()
+        gameVC.userChoise = userAnswer
         self.navigationController?.pushViewController(gameVC, animated: true)
     }
+    
+    func buttonTapped(sender: UIButton) {
+        userAnswer = sender.currentTitle!
+        _ = question.choiceCategory(userAnswer)
+        print(userAnswer)
+        
+    }
+    
 }

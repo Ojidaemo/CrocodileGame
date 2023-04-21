@@ -11,10 +11,14 @@ protocol startGameProtocol: AnyObject {
     func startGamePressed(sender: UIButton)
 }
 
+protocol ButtonTargetDelegate: AnyObject {
+    func buttonTapped(sender: UIButton)
+}
+
 final class CategoryView: UIView {
     
-    var question = QuestionsBox()
     weak var delegateStartGame: startGameProtocol?
+    weak var delegate: ButtonTargetDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,10 +31,10 @@ final class CategoryView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private var checkmarkImageOne: UIImageView!
-    private var checkmarkImageTwo: UIImageView!
-    private var checkmarkImageThree: UIImageView!
-    private var checkmarkImageFour: UIImageView!
+    var checkmarkImageOne: UIImageView!
+    var checkmarkImageTwo: UIImageView!
+    var checkmarkImageThree: UIImageView!
+    var checkmarkImageFour: UIImageView!
     
     lazy var imageOne = createImageView(image: UIImage(named: Resources.Image.frog)!)
     lazy var imageTwo = createImageView(image: UIImage(named: Resources.Image.burger)!)
@@ -149,47 +153,46 @@ final class CategoryView: UIView {
     
     //MARK: - Methods
     
-    private func setupCheckmarkImages() {
+    func setupCheckmarkImages() {
         checkmarkImageOne = createCheckmarkImage()
         checkmarkImageTwo = createCheckmarkImage()
         checkmarkImageThree = createCheckmarkImage()
         checkmarkImageFour = createCheckmarkImage()
     }
     
-    private func updateButtonAppearance(_ button: UIButton, checkmarkView: UIImageView) {
+    func updateButtonAppearance(_ button: UIButton, checkmarkView: UIImageView) {
         button.isSelected ? (checkmarkView.isHidden = false) : (checkmarkView.isHidden = true)
         
     }
     
     @objc func categoryOneTapped(_ sender: UIButton) {
-        let userAnswer = sender.currentTitle!
-        _ = question.choiceCategory(userAnswer)
         categoryOne.isSelected = !categoryOne.isSelected
         updateButtonAppearance(categoryOne, checkmarkView: checkmarkImageOne)
         
-        
+        delegate?.buttonTapped(sender: sender)
+
     }
     
     @objc func categoryTwoTapped(_ sender: UIButton) {
-        let userAnswer = sender.currentTitle!
-        _ = question.choiceCategory(userAnswer)
+                
         categoryTwo.isSelected = !categoryTwo.isSelected
         updateButtonAppearance(categoryTwo, checkmarkView: checkmarkImageTwo)
         
+        delegate?.buttonTapped(sender: sender)
     }
     
     @objc func categoryThreeTapped(_ sender: UIButton) {
-        let userAnswer = sender.currentTitle!
-        _ = question.choiceCategory(userAnswer)
+
         categoryTwo.isSelected = !categoryTwo.isSelected
         updateButtonAppearance(categoryTwo, checkmarkView: checkmarkImageThree)
+        
+        delegate?.buttonTapped(sender: sender)
     }
     
     @objc func categoryFourTapped(_ sender: UIButton) {
-        let userAnswer = sender.currentTitle!
-        _ = question.choiceCategory(userAnswer)
         categoryTwo.isSelected = !categoryTwo.isSelected
         updateButtonAppearance(categoryTwo, checkmarkView: checkmarkImageFour)
+        delegate?.buttonTapped(sender: sender)
     }
     
     @objc func startGamePressed(_ sender: UIButton) {
