@@ -9,13 +9,41 @@ import UIKit
 
 class TeamViewController: UIViewController {
     
-    lazy var imageOne = createImageView(image: UIImage(named: Resources.Image.cowboy)!)
-    lazy var imageTwo = createImageView(image: UIImage(named: Resources.Image.burger)!)
-    lazy var imageThree = createImageView(image: UIImage(named: Resources.Image.nails)!)
-    
-    lazy var labelOne = createLabelWithTeamName(title: "Ковбои")
-    lazy var labelTwo = createLabelWithTeamName(title: "Стройняшки")
-    lazy var labelThree = createLabelWithTeamName(title: "Красотки")
+    let teamImageDict = [
+        "Ковбои": UIImage(named: Resources.Image.cowboy)!,
+        "Стройняшки": UIImage(named: Resources.Image.burger)!,
+        "Красотки": UIImage(named: Resources.Image.nails)!,
+        "Лягушки": UIImage(named: Resources.Image.frog)!
+    ]
+
+    lazy var teams = teamImageDict.keys.map { name in
+        Teams(name: name, score: 0, teamImage: teamImageDict[name]!)
+    }
+
+    lazy var imageOne = createImageView(image: randomTeam()!.teamImage)
+    lazy var imageTwo = createImageView(image: randomTeam()!.teamImage)
+
+    lazy var labelOne = createLabelWithTeamName(title: randomTeam()!.name)
+    lazy var labelTwo = createLabelWithTeamName(title: randomTeam()!.name)
+
+    func randomTeam() -> Teams? {
+        var availableTeams = teams
+        var selectedTeams: [Teams] = []
+        
+        while !availableTeams.isEmpty {
+            let randomIndex = Int.random(in: 0..<availableTeams.count)
+            let randomTeam = availableTeams[randomIndex]
+            selectedTeams.append(randomTeam)
+            availableTeams.remove(at: randomIndex)
+            if selectedTeams.count == teams.count {
+                // All teams have been selected
+                break
+            }
+
+            return randomTeam
+        }
+        return nil
+    }
     
     lazy var imageClose = imageCloseButton
     
@@ -25,7 +53,6 @@ class TeamViewController: UIViewController {
         view.backgroundColor = .clear
         setupConstraints()
     }
-    
     
     private let backgroundView: UIImageView = {
         let background = UIImageView()
@@ -141,8 +168,8 @@ extension TeamViewController {
         view.addSubviews(backgroundView, labelStack, playersReadyButton, addTeamButton)
         labelOne.addSubviewsToLabel(imageOne, imageClose)
         labelTwo.addSubviewsToLabel(imageTwo, imageClose)
-        labelThree.addSubviewsToLabel(imageThree, imageClose)
-        labelStack.addArrangedSubviews(labelOne, labelTwo, labelThree)
+//        labelThree.addSubviewsToLabel(imageThree, imageClose)
+        labelStack.addArrangedSubviews(labelOne, labelTwo)
         
         NSLayoutConstraint.activate([
             
@@ -164,38 +191,15 @@ extension TeamViewController {
             imageOne.leadingAnchor.constraint(equalTo: labelOne.leadingAnchor, constant: 25),
             imageOne.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
             
-            
-            
             imageClose.trailingAnchor.constraint(equalTo: labelOne.trailingAnchor, constant: -25),
             imageClose.heightAnchor.constraint(equalToConstant: 30),
             imageClose.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
-            //            imageCloseButtonTwo.trailingAnchor.constraint(equalTo: labelOne.trailingAnchor, constant: -15),
-            //            imageCloseButtonTwo.heightAnchor.constraint(equalToConstant: 30),
-            //            imageCloseOne.topAnchor.constraint(equalTo: labelOne.topAnchor, constant: 25),
             
             imageTwo.leadingAnchor.constraint(equalTo: labelTwo.leadingAnchor, constant: 25),
             imageTwo.centerYAnchor.constraint(equalTo: labelTwo.centerYAnchor),
             
-            //            imageClose.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -15),
-            //            imageClose.heightAnchor.constraint(equalToConstant: 30),
-            
-            //            scoreLabelTwo.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -15),
-            //            scoreLabelTwo.bottomAnchor.constraint(equalTo: labelTwo.bottomAnchor, constant: -8),
-            
-            //            teamTwoScore.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -15),
-            //            teamTwoScore.bottomAnchor.constraint(equalTo: scoreLabelTwo.topAnchor, constant: 10),
-            
-            imageThree.leadingAnchor.constraint(equalTo: labelThree.leadingAnchor, constant: 25),
-            imageThree.centerYAnchor.constraint(equalTo: labelThree.centerYAnchor),
-            
-            //            imageClose.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -15),
-            //            imageClose.heightAnchor.constraint(equalToConstant: 30),
-            //
-            //            scoreLabelThree.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -15),
-            //            scoreLabelThree.bottomAnchor.constraint(equalTo: labelThree.bottomAnchor, constant: -8),
-            
-            //            teamThreeScore.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -15),
-            //            teamThreeScore.bottomAnchor.constraint(equalTo: scoreLabelThree.topAnchor, constant: 10),
+//            imageThree.leadingAnchor.constraint(equalTo: labelThree.leadingAnchor, constant: 25),
+//            imageThree.centerYAnchor.constraint(equalTo: labelThree.centerYAnchor),
             
             labelStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             labelStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
