@@ -12,6 +12,7 @@ import UIKit
 class GameViewController: UIViewController {
     
     var questionsBox = QuestionsBox()
+    var userChoise = ""
     
     var secondRemaining = 59
     var timer = Timer()
@@ -20,6 +21,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("user choise: \(userChoise)")
+
         callTimer()
 
         backgroundImageConstraints()
