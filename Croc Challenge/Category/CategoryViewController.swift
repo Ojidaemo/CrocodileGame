@@ -55,6 +55,31 @@ extension CategoryViewController: startGameProtocol, ButtonTargetDelegate{
         _ = question.choiceCategory(userAnswer)
         print(userAnswer)
         
+        switch sender.tag {
+        case 1:
+            categoryView.checkmarkImageOne.isHidden = false
+            categoryView.checkmarkImageTwo.isHidden = true
+            categoryView.checkmarkImageThree.isHidden = true
+            categoryView.checkmarkImageFour.isHidden = true
+        case 2:
+            categoryView.checkmarkImageOne.isHidden = true
+            categoryView.checkmarkImageTwo.isHidden = false
+            categoryView.checkmarkImageThree.isHidden = true
+            categoryView.checkmarkImageFour.isHidden = true
+        case 3:
+            categoryView.checkmarkImageOne.isHidden = true
+            categoryView.checkmarkImageTwo.isHidden = true
+            categoryView.checkmarkImageThree.isHidden = false
+            categoryView.checkmarkImageFour.isHidden = true
+        case 4:
+            categoryView.checkmarkImageOne.isHidden = true
+            categoryView.checkmarkImageTwo.isHidden = true
+            categoryView.checkmarkImageThree.isHidden = true
+            categoryView.checkmarkImageFour.isHidden = false
+        default:
+            break
+        }
+        
     }
     
 }

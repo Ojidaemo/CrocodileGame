@@ -60,6 +60,7 @@ final class CategoryView: UIView {
     
     lazy var categoryOne: UIButton = {
         let button = UIButton()
+        button.tag = 1
         button.backgroundColor = UIColor(named: Resources.Colors.buttonViolet)
         button.layer.cornerRadius = 10
         button.setTitle("Животные", for: .normal)
@@ -67,7 +68,7 @@ final class CategoryView: UIView {
         button.setTitleColor(.white, for: .normal)
         button.tintColor = .clear
         button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
-        button.addTarget(self, action: #selector(categoryOneTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -83,6 +84,7 @@ final class CategoryView: UIView {
     
     lazy var categoryTwo: UIButton = {
         let button = UIButton()
+        button.tag = 2
         button.backgroundColor = UIColor(named: Resources.Colors.buttonLightGreen)
         button.layer.cornerRadius = 10
         button.setTitle("Еда", for: .normal)
@@ -90,31 +92,33 @@ final class CategoryView: UIView {
         button.setTitleColor(.white, for: .normal)
         button.tintColor = .clear
         button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
-        button.addTarget(self, action: #selector(categoryTwoTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     lazy var categoryThree: UIButton = {
         let button = UIButton()
+        button.tag = 3
         button.backgroundColor = UIColor(named: Resources.Colors.buttonBlue)
         button.layer.cornerRadius = 10
         button.setTitle("Личности", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
-        button.addTarget(self, action: #selector(categoryThreeTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     lazy var categoryFour: UIButton = {
         let button = UIButton()
+        button.tag = 4
         button.backgroundColor = UIColor(named: Resources.Colors.buttonRed)
         button.layer.cornerRadius = 10
         button.setTitle("Хобби", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
-        button.addTarget(self, action: #selector(categoryFourTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -160,38 +164,7 @@ final class CategoryView: UIView {
         checkmarkImageFour = createCheckmarkImage()
     }
     
-    func updateButtonAppearance(_ button: UIButton, checkmarkView: UIImageView) {
-        button.isSelected ? (checkmarkView.isHidden = false) : (checkmarkView.isHidden = true)
-        
-    }
-    
-    @objc func categoryOneTapped(_ sender: UIButton) {
-        categoryOne.isSelected = !categoryOne.isSelected
-        updateButtonAppearance(categoryOne, checkmarkView: checkmarkImageOne)
-        
-        delegate?.buttonTapped(sender: sender)
-
-    }
-    
-    @objc func categoryTwoTapped(_ sender: UIButton) {
-                
-        categoryTwo.isSelected = !categoryTwo.isSelected
-        updateButtonAppearance(categoryTwo, checkmarkView: checkmarkImageTwo)
-        
-        delegate?.buttonTapped(sender: sender)
-    }
-    
-    @objc func categoryThreeTapped(_ sender: UIButton) {
-
-        categoryTwo.isSelected = !categoryTwo.isSelected
-        updateButtonAppearance(categoryTwo, checkmarkView: checkmarkImageThree)
-        
-        delegate?.buttonTapped(sender: sender)
-    }
-    
-    @objc func categoryFourTapped(_ sender: UIButton) {
-        categoryTwo.isSelected = !categoryTwo.isSelected
-        updateButtonAppearance(categoryTwo, checkmarkView: checkmarkImageFour)
+    @objc func categoryButtonTapped(_ sender: UIButton) {
         delegate?.buttonTapped(sender: sender)
     }
     
