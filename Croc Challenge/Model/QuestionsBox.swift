@@ -157,7 +157,7 @@ struct QuestionsBox {
     
     
     mutating func choiceCategory(_ sender: String) -> String {
-       
+        
         switch sender {
         case questionsAnimals[currentTeam].answer:
             let question = questionsAnimals
@@ -180,19 +180,31 @@ struct QuestionsBox {
         }
         return "Something"
     }
-        
-        func getCorrentTeam() -> Teams {
-            team[currentTeam]
-        }
-        
-        func getScore() -> Int {
-            return team[currentTeam].score
-        }
-        
-    mutating func switchTeam() {
-            currentTeam += 1
-        }
-        
     
+    func getCorrentTeam() -> Teams {
+        team[currentTeam]
+    }
+    
+    func getScore() -> Int {
+        return team[currentTeam].score
+    }
+    
+    mutating func switchTeam() {
+        currentTeam += 1
+    }
+    
+    func getTextExplainWord() -> String {
+        let words = ["Объясни с помощью слов.",
+                     "Объясни с помощью жестов.",
+                     "Объясни с помощью рисунка.",
+                     "Объясняй со злостью.",
+                     "Объясняй с помощью мимики.",
+                     "Объясняй вульгарно.",
+                     "Объясняй сексуально."
+        ]
+        
+        return words.randomElement()!
+    }
+
 }
 
