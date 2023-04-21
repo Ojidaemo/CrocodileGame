@@ -12,6 +12,11 @@ class CorrectViewController: UIViewController {
     
     let question = QuestionsBox()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+    
     private lazy var backgroundView: UIImageView = {
         let element = UIImageView()
         element.image = UIImage(named: Resources.Image.backGround)
@@ -110,13 +115,18 @@ class CorrectViewController: UIViewController {
         element.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 17)
         element.layer.cornerRadius = 10
         element.setTitleColor(.white, for: .normal)
+        element.addTarget(self, action: #selector(transferPressed), for: .touchUpInside)
         return element
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupViews()
-    }
+    //TODO: передавать названия команд
+    @objc func transferPressed() {
+           self.navigationController?.isNavigationBarHidden = true
+           let gameVC = GameViewController()
+           self.navigationController?.pushViewController(gameVC, animated: true)
+       }
+    
+
 }
 
 extension CorrectViewController {
