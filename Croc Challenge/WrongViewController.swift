@@ -11,10 +11,19 @@ import SnapKit
 class WrongViewController: UIViewController {
     
     var questionsBox = QuestionsBox()
+    var categoryChoise = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+    }
+    
+    //TODO: передавать названия команд
+    @objc func transferPressed() {
+        self.navigationController?.isNavigationBarHidden = true
+        let gameVC = GameViewController()
+        gameVC.categoryChoise = categoryChoise
+        self.navigationController?.pushViewController(gameVC, animated: true)
     }
     
     private lazy var backgroundView: UIImageView = {
@@ -118,13 +127,6 @@ class WrongViewController: UIViewController {
         element.addTarget(self, action: #selector(transferPressed), for: .touchUpInside)
         return element
     }()
-    
-    //TODO: передавать названия команд
-    @objc func transferPressed() {
-           self.navigationController?.isNavigationBarHidden = true
-           let gameVC = GameViewController()
-           self.navigationController?.pushViewController(gameVC, animated: true)
-       }
 }
 
 extension WrongViewController {

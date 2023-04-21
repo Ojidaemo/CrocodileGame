@@ -13,6 +13,7 @@ struct QuestionsBox {
     var score = 0
     
     var team = Teams.showTeam()
+//    var categoryChoise = ""
     
     //    var teamsNames = [Teams(name: "Ковбои", score: 0),
     //                 Teams(name: "Стройняшки", score: 0),
@@ -37,6 +38,7 @@ struct QuestionsBox {
         Questions(text: "Жираф", answer: "Животные"),
         Questions(text: "Черепаха", answer: "Животные")
     ]
+    
     
     let questionsFood = [
         Questions(text: "Бургер", answer: "Еда"),
