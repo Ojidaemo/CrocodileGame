@@ -45,14 +45,14 @@ class TeamsManager {
         ourTeam[currentTeam]
     }
     
-    
-//
-    func nextTeam() {
+    func nextTeam() -> (currentTeam: Teams, nextTeam: Teams) {
+        let current = ourTeam[currentTeam]
         currentTeam += 1
         if currentTeam == ourTeam.count {
             currentTeam = 0
         }
-        
+        let next = ourTeam[currentTeam]
+        return (current, next)
     }
     
 //    func getScore() -> Int {

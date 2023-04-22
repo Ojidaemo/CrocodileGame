@@ -63,22 +63,19 @@ class GameViewController: UIViewController {
         self.title = ""
         let correctVC = CorrectViewController()
         correctVC.categoryChoise = categoryChoise
-        let currentTeam = teamManager.getCurrentTeam()
-        print(currentTeam)
-        correctVC.updateUI(team1: currentTeam, team2: currentTeam - 1)
         teamManager.rightAnswer()
-        teamManager.nextTeam()
+        let (currentTeam, nextTeam) = teamManager.nextTeam()
+        correctVC.updateUI(team1: currentTeam, team2: nextTeam)
         self.navigationController?.pushViewController(correctVC, animated: true)
     }
     
-    
-    
-
     
     @objc func breakRulesButtonPressed() {
         self.title = ""
         let wrongVC = WrongViewController()
         wrongVC.categoryChoise = categoryChoise
+        let (currentTeam, nextTeam) = teamManager.nextTeam()
+        wrongVC.updateUI(team1: currentTeam, team2: nextTeam)
         self.navigationController?.pushViewController(wrongVC, animated: true)
     }
     

@@ -21,12 +21,12 @@ class CorrectViewController: UIViewController {
 
     }
     
-    func updateUI(team1: Teams) {
-            teamNameInFirstView.text = team1.name
-            teamImageInFirstView.image = team1.teamImage
-            scoreInFirstView.text = String(team1.score)
-//        fourthLabelInSecondView.text = "Следующий ход - “\(team2.name)”"
-        }
+    func updateUI(team1: Teams, team2: Teams) {
+        teamNameInFirstView.text = team1.name
+        teamImageInFirstView.image = team1.teamImage
+        scoreInFirstView.text = String(team1.score)
+        fourthLabelInSecondView.text = "Следующий ход - “\(team2.name)”"
+    }
 
    
     //TODO: передавать названия команд
