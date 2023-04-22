@@ -19,7 +19,7 @@ class GameViewController: UIViewController {
     var isTimerRunning = false
     
     lazy var word = questionsBox.choiceCategory(categoryChoise)
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         wordLabel.text = word
@@ -27,16 +27,9 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        callTimer()
-        
-        backgroundImageConstraints()
         view.backgroundColor = .systemGreen
-        //        wordLabel.text = questionsBrain.questionTextGet()
-        crocoImageConstraints()
-        timeLabelConstraints()
-        wordLabelConstraints()
-        descriptionLabelConstraints()
-        stackViewButtonsConstraints()
+        callTimer()
+        setupConstraints()
     }
     
     //MARK: - Methods
@@ -63,7 +56,7 @@ class GameViewController: UIViewController {
         self.title = ""
         let correctVC = CorrectViewController()
         correctVC.categoryChoise = categoryChoise
-        teamManager.rightAnswer()
+        teamManager.teamCorrectAnswer()
         let (currentTeam, nextTeam) = teamManager.nextTeam()
         correctVC.updateUI(team1: currentTeam, team2: nextTeam)
         self.navigationController?.pushViewController(correctVC, animated: true)
@@ -83,7 +76,6 @@ class GameViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         timer.invalidate()
         alertForResetButton()
-        
     }
     
     func alertForResetButton() {
@@ -100,18 +92,12 @@ class GameViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    func update() {
-        //        scoreLabel.text = "Score: \(questionsBox.getScore())" - узнать про picture score
-    }
-    
-    
     private lazy var backroundImage: UIImageView = {
         
         let image = UIImageView()
         image.image = UIImage(named: "background")
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
-        
     }()
     
     private lazy var crocoImage: UIImageView = {
@@ -121,7 +107,6 @@ class GameViewController: UIViewController {
         return theImageView
     }()
     
-    
     lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -130,7 +115,6 @@ class GameViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-    
     
     lazy var wordLabel: UILabel = {
         let label = UILabel()
@@ -162,7 +146,6 @@ class GameViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
         button.addTarget(self, action: #selector(correctButtonPressed), for: .touchUpInside)
-//        teamManager.switchTeam()
         return button
     }()
     
@@ -175,7 +158,6 @@ class GameViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: Resources.Colors.buttonRed)
         button.addTarget(self, action: #selector(breakRulesButtonPressed), for: .touchUpInside)
-//        questionsBox.switchTeam()
         return button
     }()
     
@@ -203,6 +185,17 @@ class GameViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
+    
+    //MARK: - Constraints
+    
+    func setupConstraints() {
+        backgroundImageConstraints()
+        crocoImageConstraints()
+        timeLabelConstraints()
+        wordLabelConstraints()
+        descriptionLabelConstraints()
+        stackViewButtonsConstraints()
+    }
     
     func backgroundImageConstraints() {
         view.addSubview(backroundImage)

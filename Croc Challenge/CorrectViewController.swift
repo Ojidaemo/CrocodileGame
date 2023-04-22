@@ -18,7 +18,6 @@ class CorrectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-
     }
     
     func updateUI(team1: Teams, team2: Teams) {
@@ -27,26 +26,13 @@ class CorrectViewController: UIViewController {
         scoreInFirstView.text = String(team1.score)
         fourthLabelInSecondView.text = "Следующий ход - “\(team2.name)”"
     }
-
-   
-    //TODO: передавать названия команд
+    
     @objc func transferPressed() {
         self.navigationController?.isNavigationBarHidden = true
         let gameVC = GameViewController()
         gameVC.categoryChoise = categoryChoise
-        teamManager.teamCorrectAnswer()
-        
-        // Swap currentTeam and nextTeam
-     
-        
-    
-        
-        
         self.navigationController?.pushViewController(gameVC, animated: true)
     }
-    
-    
-    
     
     private lazy var backgroundView: UIImageView = {
         let element = UIImageView()
