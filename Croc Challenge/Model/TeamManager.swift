@@ -10,7 +10,6 @@ import UIKit
 class TeamsManager {
     
     static let shared = TeamsManager()
-    private init() {}
     
     var teamOne: Teams?
     var teamTwo: Teams?

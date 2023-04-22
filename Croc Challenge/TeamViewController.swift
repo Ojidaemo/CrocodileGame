@@ -9,31 +9,24 @@ import UIKit
 
 class TeamViewController: UIViewController {
     
-    let teamManager = TeamsManager.shared
+    let globalData = TeamsManager.shared
     
-    var teamOne: Teams?
-    var teamTwo: Teams?
+    lazy var imageOne = createImageView(image: (globalData.teamOne?.teamImage ?? UIImage(named: Resources.Image.burger))!)
+    lazy var labelOne = createLabelWithTeamName(title: globalData.teamOne?.name ?? "")
 
-    lazy var imageOne = createImageView(image: teamOne!.teamImage)
-    lazy var labelOne = createLabelWithTeamName(title: teamManager.teamOne!.name)
-
-    lazy var imageTwo = createImageView(image: teamOne!.teamImage)
-    lazy var labelTwo = createLabelWithTeamName(title: teamManager.teamTwo!.name)
+    lazy var imageTwo = createImageView(image: (globalData.teamOne?.teamImage ?? UIImage(named: Resources.Image.burger))!)
+    lazy var labelTwo = createLabelWithTeamName(title: globalData.teamTwo?.name ?? "")
     
     lazy var imageClose = imageCloseButton
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        globalData.generateRandomTeams()
+        print(globalData.teamOne)
+        print(globalData.teamTwo)
         self.title = "Кто играет?"
         view.backgroundColor = .clear
         setupConstraints()
-        
-        teamManager.generateRandomTeams()
-        teamOne = teamManager.teamOne
-        teamTwo = teamManager.teamTwo
-        print(teamOne)
-        print(teamOne)
-        
     }
     
     private let backgroundView: UIImageView = {
