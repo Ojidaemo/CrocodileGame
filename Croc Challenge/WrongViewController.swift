@@ -27,7 +27,6 @@ class WrongViewController: UIViewController {
         fourthLabelInSecondView.text = "Следующий ход - “\(team2.name)”"
     }
     
-    //TODO: передавать названия команд
     @objc func transferPressed() {
         self.navigationController?.isNavigationBarHidden = true
         let gameVC = GameViewController()
