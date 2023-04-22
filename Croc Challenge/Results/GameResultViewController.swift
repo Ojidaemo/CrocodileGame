@@ -10,6 +10,7 @@ import UIKit
 class GameResultViewController: UIViewController {
     
     private let resultsView = ResultsView()
+    private let teamManager = TeamsManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +19,29 @@ class GameResultViewController: UIViewController {
         setDelegates()
         view.addSubview(resultsView)
         setupConstraints()
+        showTeamsAndScores()
     }
     
     func setDelegates() {
         resultsView.delegateRestartGame = self
+    }
+    
+    private func showTeamsAndScores() {
+        resultsView.labelOne.text = teamManager.teamOne?.name
+        resultsView.labelTwo.text = teamManager.teamTwo?.name
+        resultsView.imageOne.image = teamManager.teamOne?.teamImage
+        resultsView.imageTwo.image = teamManager.teamTwo?.teamImage
+        resultsView.teamOneScore.text = String(teamManager.ourTeam[0].score)
+        resultsView.teamTwoScore.text = String(teamManager.ourTeam[1].score)
+        showTeams()
+    }
+    
+    private func showTeams() {
+        if teamManager.ourTeam.count == 2 {
+            resultsView.labelThree.isHidden = true
+        } else if teamManager.ourTeam.count == 3 {
+            resultsView.labelThree.isHidden = false
+        }
     }
     
     private func setupConstraints() {

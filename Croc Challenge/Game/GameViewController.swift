@@ -72,8 +72,9 @@ class GameViewController: UIViewController {
     }
     
     func switchToResultVcOrCorrectVc() {
-        if questionNumbers.question == teamManager.ourTeam.count * 5{
+        if questionNumbers.question == teamManager.ourTeam.count * 5 {
             let resultVC = GameResultViewController()
+            teamManager.teamCorrectAnswer()
             self.navigationController?.pushViewController(resultVC, animated: true)
         } else if questionNumbers.question < teamManager.ourTeam.count * 5 {
             let correctVC = CorrectViewController()

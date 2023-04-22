@@ -52,7 +52,7 @@ final class ResultsView: UIView {
     private let labelStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.distribution = .fillEqually
+        stack.distribution = .fillProportionally
         stack.spacing = 30
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
@@ -135,16 +135,7 @@ final class ResultsView: UIView {
 extension ResultsView {
     
     private func setupConstraints() {
-        
-        self.addSubviews(backgroundView, labelStack, restartGame)
-        labelOne.addSubviewsToLabel(imageOne, scoreLabelOne, teamOneScore)
-        labelTwo.addSubviewsToLabel(imageTwo, scoreLabelTwo, teamTwoScore)
-        labelThree.addSubviewsToLabel(imageThree, scoreLabelThree, teamThreeScore)
-        labelStack.addArrangedSubviews(labelOne, labelTwo, labelThree)
-        
         NSLayoutConstraint.activate([
-            
-            
             backgroundView.topAnchor.constraint(equalTo: topAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -155,6 +146,10 @@ extension ResultsView {
             restartGame.heightAnchor.constraint(equalToConstant: 60),
             restartGame.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -60),
             
+            labelOne.heightAnchor.constraint(equalToConstant: 96),
+            labelTwo.heightAnchor.constraint(equalToConstant: 96),
+            labelThree.heightAnchor.constraint(equalToConstant: 96),
+            
             imageOne.leadingAnchor.constraint(equalTo: labelOne.leadingAnchor, constant: 25),
             imageOne.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
             
@@ -162,7 +157,7 @@ extension ResultsView {
             scoreLabelOne.bottomAnchor.constraint(equalTo: labelOne.bottomAnchor, constant: -8),
             
             teamOneScore.trailingAnchor.constraint(equalTo: labelOne.trailingAnchor, constant: -15),
-            teamOneScore.bottomAnchor.constraint(equalTo: scoreLabelOne.topAnchor, constant: 10),
+            teamOneScore.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
             
             imageTwo.leadingAnchor.constraint(equalTo: labelTwo.leadingAnchor, constant: 25),
             imageTwo.centerYAnchor.constraint(equalTo: labelTwo.centerYAnchor),
@@ -171,7 +166,7 @@ extension ResultsView {
             scoreLabelTwo.bottomAnchor.constraint(equalTo: labelTwo.bottomAnchor, constant: -8),
             
             teamTwoScore.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -15),
-            teamTwoScore.bottomAnchor.constraint(equalTo: scoreLabelTwo.topAnchor, constant: 10),
+            teamTwoScore.centerYAnchor.constraint(equalTo: labelTwo.centerYAnchor),
             
             imageThree.leadingAnchor.constraint(equalTo: labelThree.leadingAnchor, constant: 25),
             imageThree.centerYAnchor.constraint(equalTo: labelThree.centerYAnchor),
@@ -180,13 +175,11 @@ extension ResultsView {
             scoreLabelThree.bottomAnchor.constraint(equalTo: labelThree.bottomAnchor, constant: -8),
             
             teamThreeScore.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -15),
-            teamThreeScore.bottomAnchor.constraint(equalTo: scoreLabelThree.topAnchor, constant: 10),
+            teamThreeScore.centerYAnchor.constraint(equalTo: labelThree.centerYAnchor),
             
             labelStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             labelStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            labelStack.topAnchor.constraint(equalTo: topAnchor, constant: 110),
-            labelStack.heightAnchor.constraint(equalToConstant: 360)
-            
+            labelStack.topAnchor.constraint(equalTo: topAnchor, constant: 110)
         ])
     }
 }

@@ -6,10 +6,12 @@
       "scale" : "1x"
     },
     {
+      "filename" : "frog 2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "frog 3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
