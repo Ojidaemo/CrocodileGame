@@ -140,7 +140,6 @@ extension TeamViewController {
         view.addSubviews(backgroundView, labelStack, playersReadyButton, addTeamButton)
         labelOne.addSubviewsToLabel(imageOne, imageClose)
         labelTwo.addSubviewsToLabel(imageTwo, imageClose)
-//        labelThree.addSubviewsToLabel(imageThree, imageClose)
         labelStack.addArrangedSubviews(labelOne, labelTwo)
         
         NSLayoutConstraint.activate([
@@ -169,9 +168,6 @@ extension TeamViewController {
             
             imageTwo.leadingAnchor.constraint(equalTo: labelTwo.leadingAnchor, constant: 25),
             imageTwo.centerYAnchor.constraint(equalTo: labelTwo.centerYAnchor),
-            
-//            imageThree.leadingAnchor.constraint(equalTo: labelThree.leadingAnchor, constant: 25),
-//            imageThree.centerYAnchor.constraint(equalTo: labelThree.centerYAnchor),
             
             labelStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             labelStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),

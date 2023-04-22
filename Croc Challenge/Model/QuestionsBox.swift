@@ -87,77 +87,6 @@ struct QuestionsBox {
         Questions(text: "Дайвинг", answer: "Хобби")
     ]
     
-    mutating func rightAnswer() {
-        team[currentTeam].score += 1
-    }
-    
-    //    mutating func checkAnswerAnimal(_ answer: String) -> Bool {
-    //        let answer = "Животные"
-    //        if answer == questionsFood[currentTeam].answer {
-    //            score += 1
-    //            return true
-    //        } else {
-    //            return false
-    //        }
-    //    }
-    //    mutating func checkAnswerFood(_ answer: String) -> Bool {
-    //        let answer = "Еда"
-    //        if answer == questionsFood[currentTeam].answer {
-    //            score += 1
-    //            return true
-    //        } else {
-    //            return false
-    //        }
-    //    }
-    //
-    //    mutating func checkAnswerPersonality(_ answer: String) -> Bool {
-    //        let answer = "Личности"
-    //        if answer == questionsPersonality[currentTeam].answer {
-    //            score += 1
-    //            return true
-    //        } else {
-    //            return false
-    //        }
-    //    }
-    //
-    mutating func checkAnswerHobby(_ answer: String) -> Bool {
-        if answer == questionsHobby[currentTeam].answer {
-            score += 1
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func questionTextGetAnimals()-> String {
-        //        questionsAnimals[questionNumber].text
-        let question = questionsAnimals
-        let randomName = question.randomElement()!
-        return randomName.text
-    }
-    
-    func questionTextGetFood()-> String {
-        //        questionsAnimals[questionNumber].text
-        let question = questionsFood
-        let randomName = question.randomElement()!
-        return randomName.text
-    }
-    
-    func questionTextGetPersonality()-> String {
-        //        questionsAnimals[questionNumber].text
-        let question = questionsPersonality
-        let randomName = question.randomElement()!
-        return randomName.text
-    }
-    
-    func questionTextGetHobby()-> String {
-        //        questionsAnimals[questionNumber].text
-        let question = questionsHobby
-        let randomName = question.randomElement()!
-        return randomName.text
-    }
-    
-    
     mutating func choiceCategory(_ sender: String) -> String {
         
         switch sender {
@@ -181,18 +110,6 @@ struct QuestionsBox {
             break
         }
         return "Something"
-    }
-    
-    func getCorrentTeam() -> Teams {
-        team[currentTeam]
-    }
-    
-    func getScore() -> Int {
-        return team[currentTeam].score
-    }
-    
-    mutating func switchTeam() {
-        currentTeam += 1
     }
     
     func getTextExplainWord() -> String {

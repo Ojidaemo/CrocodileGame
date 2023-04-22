@@ -20,7 +20,13 @@ class CorrectViewController: UIViewController {
         setupViews()
     }
     
-    //TODO: передавать названия команд
+    func updateUI(team1: Teams, team2: Teams) {
+        teamNameInFirstView.text = team1.name
+        teamImageInFirstView.image = team1.teamImage
+        scoreInFirstView.text = String(team1.score)
+        fourthLabelInSecondView.text = "Следующий ход - “\(team2.name)”"
+    }
+    
     @objc func transferPressed() {
         self.navigationController?.isNavigationBarHidden = true
         let gameVC = GameViewController()
