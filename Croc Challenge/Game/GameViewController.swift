@@ -7,14 +7,21 @@
 
 import UIKit
 
+class NumbersToResult {
+    static let shared = NumbersToResult()
+    
+    var question = 0
+}
+
 class GameViewController: UIViewController {
     
     let teamManager = TeamsManager.shared
+    let questionNumbers = NumbersToResult.shared
     
     var questionsBox = QuestionsBox()
     var categoryChoise = ""
     
-    var secondRemaining = 59
+    var secondRemaining = 60
     var timer = Timer()
     var isTimerRunning = false
     
@@ -54,22 +61,41 @@ class GameViewController: UIViewController {
     
     @objc func correctButtonPressed() {
         self.title = ""
-        let correctVC = CorrectViewController()
-        correctVC.categoryChoise = categoryChoise
-        teamManager.teamCorrectAnswer()
-        let (currentTeam, nextTeam) = teamManager.nextTeam()
-        correctVC.updateUI(team1: currentTeam, team2: nextTeam)
-        self.navigationController?.pushViewController(correctVC, animated: true)
+        questionNumbers.question += 1
+        switchToResultVcOrCorrectVc()
     }
-    
     
     @objc func breakRulesButtonPressed() {
         self.title = ""
-        let wrongVC = WrongViewController()
-        wrongVC.categoryChoise = categoryChoise
-        let (currentTeam, nextTeam) = teamManager.nextTeam()
-        wrongVC.updateUI(team1: currentTeam, team2: nextTeam)
-        self.navigationController?.pushViewController(wrongVC, animated: true)
+        questionNumbers.question += 1
+        switchToResultVcOrWrongVc()
+    }
+    
+    func switchToResultVcOrCorrectVc() {
+        if questionNumbers.question == teamManager.ourTeam.count * 5{
+            let resultVC = GameResultViewController()
+            self.navigationController?.pushViewController(resultVC, animated: true)
+        } else if questionNumbers.question < teamManager.ourTeam.count * 5 {
+            let correctVC = CorrectViewController()
+            correctVC.categoryChoise = categoryChoise
+            teamManager.teamCorrectAnswer()
+            let (currentTeam, nextTeam) = teamManager.nextTeam()
+            correctVC.updateUI(team1: currentTeam, team2: nextTeam)
+            self.navigationController?.pushViewController(correctVC, animated: true)
+        }
+    }
+    
+    func switchToResultVcOrWrongVc() {
+        if questionNumbers.question == teamManager.ourTeam.count * 5 {
+            let resultVC = GameResultViewController()
+            self.navigationController?.pushViewController(resultVC, animated: true)
+        } else if questionNumbers.question < teamManager.ourTeam.count * 5 {
+            let wrongVC = WrongViewController()
+            wrongVC.categoryChoise = categoryChoise
+            let (currentTeam, nextTeam) = teamManager.nextTeam()
+            wrongVC.updateUI(team1: currentTeam, team2: nextTeam)
+            self.navigationController?.pushViewController(wrongVC, animated: true)
+        }
     }
     
     @objc func restartButtonPressed() {
@@ -110,7 +136,7 @@ class GameViewController: UIViewController {
     lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "00:59"
+        label.text = "01:00"
         label.font = UIFont.italicSystemFont(ofSize: 48)
         label.textAlignment = .center
         return label
