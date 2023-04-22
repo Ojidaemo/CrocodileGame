@@ -30,4 +30,25 @@ class TeamsManager {
         teamOne = firstTeam
         teamTwo = secondTeam
     }
+    
+    let currentTeam = 0
+    
+//    func getCurrentTeam() -> Teams {
+//        team[currentTeam]
+//    }
+//    
+//    func getScore() -> Int {
+//        return team[currentTeam].score
+//    }
+//    
+//    mutating func switchTeam() {
+//        currentTeam += 1
+//    }
+//    
+    func rightAnswer() {
+//        if teamOne?.score < 5
+            teamOne!.score += 1
+//    } else {
+    }
+    
 }

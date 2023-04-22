@@ -9,6 +9,8 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    let teamManager = TeamsManager.shared
+    
     var questionsBox = QuestionsBox()
     var categoryChoise = ""
     
@@ -21,7 +23,6 @@ class GameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         wordLabel.text = word
-        print(word)
     }
     
     override func viewDidLoad() {
@@ -62,7 +63,7 @@ class GameViewController: UIViewController {
         self.title = ""
         let correctVC = CorrectViewController()
         correctVC.categoryChoise = categoryChoise
-//        questionsBox.categoryChoise = word
+        teamManager.rightAnswer()
         self.navigationController?.pushViewController(correctVC, animated: true)
     }
     
@@ -168,7 +169,7 @@ class GameViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: Resources.Colors.buttonRed)
         button.addTarget(self, action: #selector(breakRulesButtonPressed), for: .touchUpInside)
-        questionsBox.switchTeam()
+//        questionsBox.switchTeam()
         return button
     }()
     
