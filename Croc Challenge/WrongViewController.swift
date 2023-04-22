@@ -13,9 +13,15 @@ class WrongViewController: UIViewController {
     var questionsBox = QuestionsBox()
     var categoryChoise = ""
     
+    let teamManager = TeamsManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        
+        print(teamManager.teamOne)
+        print(teamManager.teamTwo)
+        
     }
     
     //TODO: передавать названия команд

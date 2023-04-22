@@ -9,45 +9,16 @@ import UIKit
 
 class TeamViewController: UIViewController {
     
-    let teamImageDict = [
-        "Ковбои": UIImage(named: Resources.Image.cowboy)!,
-        "Стройняшки": UIImage(named: Resources.Image.burger)!,
-        "Красотки": UIImage(named: Resources.Image.nails)!,
-        "Лягушки": UIImage(named: Resources.Image.frog)!
-    ]
+    let teamManager = TeamsManager.shared
+    
+    var teamOne: Teams?
+    var teamTwo: Teams?
 
-    lazy var teams = teamImageDict.keys.map { name in
-        Teams(name: name, score: 0, teamImage: teamImageDict[name]!)
-    }
-
-    lazy var teamOne = randomTeam(excluding: nil)
     lazy var imageOne = createImageView(image: teamOne!.teamImage)
-    lazy var labelOne = createLabelWithTeamName(title: teamOne!.name)
+    lazy var labelOne = createLabelWithTeamName(title: teamManager.teamOne!.name)
 
-    lazy var teamTwo = randomTeam(excluding: teamOne)
-    lazy var imageTwo = createImageView(image: teamTwo!.teamImage)
-    lazy var labelTwo = createLabelWithTeamName(title: teamTwo!.name)
-
-    func randomTeam(excluding excludedTeam: Teams?) -> Teams? {
-        var availableTeams = teams
-        var selectedTeams: [Teams] = []
-        
-        while !availableTeams.isEmpty {
-            let randomIndex = Int.random(in: 0..<availableTeams.count)
-            let randomTeam = availableTeams[randomIndex]
-            
-            if randomTeam != excludedTeam {
-                selectedTeams.append(randomTeam)
-                availableTeams.remove(at: randomIndex)
-            }
-            
-            if selectedTeams.count == teams.count - 1 {
-                // All teams except for the excluded team have been selected
-                break
-            }
-        }
-        return selectedTeams.first
-    }
+    lazy var imageTwo = createImageView(image: teamOne!.teamImage)
+    lazy var labelTwo = createLabelWithTeamName(title: teamManager.teamTwo!.name)
     
     lazy var imageClose = imageCloseButton
     
@@ -56,6 +27,13 @@ class TeamViewController: UIViewController {
         self.title = "Кто играет?"
         view.backgroundColor = .clear
         setupConstraints()
+        
+        teamManager.generateRandomTeams()
+        teamOne = teamManager.teamOne
+        teamTwo = teamManager.teamTwo
+        print(teamOne)
+        print(teamOne)
+        
     }
     
     private let backgroundView: UIImageView = {
