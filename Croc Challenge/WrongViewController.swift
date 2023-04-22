@@ -18,10 +18,6 @@ class WrongViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        
-        print(teamManager.teamOne)
-        print(teamManager.teamTwo)
-        
     }
     
     //TODO: передавать названия команд
@@ -47,13 +43,13 @@ class WrongViewController: UIViewController {
     
     private lazy var teamImageInFirstView: UIImageView = {
         let element = UIImageView()
-        element.image = UIImage(named: "Avatar1")
+        element.image = teamManager.teamOne!.teamImage
         return element
     }()
     
     private lazy var teamNameInFirstView: UILabel = {
         let element = UILabel()
-        element.text = "Ковбои"
+        element.text = teamManager.teamOne!.name
         element.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         element.textColor = .black
         return element
@@ -61,7 +57,7 @@ class WrongViewController: UIViewController {
     
     private lazy var scoreInFirstView: UILabel = {
         let element = UILabel()
-        element.text = String(questionsBox.getScore())
+        element.text = String(teamManager.teamOne!.score)
         element.font = UIFont(name: Resources.Fonts.cookie, size: 65)
         element.textColor = .black
         return element
@@ -116,7 +112,9 @@ class WrongViewController: UIViewController {
     
     private lazy var fourthLabelInSecondView: UILabel = {
         let element = UILabel()
-        element.text = "Следующий ход - “Стройняшки”"
+        if let teamName = teamManager.teamTwo?.name {
+            element.text = String("Следующий ход - “\(teamName)”")
+        }
         element.font = UIFont(name: Resources.Fonts.bhavuka, size: 16)
         element.textColor = .black
         return element
