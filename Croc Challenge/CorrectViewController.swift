@@ -14,18 +14,21 @@ class CorrectViewController: UIViewController {
     var categoryChoise = ""
     
     let teamManager = TeamsManager.shared
-    var currentTeam: Teams!
-    var nextTeam: Teams!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        currentTeam = teamManager.teamOne
-        nextTeam = teamManager.teamTwo
-        print(currentTeam)
-        print(nextTeam)
+
     }
     
+    func updateUI(team1: Teams) {
+            teamNameInFirstView.text = team1.name
+            teamImageInFirstView.image = team1.teamImage
+            scoreInFirstView.text = String(team1.score)
+//        fourthLabelInSecondView.text = "Следующий ход - “\(team2.name)”"
+        }
+
+   
     //TODO: передавать названия команд
     @objc func transferPressed() {
         self.navigationController?.isNavigationBarHidden = true
@@ -34,22 +37,14 @@ class CorrectViewController: UIViewController {
         teamManager.teamCorrectAnswer()
         
         // Swap currentTeam and nextTeam
-        let tempTeam = currentTeam
-        currentTeam = nextTeam
-        nextTeam = tempTeam
+     
         
-        // Update labels with new team information
-        teamNameInFirstView.text = currentTeam.name
-        teamImageInFirstView.image = currentTeam.teamImage
-        scoreInFirstView.text = String(currentTeam.score)
-        // Update the "Next move" label with the new team name
-        if let teamName = nextTeam?.name {
-            fourthLabelInSecondView.text = "Следующий ход - “\(teamName)”"
-        }
+    
         
         
         self.navigationController?.pushViewController(gameVC, animated: true)
     }
+    
     
     
     
