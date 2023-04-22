@@ -16,7 +16,6 @@ class TeamViewController: UIViewController {
     lazy var imageTwo = createImageView(image: globalData.teamTwo!.teamImage)
     lazy var labelTwo = createLabelWithTeamName(title: globalData.teamTwo?.name ?? "")
     
-    lazy var imageClose = imageCloseButton
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,21 +80,13 @@ class TeamViewController: UIViewController {
         self.navigationController?.pushViewController(categoryVC, animated: true)
     }
     
-    let imageCloseButton: UIImageView = {
-        let imageButton = UIImageView()
-        imageButton.image = UIImage(named: "close 1")
-        imageButton.backgroundColor = .red
-        imageButton.translatesAutoresizingMaskIntoConstraints = false
-        return imageButton
-    }()
-    
-    let imageCloseButtonTwo: UIImageView = {
-        let imageButton = UIImageView()
-        imageButton.image = UIImage(named: "close 2")
-        imageButton.translatesAutoresizingMaskIntoConstraints = false
-        return imageButton
-    }()
-    
+//    let imageCloseButton: UIImageView = {
+//        let imageButton = UIImageView()
+//        imageButton.image = UIImage(named: "close 1")
+//        imageButton.backgroundColor = .red
+//        imageButton.translatesAutoresizingMaskIntoConstraints = false
+//        return imageButton
+//    }()
     
     func createTeamScoreLabel(text: String) -> UILabel {
         let label = UILabel()
@@ -138,8 +129,8 @@ extension TeamViewController {
     private func setupConstraints() {
         
         view.addSubviews(backgroundView, labelStack, playersReadyButton, addTeamButton)
-        labelOne.addSubviewsToLabel(imageOne, imageClose)
-        labelTwo.addSubviewsToLabel(imageTwo, imageClose)
+        labelOne.addSubviewsToLabel(imageOne)
+        labelTwo.addSubviewsToLabel(imageTwo)
         labelStack.addArrangedSubviews(labelOne, labelTwo)
         
         NSLayoutConstraint.activate([
@@ -162,17 +153,17 @@ extension TeamViewController {
             imageOne.leadingAnchor.constraint(equalTo: labelOne.leadingAnchor, constant: 25),
             imageOne.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
             
-            imageClose.trailingAnchor.constraint(equalTo: labelOne.trailingAnchor, constant: -25),
-            imageClose.heightAnchor.constraint(equalToConstant: 30),
-            imageClose.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
-            
+//            imageClose.trailingAnchor.constraint(equalTo: labelOne.trailingAnchor, constant: -25),
+//            imageClose.heightAnchor.constraint(equalToConstant: 30),
+//            imageClose.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
+//
             imageTwo.leadingAnchor.constraint(equalTo: labelTwo.leadingAnchor, constant: 25),
             imageTwo.centerYAnchor.constraint(equalTo: labelTwo.centerYAnchor),
             
             labelStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             labelStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
             labelStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 110),
-            labelStack.heightAnchor.constraint(equalToConstant: 360)
+            labelStack.heightAnchor.constraint(equalToConstant: 240)
             
         ])
     }

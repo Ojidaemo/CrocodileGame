@@ -64,7 +64,7 @@ struct QuestionsBox {
         Questions(text: "Майк Тайсон", answer: "Личности"),
         Questions(text: "Михаэль Шумахер", answer: "Личности"),
         Questions(text: "Брюс Уиллис", answer: "Личности"),
-        Questions(text: "Арнольд Шварценеггер", answer: "Личности"),
+        Questions(text: "Курт Кобейн", answer: "Личности"),
         Questions(text: "Анджелина Джоли", answer: "Личности"),
         Questions(text: "Ким Кардашьян", answer: "Личности")
     ]
