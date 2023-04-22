@@ -14,7 +14,7 @@ class TeamsManager {
     var teamOne: Teams?
     var teamTwo: Teams?
     
-    let teams: [Teams] = [
+    var teams: [Teams] = [
         Teams(name: "Ковбои", score: 0, teamImage: UIImage(named: Resources.Image.cowboy)!),
         Teams(name: "Стройняшки", score: 0, teamImage: UIImage(named: Resources.Image.burger)!),
         Teams(name: "Красотки", score: 0, teamImage: UIImage(named: Resources.Image.nails)!),
@@ -31,20 +31,34 @@ class TeamsManager {
         teamTwo = secondTeam
     }
     
-    let currentTeam = 0
     
-//    func getCurrentTeam() -> Teams {
-//        team[currentTeam]
-//    }
-//    
+    
+    var currentTeam = 0
+    
+    func teamCorrectAnswer() {
+        teams[currentTeam].score += 1
+    }
+    
+    func getCurrentTeam() -> Teams {
+        teams[currentTeam]
+    }
+    
+    
+//
+    func nextTeam() {
+        currentTeam += 1
+        if currentTeam == teams.count {
+            currentTeam = 0
+        }
+        
+    }
+    
 //    func getScore() -> Int {
 //        return team[currentTeam].score
 //    }
-//    
-//    mutating func switchTeam() {
-//        currentTeam += 1
-//    }
-//    
+//
+   
+    
     func rightAnswer() {
 //        if teamOne?.score < 5
             teamOne!.score += 1

@@ -63,7 +63,9 @@ class GameViewController: UIViewController {
         self.title = ""
         let correctVC = CorrectViewController()
         correctVC.categoryChoise = categoryChoise
+        teamManager.getCurrentTeam()
         teamManager.rightAnswer()
+        teamManager.nextTeam()
         self.navigationController?.pushViewController(correctVC, animated: true)
     }
     
@@ -157,6 +159,7 @@ class GameViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
         button.addTarget(self, action: #selector(correctButtonPressed), for: .touchUpInside)
+//        teamManager.switchTeam()
         return button
     }()
     
