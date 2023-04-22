@@ -11,10 +11,10 @@ class TeamViewController: UIViewController {
     
     let globalData = TeamsManager.shared
     
-    lazy var imageOne = createImageView(image: (globalData.teamOne?.teamImage ?? UIImage(named: Resources.Image.burger))!)
+    lazy var imageOne = createImageView(image: globalData.teamOne!.teamImage)
     lazy var labelOne = createLabelWithTeamName(title: globalData.teamOne?.name ?? "")
 
-    lazy var imageTwo = createImageView(image: (globalData.teamOne?.teamImage ?? UIImage(named: Resources.Image.burger))!)
+    lazy var imageTwo = createImageView(image: globalData.teamTwo!.teamImage)
     lazy var labelTwo = createLabelWithTeamName(title: globalData.teamTwo?.name ?? "")
     
     lazy var imageClose = imageCloseButton
@@ -22,7 +22,7 @@ class TeamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         globalData.generateRandomTeams()
-        print(globalData.teamOne)
+        print(globalData.teamOne!.teamImage)
         print(globalData.teamTwo)
         self.title = "Кто играет?"
         view.backgroundColor = .clear
