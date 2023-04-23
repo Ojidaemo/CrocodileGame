@@ -41,9 +41,16 @@ class CategoryViewController: UIViewController {
 extension CategoryViewController: startGameProtocol, ButtonTargetDelegate {
     func startGamePressed(sender: UIButton) {
         self.navigationController?.isNavigationBarHidden = true
-        let gameVC = GameViewController()
-        gameVC.categoryChoise = categoryChoise
-        self.navigationController?.pushViewController(gameVC, animated: true)
+        if categoryChoise == "" {
+            let alert = UIAlertController(title: "", message: "Выберите категорию", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ок", style: .default) { (action) in }
+            alert.addAction(action)
+            present(alert, animated: true)
+        } else {
+            let gameVC = GameViewController()
+            gameVC.categoryChoise = categoryChoise
+            self.navigationController?.pushViewController(gameVC, animated: true)
+        }
     }
     
     func buttonTapped(sender: UIButton) {
