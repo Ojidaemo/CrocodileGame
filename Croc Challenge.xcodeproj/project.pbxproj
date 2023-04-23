@@ -105,18 +105,9 @@
 		7C8A3E1129ED7DE0004A9985 /* Croc Challenge */ = {
 			isa = PBXGroup;
 			children = (
-				87F8948529EFEB080098BC12 /* NavController.swift */,
+				8717979029F515AE003921BF /* Application */,
 				0D302D5329F15C1900F6970B /* Model */,
-				7C8A3E9129EF12AA004A9985 /* Main */,
-				7C8A3E1229ED7DE0004A9985 /* AppDelegate.swift */,
-				7C8A3E1429ED7DE0004A9985 /* SceneDelegate.swift */,
-				7C8A3E3629ED82BB004A9985 /* RulesViewController.swift */,
-				7C8A3E9429EF12CD004A9985 /* Game */,
-				7C8A3E3829ED82CC004A9985 /* TeamViewController.swift */,
-				87F8947129EEB29A0098BC12 /* Category */,
-				7C8A3E3E29ED8310004A9985 /* CorrectViewController.swift */,
-				7C8A3E4029ED831E004A9985 /* WrongViewController.swift */,
-				87F8947229EEB2A50098BC12 /* Results */,
+				8717979129F5161C003921BF /* Screens */,
 				87F8948129EED8AA0098BC12 /* Resources */,
 				87F8947C29EEC1360098BC12 /* Fonts */,
 				87F8947329EEB2B20098BC12 /* Extensions */,
@@ -127,20 +118,37 @@
 			path = "Croc Challenge";
 			sourceTree = "<group>";
 		};
-		7C8A3E9129EF12AA004A9985 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				7C8A3E9229EF12AA004A9985 /* MainViewController.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		7C8A3E9429EF12CD004A9985 /* Game */ = {
 			isa = PBXGroup;
 			children = (
 				7C8A3E9529EF12CD004A9985 /* GameViewController.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		8717979029F515AE003921BF /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				7C8A3E1229ED7DE0004A9985 /* AppDelegate.swift */,
+				7C8A3E1429ED7DE0004A9985 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		8717979129F5161C003921BF /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				87F8948529EFEB080098BC12 /* NavController.swift */,
+				7C8A3E9229EF12AA004A9985 /* MainViewController.swift */,
+				7C8A3E3629ED82BB004A9985 /* RulesViewController.swift */,
+				7C8A3E3829ED82CC004A9985 /* TeamViewController.swift */,
+				87F8947129EEB29A0098BC12 /* Category */,
+				7C8A3E9429EF12CD004A9985 /* Game */,
+				7C8A3E3E29ED8310004A9985 /* CorrectViewController.swift */,
+				7C8A3E4029ED831E004A9985 /* WrongViewController.swift */,
+				87F8947229EEB2A50098BC12 /* Results */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		87F8947129EEB29A0098BC12 /* Category */ = {

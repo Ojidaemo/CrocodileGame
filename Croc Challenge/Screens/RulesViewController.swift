@@ -9,6 +9,11 @@ import UIKit
 
 class RulesViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        layout()
+    }
+    
     private let backgroundView: UIImageView = {
         let background = UIImageView()
         background.image = UIImage(named: Resources.Image.backGround)
@@ -53,12 +58,6 @@ class RulesViewController: UIViewController {
         return text
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        layout()
-    }
-    
-    
     func layout() {
         view.addSubview(backgroundView)
         view.addSubview(scrollView)
@@ -88,10 +87,5 @@ class RulesViewController: UIViewController {
             textLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
             textLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -15),
         ])
-        
     }
-    
-    
-    
-    
 }

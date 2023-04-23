@@ -30,6 +30,7 @@ class GameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         wordLabel.text = word
+        print(questionNumbers.question)
     }
     
     override func viewDidLoad() {
@@ -61,6 +62,7 @@ class GameViewController: UIViewController {
     
     @objc func correctButtonPressed() {
         self.title = ""
+        
         questionNumbers.question += 1
         switchToResultVcOrCorrectVc()
     }

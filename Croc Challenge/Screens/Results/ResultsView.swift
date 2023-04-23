@@ -19,17 +19,17 @@ final class ResultsView: UIView {
     lazy var imageTwo = createImageView(image: UIImage(named: Resources.Image.burger)!)
     lazy var imageThree = createImageView(image: UIImage(named: Resources.Image.nails)!)
     
-    lazy var labelOne = createLabelWithTeamName(title: "Ковбои")
-    lazy var labelTwo = createLabelWithTeamName(title: "Стройняшки")
-    lazy var labelThree = createLabelWithTeamName(title: "Красотки")
+    lazy var labelOne = createLabelWithTeamName(title: "")
+    lazy var labelTwo = createLabelWithTeamName(title: "")
+    lazy var labelThree = createLabelWithTeamName(title: "")
     
     lazy var scoreLabelOne = createScoreLabel()
     lazy var scoreLabelTwo = createScoreLabel()
     lazy var scoreLabelThree = createScoreLabel()
     
-    lazy var teamOneScore = createTeamScoreLabel(text: "5")
-    lazy var teamTwoScore = createTeamScoreLabel(text: "4")
-    lazy var teamThreeScore = createTeamScoreLabel(text: "3")
+    lazy var teamOneScore = createTeamScoreLabel(text: "")
+    lazy var teamTwoScore = createTeamScoreLabel(text: "")
+    lazy var teamThreeScore = createTeamScoreLabel(text: "")
 
     override init(frame: CGRect) {
         super.init(frame: frame)
