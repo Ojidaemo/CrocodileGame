@@ -57,15 +57,17 @@ class RulesViewController: UIViewController {
         """
         return text
     }()
+}
+
+extension RulesViewController {
     
-    func layout() {
+    private func layout() {
         view.addSubview(backgroundView)
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(textLabel)
         
         NSLayoutConstraint.activate([
-            
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
