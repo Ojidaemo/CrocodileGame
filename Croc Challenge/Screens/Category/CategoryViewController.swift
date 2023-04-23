@@ -38,7 +38,7 @@ class CategoryViewController: UIViewController {
     }
 }
 
-extension CategoryViewController: startGameProtocol, ButtonTargetDelegate{
+extension CategoryViewController: startGameProtocol, ButtonTargetDelegate {
     func startGamePressed(sender: UIButton) {
         self.navigationController?.isNavigationBarHidden = true
         let gameVC = GameViewController()

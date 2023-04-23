@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class NumbersToResult {
     static let shared = NumbersToResult()
@@ -19,7 +20,7 @@ class GameViewController: UIViewController {
     let questionNumbers = NumbersToResult.shared
     
     var questionsBox = QuestionsBox()
-    var audioPlayer = AudioPlayer()
+    var player: AVAudioPlayer!
     var categoryChoise = ""
     
     var secondRemaining = 60
@@ -31,11 +32,6 @@ class GameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         wordLabel.text = word
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        audioPlayer.player.stop()
     }
     
     override func viewDidLoad() {
@@ -59,7 +55,7 @@ class GameViewController: UIViewController {
             } else if self.secondRemaining == 10 {
                 self.secondRemaining -= 1
                 self.timeLabel.text = String(format: "%02d:%02d", self.secondRemaining / 60, self.secondRemaining % 60)
-                self.audioPlayer.playSound(soundName: "10")
+                self.play(soundName: "10")
             } else if self.secondRemaining > 0 {
                 self.secondRemaining -= 1
                 self.timeLabel.text = String(format: "%02d:%02d", self.secondRemaining / 60, self.secondRemaining % 60)
@@ -72,11 +68,19 @@ class GameViewController: UIViewController {
         }
     }
     
+    private func play(soundName: String) {
+        guard let url = Bundle.main.url(forResource: soundName, withExtension: "wav") else { return }
+        player = try! AVAudioPlayer(contentsOf: url)
+        player.play()
+    }
+    
     @objc func correctButtonPressed() {
         self.title = ""
-        audioPlayer.player?.stop()
-        audioPlayer.playSound(soundName: "correct")
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+        play(soundName: "correct")
+        switchButton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
+            self.player.stop()
+            self.timer.invalidate()
             self.questionNumbers.question += 1
             self.switchToResultVcOrCorrectVc()
         }
@@ -84,12 +88,19 @@ class GameViewController: UIViewController {
     
     @objc func breakRulesButtonPressed() {
         self.title = ""
-        audioPlayer.player?.stop()
-        audioPlayer.playSound(soundName: "wrong")
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+        play(soundName: "wrong")
+        switchButton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
+            self.player.stop()
+            self.timer.invalidate()
             self.questionNumbers.question += 1
             self.switchToResultVcOrWrongVc()
         }
+    }
+    
+    func switchButton() {
+        correctButton.isEnabled.toggle()
+        breakRulesButton.isEnabled.toggle()
     }
     
     func switchToResultVcOrCorrectVc() {
@@ -104,6 +115,7 @@ class GameViewController: UIViewController {
             let (currentTeam, nextTeam) = teamManager.nextTeam()
             correctVC.updateUI(team1: currentTeam, team2: nextTeam)
             self.navigationController?.pushViewController(correctVC, animated: true)
+            switchButton()
         }
     }
     
@@ -117,6 +129,7 @@ class GameViewController: UIViewController {
             let (currentTeam, nextTeam) = teamManager.nextTeam()
             wrongVC.updateUI(team1: currentTeam, team2: nextTeam)
             self.navigationController?.pushViewController(wrongVC, animated: true)
+            switchButton()
         }
     }
     

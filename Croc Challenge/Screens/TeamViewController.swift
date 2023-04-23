@@ -82,14 +82,6 @@ class TeamViewController: UIViewController {
         self.navigationController?.pushViewController(categoryVC, animated: true)
     }
     
-//    let imageCloseButton: UIImageView = {
-//        let imageButton = UIImageView()
-//        imageButton.image = UIImage(named: "close 1")
-//        imageButton.backgroundColor = .red
-//        imageButton.translatesAutoresizingMaskIntoConstraints = false
-//        return imageButton
-//    }()
-    
     func createTeamScoreLabel(text: String) -> UILabel {
         let label = UILabel()
         label.backgroundColor = .clear
@@ -129,14 +121,12 @@ class TeamViewController: UIViewController {
 extension TeamViewController {
     
     private func setupConstraints() {
-        
         view.addSubviews(backgroundView, labelStack, playersReadyButton, addTeamButton)
         labelOne.addSubviewsToLabel(imageOne)
         labelTwo.addSubviewsToLabel(imageTwo)
         labelStack.addArrangedSubviews(labelOne, labelTwo)
         
         NSLayoutConstraint.activate([
-            
             backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -154,10 +144,6 @@ extension TeamViewController {
             
             imageOne.leadingAnchor.constraint(equalTo: labelOne.leadingAnchor, constant: 25),
             imageOne.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
-            
-//            imageClose.trailingAnchor.constraint(equalTo: labelOne.trailingAnchor, constant: -25),
-//            imageClose.heightAnchor.constraint(equalToConstant: 30),
-//            imageClose.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
 //
             imageTwo.leadingAnchor.constraint(equalTo: labelTwo.leadingAnchor, constant: 25),
             imageTwo.centerYAnchor.constraint(equalTo: labelTwo.centerYAnchor),
@@ -166,7 +152,6 @@ extension TeamViewController {
             labelStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
             labelStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 110),
             labelStack.heightAnchor.constraint(equalToConstant: 240)
-            
         ])
     }
 }

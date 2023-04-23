@@ -24,7 +24,6 @@ final class CategoryView: UIView {
         super.init(frame: frame)
         setupCheckmarkImages()
         setupViews()
-        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -171,6 +170,11 @@ final class CategoryView: UIView {
     @objc func startGamePressed(_ sender: UIButton) {
         delegateStartGame?.startGamePressed(sender: sender)
     }
+}
+
+//MARK: - Constraints
+
+extension CategoryView {
     
     private func setupViews() {
         categoryOne.addSubviewsToButton(imageEllipse, checkmarkImageOne)
@@ -180,12 +184,8 @@ final class CategoryView: UIView {
         imageEllipse.addSubview(imageOne)
         buttonsStack.addArrangedSubviews(categoryOne, categoryTwo, categoryThree, categoryFour)
         self.addSubviews(backgroundView, startGame, buttonsStack)
+        setupConstraints()
     }
-}
-
-//MARK: - Constraints
-
-extension CategoryView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([

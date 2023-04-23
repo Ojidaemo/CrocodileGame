@@ -94,8 +94,11 @@ class MainViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
+}
+
+extension MainViewController {
     
-    func setupConstraints() {
+    private func setupConstraints() {
         backgroundImageConstraints()
         crocodileImageConstraints()
         startGameButtonConstraints()
@@ -103,8 +106,7 @@ class MainViewController: UIViewController {
         stackImageConstraints()
     }
     
-    func backgroundImageConstraints() {
-        
+    private func backgroundImageConstraints() {
         view.addSubview(backroundImage)
         NSLayoutConstraint.activate([
             backroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -114,7 +116,7 @@ class MainViewController: UIViewController {
         ])
     }
     
-    func crocodileImageConstraints() {
+    private func crocodileImageConstraints() {
         view.addSubview(crocodileImage)
         NSLayoutConstraint.activate([
             crocodileImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -124,7 +126,7 @@ class MainViewController: UIViewController {
         ])
     }
 
-    func startGameButtonConstraints() {
+    private func startGameButtonConstraints() {
         view.addSubview(startGameButton)
         NSLayoutConstraint.activate([
             startGameButton.topAnchor.constraint(equalTo: crocodileImage.bottomAnchor, constant: 20),
@@ -134,7 +136,7 @@ class MainViewController: UIViewController {
         ])
     }
     
-    func rulesButtonConstraints() {
+    private func rulesButtonConstraints() {
         view.addSubview(rulesButton)
         NSLayoutConstraint.activate([
             rulesButton.topAnchor.constraint(equalTo: startGameButton.bottomAnchor, constant: 39),
@@ -144,7 +146,7 @@ class MainViewController: UIViewController {
         ])
     }
 
-    func stackImageConstraints() {
+    private func stackImageConstraints() {
         view.addSubview(stackViewImages)
         NSLayoutConstraint.activate([
             stackViewImages.topAnchor.constraint(equalTo: rulesButton.bottomAnchor, constant: 19),
