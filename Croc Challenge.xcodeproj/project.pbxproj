@@ -27,7 +27,6 @@
 		8717979629F520AB003921BF /* 10.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8717979329F520AA003921BF /* 10.wav */; };
 		8717979729F520AB003921BF /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8717979429F520AB003921BF /* correct.wav */; };
 		8717979829F520AB003921BF /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8717979529F520AB003921BF /* wrong.wav */; };
-		8717979A29F52100003921BF /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717979929F52100003921BF /* AudioPlayer.swift */; };
 		87F8947529EEB2CF0098BC12 /* AddSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947429EEB2CF0098BC12 /* AddSubviews.swift */; };
 		87F8947729EEB30A0098BC12 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947629EEB30A0098BC12 /* CategoryView.swift */; };
 		87F8947929EEB3700098BC12 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947829EEB3700098BC12 /* ResultsView.swift */; };
@@ -60,7 +59,6 @@
 		8717979329F520AA003921BF /* 10.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10.wav; sourceTree = "<group>"; };
 		8717979429F520AB003921BF /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
 		8717979529F520AB003921BF /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
-		8717979929F52100003921BF /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		87F8947429EEB2CF0098BC12 /* AddSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubviews.swift; sourceTree = "<group>"; };
 		87F8947629EEB30A0098BC12 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		87F8947829EEB3700098BC12 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 				0D302D5429F15C3C00F6970B /* QuestionsBox.swift */,
 				0D302D5629F1681800F6970B /* Teams.swift */,
 				8717978E29F3E5D6003921BF /* TeamManager.swift */,
-				8717979929F52100003921BF /* AudioPlayer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,14 +125,6 @@
 			path = "Croc Challenge";
 			sourceTree = "<group>";
 		};
-		7C8A3E9429EF12CD004A9985 /* Game */ = {
-			isa = PBXGroup;
-			children = (
-				7C8A3E9529EF12CD004A9985 /* GameViewController.swift */,
-			);
-			path = Game;
-			sourceTree = "<group>";
-		};
 		8717979029F515AE003921BF /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +142,7 @@
 				7C8A3E3629ED82BB004A9985 /* RulesViewController.swift */,
 				7C8A3E3829ED82CC004A9985 /* TeamViewController.swift */,
 				87F8947129EEB29A0098BC12 /* Category */,
-				7C8A3E9429EF12CD004A9985 /* Game */,
+				7C8A3E9529EF12CD004A9985 /* GameViewController.swift */,
 				7C8A3E3E29ED8310004A9985 /* CorrectViewController.swift */,
 				7C8A3E4029ED831E004A9985 /* WrongViewController.swift */,
 				87F8947229EEB2A50098BC12 /* Results */,
@@ -304,7 +293,6 @@
 				7C8A3E3729ED82BB004A9985 /* RulesViewController.swift in Sources */,
 				87F8947529EEB2CF0098BC12 /* AddSubviews.swift in Sources */,
 				0D302D5529F15C3C00F6970B /* QuestionsBox.swift in Sources */,
-				8717979A29F52100003921BF /* AudioPlayer.swift in Sources */,
 				0D302D5229F15C0900F6970B /* Questions.swift in Sources */,
 				87F8948629EFEB080098BC12 /* NavController.swift in Sources */,
 				7C8A3E1529ED7DE0004A9985 /* SceneDelegate.swift in Sources */,

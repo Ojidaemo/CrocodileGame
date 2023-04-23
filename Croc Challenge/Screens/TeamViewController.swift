@@ -10,7 +10,7 @@ import UIKit
 class TeamViewController: UIViewController {
     
     let globalData = TeamsManager.shared
-    let questionNumbers = NumbersToResult.shared
+//    let questionNumbers = NumbersToResult.shared
     
     lazy var imageOne = createImageView(image: globalData.teamOne!.teamImage)
     lazy var labelOne = createLabelWithTeamName(title: globalData.teamOne?.name ?? "")
@@ -21,7 +21,7 @@ class TeamViewController: UIViewController {
         super.viewDidLoad()
         globalData.ourTeam.removeAll()
         globalData.generateRandomTeams()
-        questionNumbers.question = 0
+        globalData.question = 0
         self.title = "Кто играет?"
         view.backgroundColor = .clear
         setupConstraints()

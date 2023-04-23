@@ -8,17 +8,9 @@
 import UIKit
 import AVFoundation
 
-class NumbersToResult {
-    static let shared = NumbersToResult()
-    
-    var question = 0
-}
-
 class GameViewController: UIViewController {
     
     let teamManager = TeamsManager.shared
-    let questionNumbers = NumbersToResult.shared
-    
     var questionsBox = QuestionsBox()
     var player: AVAudioPlayer!
     var categoryChoise = ""
@@ -81,7 +73,7 @@ class GameViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
             self.player.stop()
             self.timer.invalidate()
-            self.questionNumbers.question += 1
+            self.teamManager.question += 1
             self.switchToResultVcOrCorrectVc()
         }
     }
@@ -93,7 +85,7 @@ class GameViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
             self.player.stop()
             self.timer.invalidate()
-            self.questionNumbers.question += 1
+            self.teamManager.question += 1
             self.switchToResultVcOrWrongVc()
         }
     }
@@ -104,11 +96,11 @@ class GameViewController: UIViewController {
     }
     
     func switchToResultVcOrCorrectVc() {
-        if questionNumbers.question == teamManager.ourTeam.count * 5 {
+        if teamManager.question == teamManager.ourTeam.count * 5 {
             let resultVC = GameResultViewController()
             teamManager.teamCorrectAnswer()
             self.navigationController?.pushViewController(resultVC, animated: true)
-        } else if questionNumbers.question < teamManager.ourTeam.count * 5 {
+        } else if teamManager.question < teamManager.ourTeam.count * 5 {
             let correctVC = CorrectViewController()
             correctVC.categoryChoise = categoryChoise
             teamManager.teamCorrectAnswer()
@@ -120,10 +112,10 @@ class GameViewController: UIViewController {
     }
     
     func switchToResultVcOrWrongVc() {
-        if questionNumbers.question == teamManager.ourTeam.count * 5 {
+        if teamManager.question == teamManager.ourTeam.count * 5 {
             let resultVC = GameResultViewController()
             self.navigationController?.pushViewController(resultVC, animated: true)
-        } else if questionNumbers.question < teamManager.ourTeam.count * 5 {
+        } else if teamManager.question < teamManager.ourTeam.count * 5 {
             let wrongVC = WrongViewController()
             wrongVC.categoryChoise = categoryChoise
             let (currentTeam, nextTeam) = teamManager.nextTeam()

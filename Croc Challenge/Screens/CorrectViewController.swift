@@ -12,14 +12,12 @@ class CorrectViewController: UIViewController {
     
     var questionsBox = QuestionsBox()
     var categoryChoise = ""
-    var audioPlayer = AudioPlayer()
     
     let teamManager = TeamsManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        audioPlayer.player?.stop()
     }
     
     func updateUI(team1: Teams, team2: Teams) {

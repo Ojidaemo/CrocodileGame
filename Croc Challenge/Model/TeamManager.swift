@@ -11,6 +11,7 @@ class TeamsManager {
     
     static let shared = TeamsManager()
     
+    var question = 0
     var teamOne: Teams?
     var teamTwo: Teams?
     var ourTeam: [Teams] = []
