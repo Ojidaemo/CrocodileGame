@@ -25,7 +25,6 @@ class CategoryViewController: UIViewController {
     func setDelegates() {
         categoryView.delegateStartGame = self
         categoryView.delegate = self
-
     }
     
     private func setupConstraints() {

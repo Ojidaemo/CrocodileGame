@@ -11,7 +11,7 @@ class GameResultViewController: UIViewController {
     
     private let resultsView = ResultsView()
     private let teamManager = TeamsManager.shared
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Результаты"
@@ -20,20 +20,26 @@ class GameResultViewController: UIViewController {
         view.addSubview(resultsView)
         setupConstraints()
         showTeamsAndScores()
-    }
-    
-    func setDelegates() {
-        resultsView.delegateRestartGame = self
+        showTeams()
+        
     }
     
     private func showTeamsAndScores() {
-        resultsView.labelOne.text = teamManager.teamOne?.name
-        resultsView.labelTwo.text = teamManager.teamTwo?.name
-        resultsView.imageOne.image = teamManager.teamOne?.teamImage
-        resultsView.imageTwo.image = teamManager.teamTwo?.teamImage
-        resultsView.teamOneScore.text = String(teamManager.ourTeam[0].score)
-        resultsView.teamTwoScore.text = String(teamManager.ourTeam[1].score)
-        showTeams()
+        if teamManager.ourTeam[1].score > teamManager.ourTeam[0].score {
+            resultsView.labelOne.text = teamManager.teamTwo?.name
+            resultsView.imageOne.image = teamManager.teamTwo?.teamImage
+            resultsView.teamOneScore.text = String(teamManager.ourTeam[1].score)
+            resultsView.labelTwo.text = teamManager.teamOne?.name
+            resultsView.imageTwo.image = teamManager.teamOne?.teamImage
+            resultsView.teamTwoScore.text = String(teamManager.ourTeam[0].score)
+        } else {
+            resultsView.labelOne.text = teamManager.teamOne?.name
+            resultsView.imageOne.image = teamManager.teamOne?.teamImage
+            resultsView.teamOneScore.text = String(teamManager.ourTeam[0].score)
+            resultsView.labelTwo.text = teamManager.teamTwo?.name
+            resultsView.imageTwo.image = teamManager.teamTwo?.teamImage
+            resultsView.teamTwoScore.text = String(teamManager.ourTeam[1].score)
+        }
     }
     
     private func showTeams() {
@@ -42,6 +48,10 @@ class GameResultViewController: UIViewController {
         } else if teamManager.ourTeam.count == 3 {
             resultsView.labelThree.isHidden = false
         }
+    }
+    
+    func setDelegates() {
+        resultsView.delegateRestartGame = self
     }
     
     private func setupConstraints() {
@@ -64,4 +74,3 @@ extension GameResultViewController: restartGameProtocol {
         self.navigationController?.pushViewController(mainVC, animated: true)
     }
 }
-    
