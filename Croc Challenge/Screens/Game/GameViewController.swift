@@ -19,6 +19,7 @@ class GameViewController: UIViewController {
     let questionNumbers = NumbersToResult.shared
     
     var questionsBox = QuestionsBox()
+    var audioPlayer = AudioPlayer()
     var categoryChoise = ""
     
     var secondRemaining = 60
@@ -30,7 +31,11 @@ class GameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         wordLabel.text = word
-        print(questionNumbers.question)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        audioPlayer.player.stop()
     }
     
     override func viewDidLoad() {
@@ -48,7 +53,14 @@ class GameViewController: UIViewController {
         // Invalidate any existing timer before creating a new one
         timer.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            if self.secondRemaining != 0 {
+            if self.secondRemaining > 10 {
+                self.secondRemaining -= 1
+                self.timeLabel.text = String(format: "%02d:%02d", self.secondRemaining / 60, self.secondRemaining % 60)
+            } else if self.secondRemaining == 10 {
+                self.secondRemaining -= 1
+                self.timeLabel.text = String(format: "%02d:%02d", self.secondRemaining / 60, self.secondRemaining % 60)
+                self.audioPlayer.playSound(soundName: "10")
+            } else if self.secondRemaining > 0 {
                 self.secondRemaining -= 1
                 self.timeLabel.text = String(format: "%02d:%02d", self.secondRemaining / 60, self.secondRemaining % 60)
             } else {
@@ -62,15 +74,22 @@ class GameViewController: UIViewController {
     
     @objc func correctButtonPressed() {
         self.title = ""
-        
-        questionNumbers.question += 1
-        switchToResultVcOrCorrectVc()
+        audioPlayer.player?.stop()
+        audioPlayer.playSound(soundName: "correct")
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+            self.questionNumbers.question += 1
+            self.switchToResultVcOrCorrectVc()
+        }
     }
     
     @objc func breakRulesButtonPressed() {
         self.title = ""
-        questionNumbers.question += 1
-        switchToResultVcOrWrongVc()
+        audioPlayer.player?.stop()
+        audioPlayer.playSound(soundName: "wrong")
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+            self.questionNumbers.question += 1
+            self.switchToResultVcOrWrongVc()
+        }
     }
     
     func switchToResultVcOrCorrectVc() {
