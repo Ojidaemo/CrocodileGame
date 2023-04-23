@@ -11,9 +11,7 @@ struct QuestionsBox {
     
     var currentTeam = 0
     var score = 0
-    
-//    var team = Teams.showTeam()
-    
+        
     let questionsAnimals = [
         Questions(text: "Слон", answer: "Животные"),
         Questions(text: "Волк", answer: "Животные"),
@@ -30,7 +28,12 @@ struct QuestionsBox {
         Questions(text: "Обезьяна", answer: "Животные"),
         Questions(text: "Лось", answer: "Животные"),
         Questions(text: "Жираф", answer: "Животные"),
-        Questions(text: "Черепаха", answer: "Животные")
+        Questions(text: "Черепаха", answer: "Животные"),
+        Questions(text: "Кенгуру", answer: "Животные"),
+        Questions(text: "Гепард", answer: "Животные"),
+        Questions(text: "Крокодил", answer: "Животные"),
+        Questions(text: "Дельфин", answer: "Животные"),
+        Questions(text: "Кит", answer: "Животные"),
     ]
     
     let questionsFood = [
@@ -42,6 +45,19 @@ struct QuestionsBox {
         Questions(text: "Помидор", answer: "Еда"),
         Questions(text: "Суши", answer: "Еда"),
         Questions(text: "Клубника", answer: "Еда"),
+        Questions(text: "Рис", answer: "Еда"),
+        Questions(text: "Яйца", answer: "Еда"),
+        Questions(text: "Хлеб", answer: "Еда"),
+        Questions(text: "Овощи", answer: "Еда"),
+        Questions(text: "Фрукты", answer: "Еда"),
+        Questions(text: "Мороженое", answer: "Еда"),
+        Questions(text: "Паста", answer: "Еда"),
+        Questions(text: "Рыба", answer: "Еда"),
+        Questions(text: "Мясо", answer: "Еда"),
+        Questions(text: "Чипсы", answer: "Еда"),
+        Questions(text: "Гренки", answer: "Еда"),
+        Questions(text: "Блины", answer: "Еда"),
+        Questions(text: "Кекс", answer: "Еда"),
     ]
     
     let questionsPersonality = [
@@ -59,7 +75,12 @@ struct QuestionsBox {
         Questions(text: "Брюс Уиллис", answer: "Личности"),
         Questions(text: "Курт Кобейн", answer: "Личности"),
         Questions(text: "Анджелина Джоли", answer: "Личности"),
-        Questions(text: "Ким Кардашьян", answer: "Личности")
+        Questions(text: "Ким Кардашьян", answer: "Личности"),
+        Questions(text: "Том Круз", answer: "Личности"),
+        Questions(text: "Бейонсе", answer: "Личности"),
+        Questions(text: "Элвис Пресли", answer: "Личности"),
+        Questions(text: "Джордж Клуни", answer: "Личности"),
+        Questions(text: "Билл Гейтс", answer: "Личности")
     ]
     
     let questionsHobby = [
@@ -71,13 +92,20 @@ struct QuestionsBox {
         Questions(text: "Бег", answer: "Хобби"),
         Questions(text: "Йога", answer: "Хобби"),
         Questions(text: "Чтение", answer: "Хобби"),
-        Questions(text: "Тренировка в зале", answer: "Хобби"),
+        Questions(text: "Бодибилдинг", answer: "Хобби"),
         Questions(text: "Игра на гитаре", answer: "Хобби"),
         Questions(text: "Конный спорт", answer: "Хобби"),
         Questions(text: "Танцы", answer: "Хобби"),
         Questions(text: "Скалолазанье", answer: "Хобби"),
-        Questions(text: "Прыжки с парашутом", answer: "Хобби"),
-        Questions(text: "Дайвинг", answer: "Хобби")
+        Questions(text: "Дайвинг", answer: "Хобби"),
+        Questions(text: "Пение", answer: "Хобби"),
+        Questions(text: "Рисование", answer: "Хобби"),
+        Questions(text: "Фотография", answer: "Хобби"),
+        Questions(text: "Готовка", answer: "Хобби"),
+        Questions(text: "Вышивание", answer: "Хобби"),
+        Questions(text: "Вязание", answer: "Хобби"),
+        Questions(text: "Садоводство", answer: "Хобби"),
+        Questions(text: "Путешествия", answer: "Хобби"),
     ]
     
     mutating func choiceCategory(_ sender: String) -> String {
@@ -114,9 +142,8 @@ struct QuestionsBox {
                      "Объясняй вульгарно.",
                      "Объясняй сексуально."
         ]
-        
         return words.randomElement()!
     }
-
+    
 }
 

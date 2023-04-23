@@ -17,7 +17,6 @@ class TeamViewController: UIViewController {
     lazy var imageTwo = createImageView(image: globalData.teamTwo!.teamImage)
     lazy var labelTwo = createLabelWithTeamName(title: globalData.teamTwo?.name ?? "")
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         globalData.ourTeam.removeAll()

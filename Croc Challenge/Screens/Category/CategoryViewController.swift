@@ -28,15 +28,12 @@ class CategoryViewController: UIViewController {
     }
     
     private func setupConstraints() {
-        
         categoryView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             categoryView.topAnchor.constraint(equalTo: view.topAnchor),
             categoryView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             categoryView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             categoryView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            
         ])
     }
 }
@@ -51,7 +48,6 @@ extension CategoryViewController: startGameProtocol, ButtonTargetDelegate{
     
     func buttonTapped(sender: UIButton) {
         categoryChoise = sender.currentTitle!
-//        _ = questionsBox.choiceCategory(questionsBox.categoryChoise)
         
         switch sender.tag {
         case 1:
@@ -77,7 +73,5 @@ extension CategoryViewController: startGameProtocol, ButtonTargetDelegate{
         default:
             break
         }
-        
     }
-    
 }

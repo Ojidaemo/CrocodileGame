@@ -26,12 +26,10 @@ class TeamsManager {
               let secondTeam = teams.filter({ $0 != firstTeam }).randomElement() else {
             return
         }
-        
         teamOne = firstTeam
         teamTwo = secondTeam
         ourTeam.append(teamOne!)
         ourTeam.append(teamTwo!)
-        print("team1 \(ourTeam)")
     }
     
     var currentTeam = 0
@@ -39,14 +37,14 @@ class TeamsManager {
     func teamCorrectAnswer() {
         ourTeam[currentTeam].score += 1
     }
-
-func nextTeam() -> (currentTeam: Teams, nextTeam: Teams) {
-    let current = ourTeam[currentTeam]
-    currentTeam += 1
-    if currentTeam == ourTeam.count {
-        currentTeam = 0
+    
+    func nextTeam() -> (currentTeam: Teams, nextTeam: Teams) {
+        let current = ourTeam[currentTeam]
+        currentTeam += 1
+        if currentTeam == ourTeam.count {
+            currentTeam = 0
+        }
+        let next = ourTeam[currentTeam]
+        return (current, next)
     }
-    let next = ourTeam[currentTeam]
-    return (current, next)
-}
 }

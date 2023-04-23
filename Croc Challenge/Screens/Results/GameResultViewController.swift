@@ -21,7 +21,6 @@ class GameResultViewController: UIViewController {
         setupConstraints()
         showTeamsAndScores()
         showTeams()
-        
     }
     
     private func showTeamsAndScores() {
@@ -57,13 +56,11 @@ class GameResultViewController: UIViewController {
     private func setupConstraints() {
         
         resultsView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             resultsView.topAnchor.constraint(equalTo: view.topAnchor),
             resultsView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             resultsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             resultsView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            
         ])
     }
 }

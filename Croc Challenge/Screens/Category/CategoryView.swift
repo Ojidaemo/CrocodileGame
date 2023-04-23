@@ -188,9 +188,7 @@ final class CategoryView: UIView {
 extension CategoryView {
     
     private func setupConstraints() {
-        
         NSLayoutConstraint.activate([
-            
             backgroundView.topAnchor.constraint(equalTo: topAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -232,7 +230,6 @@ extension CategoryView {
             buttonsStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             buttonsStack.topAnchor.constraint(equalTo: topAnchor, constant: 180),
             buttonsStack.bottomAnchor.constraint(equalTo: startGame.topAnchor, constant: -50)
-            
         ])
     }
 }
