@@ -128,12 +128,14 @@ class GameViewController: UIViewController {
     @objc func restartButtonPressed() {
         self.navigationController?.isNavigationBarHidden = true
         timer.invalidate()
+        self.player.pause()
         alertForResetButton()
     }
     
     func alertForResetButton() {
         let alert = UIAlertController(title: "Сбросить игру?", message: "Вы хотите сбросить игру и вернуться в главное меню?", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Отмена", style: .default) { (cancel) in
+            self.player.play()
             self.callTimer()
         }
         let action = UIAlertAction(title: "Да", style: .default) { (action) in
