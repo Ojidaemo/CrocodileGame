@@ -27,6 +27,9 @@
 		8717979629F520AB003921BF /* 10.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8717979329F520AA003921BF /* 10.wav */; };
 		8717979729F520AB003921BF /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8717979429F520AB003921BF /* correct.wav */; };
 		8717979829F520AB003921BF /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8717979529F520AB003921BF /* wrong.wav */; };
+		8717979C29F8331B003921BF /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717979B29F8331B003921BF /* ResultViewController.swift */; };
+		8717979F29F83361003921BF /* TotalResultsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717979E29F83361003921BF /* TotalResultsTable.swift */; };
+		871797A129F83CF2003921BF /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871797A029F83CF2003921BF /* ResultCell.swift */; };
 		87F8947529EEB2CF0098BC12 /* AddSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947429EEB2CF0098BC12 /* AddSubviews.swift */; };
 		87F8947729EEB30A0098BC12 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947629EEB30A0098BC12 /* CategoryView.swift */; };
 		87F8947929EEB3700098BC12 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8947829EEB3700098BC12 /* ResultsView.swift */; };
@@ -59,6 +62,9 @@
 		8717979329F520AA003921BF /* 10.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10.wav; sourceTree = "<group>"; };
 		8717979429F520AB003921BF /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
 		8717979529F520AB003921BF /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
+		8717979B29F8331B003921BF /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		8717979E29F83361003921BF /* TotalResultsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalResultsTable.swift; sourceTree = "<group>"; };
+		871797A029F83CF2003921BF /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		87F8947429EEB2CF0098BC12 /* AddSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubviews.swift; sourceTree = "<group>"; };
 		87F8947629EEB30A0098BC12 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		87F8947829EEB3700098BC12 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
@@ -145,7 +151,8 @@
 				7C8A3E9529EF12CD004A9985 /* GameViewController.swift */,
 				7C8A3E3E29ED8310004A9985 /* CorrectViewController.swift */,
 				7C8A3E4029ED831E004A9985 /* WrongViewController.swift */,
-				87F8947229EEB2A50098BC12 /* Results */,
+				87F8947229EEB2A50098BC12 /* GameResults */,
+				8717979D29F8333C003921BF /* Results */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -160,6 +167,16 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		8717979D29F8333C003921BF /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				8717979B29F8331B003921BF /* ResultViewController.swift */,
+				8717979E29F83361003921BF /* TotalResultsTable.swift */,
+				871797A029F83CF2003921BF /* ResultCell.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
 		87F8947129EEB29A0098BC12 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,13 +186,13 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		87F8947229EEB2A50098BC12 /* Results */ = {
+		87F8947229EEB2A50098BC12 /* GameResults */ = {
 			isa = PBXGroup;
 			children = (
 				7C8A3E4229ED832B004A9985 /* GameResultViewController.swift */,
 				87F8947829EEB3700098BC12 /* ResultsView.swift */,
 			);
-			path = Results;
+			path = GameResults;
 			sourceTree = "<group>";
 		};
 		87F8947329EEB2B20098BC12 /* Extensions */ = {
@@ -290,17 +307,20 @@
 				87F8947929EEB3700098BC12 /* ResultsView.swift in Sources */,
 				87F8947729EEB30A0098BC12 /* CategoryView.swift in Sources */,
 				7C8A3E1329ED7DE0004A9985 /* AppDelegate.swift in Sources */,
+				871797A129F83CF2003921BF /* ResultCell.swift in Sources */,
 				7C8A3E3729ED82BB004A9985 /* RulesViewController.swift in Sources */,
 				87F8947529EEB2CF0098BC12 /* AddSubviews.swift in Sources */,
 				0D302D5529F15C3C00F6970B /* QuestionsBox.swift in Sources */,
 				0D302D5229F15C0900F6970B /* Questions.swift in Sources */,
 				87F8948629EFEB080098BC12 /* NavController.swift in Sources */,
 				7C8A3E1529ED7DE0004A9985 /* SceneDelegate.swift in Sources */,
+				8717979F29F83361003921BF /* TotalResultsTable.swift in Sources */,
 				7C8A3E4329ED832B004A9985 /* GameResultViewController.swift in Sources */,
 				7C8A3E9329EF12AA004A9985 /* MainViewController.swift in Sources */,
 				87F8948329EED8C10098BC12 /* Resources.swift in Sources */,
 				8717978F29F3E5D6003921BF /* TeamManager.swift in Sources */,
 				7C8A3E9629EF12CD004A9985 /* GameViewController.swift in Sources */,
+				8717979C29F8331B003921BF /* ResultViewController.swift in Sources */,
 				7C8A3E3B29ED82E9004A9985 /* CategoryViewController.swift in Sources */,
 				7C8A3E3929ED82CC004A9985 /* TeamViewController.swift in Sources */,
 				7C8A3E4129ED831E004A9985 /* WrongViewController.swift in Sources */,

@@ -29,6 +29,7 @@ class MainViewController: UIViewController {
     private lazy var crocodileImage: UIImageView = {
         let theImageView = UIImageView()
         theImageView.image = UIImage(named: "pngwing 1")
+        theImageView.contentMode = .scaleAspectFit
         theImageView.translatesAutoresizingMaskIntoConstraints = false
         return theImageView
     }()
@@ -70,6 +71,24 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(rulesVC, animated: true)
     }
     
+    private lazy var resultButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Результаты", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor(named: Resources.Colors.buttonOrange)
+        button.addTarget(self, action: #selector(resultButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func resultButtonPressed () {
+        self.navigationController?.isNavigationBarHidden = false
+        let resultVC = ResultViewController()
+        self.navigationController?.pushViewController(resultVC, animated: true)
+    }
+    
     private lazy var grassImageOne: UIImageView = {
         let theImageView = UIImageView()
         theImageView.image = UIImage(named: "grass 2")
@@ -103,6 +122,7 @@ extension MainViewController {
         crocodileImageConstraints()
         startGameButtonConstraints()
         rulesButtonConstraints()
+        resultButtonConstraints()
         stackImageConstraints()
     }
     
@@ -119,37 +139,46 @@ extension MainViewController {
     private func crocodileImageConstraints() {
         view.addSubview(crocodileImage)
         NSLayoutConstraint.activate([
-            crocodileImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            crocodileImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            crocodileImage.widthAnchor.constraint(equalToConstant: 268),
-            crocodileImage.heightAnchor.constraint(equalToConstant: 280)
+            crocodileImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            crocodileImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            crocodileImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
         ])
     }
-
+    
     private func startGameButtonConstraints() {
         view.addSubview(startGameButton)
         NSLayoutConstraint.activate([
-            startGameButton.topAnchor.constraint(equalTo: crocodileImage.bottomAnchor, constant: 20),
-            startGameButton.widthAnchor.constraint(equalToConstant: 274),
+            startGameButton.topAnchor.constraint(equalTo: crocodileImage.bottomAnchor, constant: 50),
+            startGameButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            startGameButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             startGameButton.heightAnchor.constraint(equalToConstant: 83),
-            startGameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
     private func rulesButtonConstraints() {
         view.addSubview(rulesButton)
         NSLayoutConstraint.activate([
-            rulesButton.topAnchor.constraint(equalTo: startGameButton.bottomAnchor, constant: 39),
-            rulesButton.widthAnchor.constraint(equalToConstant: 211),
+            rulesButton.topAnchor.constraint(equalTo: startGameButton.bottomAnchor, constant: 20),
+            rulesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
+            rulesButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
             rulesButton.heightAnchor.constraint(equalToConstant: 63),
-            rulesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
-
+    
+    private func resultButtonConstraints() {
+        view.addSubview(resultButton)
+        NSLayoutConstraint.activate([
+            resultButton.topAnchor.constraint(equalTo: rulesButton.bottomAnchor, constant: 20),
+            resultButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
+            resultButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
+            resultButton.heightAnchor.constraint(equalToConstant: 63),
+        ])
+    }
+    
     private func stackImageConstraints() {
         view.addSubview(stackViewImages)
         NSLayoutConstraint.activate([
-            stackViewImages.topAnchor.constraint(equalTo: rulesButton.bottomAnchor, constant: 19),
+            stackViewImages.topAnchor.constraint(equalTo: resultButton.bottomAnchor, constant: 20),
             stackViewImages.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
             stackViewImages.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             stackViewImages.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
