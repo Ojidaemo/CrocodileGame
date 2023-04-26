@@ -18,8 +18,7 @@ class ResultTableView: UIView {
         super.init(frame: frame)
         setTableDelegates()
         configureTable()
-        self.addSubview(backgroundView)
-        self.addSubview(tableView)
+        setupViews()
         setupConstraints()
     }
     
@@ -30,6 +29,24 @@ class ResultTableView: UIView {
         background.translatesAutoresizingMaskIntoConstraints = false
         return background
     }()
+    
+    private lazy var resetButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Очистить результаты", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
+        button.addTarget(self, action: #selector(resetButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func resetButtonPressed() {
+        teamManager.teamResults = []
+        teamManager.saveData(dataToSave: teamManager.teamResults)
+        tableView.reloadData()
+    }
     
     func configureTable() {
         tableView.separatorStyle = .none
@@ -43,12 +60,27 @@ class ResultTableView: UIView {
         tableView.delegate = self
     }
     
+    func setupViews() {
+        self.addSubview(backgroundView)
+        self.addSubviews(resetButton)
+        self.addSubview(tableView)
+    }
+    
     func setupConstraints() {
         backgroundView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        resetButton.snp.makeConstraints { make in
+            make.bottom.equalTo(self.safeAreaLayoutGuide)
+            make.left.right.equalToSuperview().inset(80)
+            make.height.equalTo(63)
+        }
+        
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalToSuperview()
+            make.right.left.equalToSuperview()
+            make.bottom.equalTo(resetButton.snp.top).inset(-20)
         }
     }
     

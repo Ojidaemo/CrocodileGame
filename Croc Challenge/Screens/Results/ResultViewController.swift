@@ -20,15 +20,13 @@ class ResultViewController: UIViewController {
         view.backgroundColor = .secondarySystemBackground
         view.addSubview(resultTableView)
         setupConstrains()
-        teamManager.teamResults = teamManager.retrieveData()
-        print("totalResults \(teamManager.teamResults)")
+        teamManager.teamResults = teamManager.retrieveData().sorted(by: { $0.score > $1.score })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-        
     private func setupConstrains() {
         
         resultTableView.snp.makeConstraints { make in

@@ -21,11 +21,13 @@ class GameResultViewController: UIViewController {
         setupConstraints()
         showTeamsAndScores()
         showTeams()
-        teamManager.teamResults.append(teamManager.ourTeam[0])
-        teamManager.teamResults.append(teamManager.ourTeam[1])
+        saveToDefaults()
+    }
+    
+    private func saveToDefaults() {
+        teamManager.teamResults.append(contentsOf: teamManager.ourTeam)
         teamManager.saveData(dataToSave: teamManager.teamResults)
         print("saveData \(teamManager.teamResults)")
-        teamManager.teamResults = teamManager.retrieveData()
         print("totalResults \(teamManager.teamResults)")
     }
     

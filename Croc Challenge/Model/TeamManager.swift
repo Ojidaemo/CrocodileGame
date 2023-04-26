@@ -58,18 +58,8 @@ class TeamsManager {
         defaults.set(data, forKey: "teamResults")
     }
     
-//    func loadData(key: String) -> [Result] {
-//        if let savedData = defaults.object(forKey: key) as? Data {
-//            let decoder = JSONDecoder()
-//            if let loadedData = try? decoder.decode([Result].self, from: savedData) {
-//                return loadedData
-//            }
-//        }
-//        return []
-//    }
-    
+    // Retrieving from UserDefaults
     func retrieveData() -> [Teams] {
-        // Retrieving from UserDefaults
         if let savedData = defaults.object(forKey: "teamResults") as? Data,
            let savedTeam = try? JSONDecoder().decode([Teams].self, from: savedData) {
             return savedTeam
