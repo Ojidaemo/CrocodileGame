@@ -24,6 +24,7 @@ enum Resources {
         static let burger = "Avatar2"
         static let nails = "Avatar3"
         static let frog = "frog"
+        static let teamImages = ["Avatar1", "Avatar2", "Avatar3", "frog"]
         static let checkmark = "Checkmark"
         static let whiteCircle = "Ellipse"
         static let arrow = "Arrow"
