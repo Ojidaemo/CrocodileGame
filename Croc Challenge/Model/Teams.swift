@@ -7,8 +7,8 @@
 
 import UIKit
 
-struct Teams: Equatable {
+struct Teams: Equatable, Codable {
     let name: String
     var score: Int
-    let teamImage: UIImage
+    let teamImage: String
 }

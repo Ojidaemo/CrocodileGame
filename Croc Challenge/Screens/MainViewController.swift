@@ -8,7 +8,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.hidesBackButton = true
@@ -17,6 +17,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupConstraints()
+        if let libraryPath = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first {
+            let userDefaultsPath = (libraryPath as NSString).appendingPathComponent("Preferences")
+            print(userDefaultsPath)
+        }
     }
     
     private lazy var backroundImage: UIImageView = {
@@ -84,6 +88,7 @@ class MainViewController: UIViewController {
     }()
     
     @objc func resultButtonPressed () {
+        self.title = ""
         self.navigationController?.isNavigationBarHidden = false
         let resultVC = ResultViewController()
         self.navigationController?.pushViewController(resultVC, animated: true)

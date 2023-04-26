@@ -34,6 +34,12 @@ class ResultCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configureCell(with data: Teams) {
+        imageOne.image = UIImage(named: data.teamImage)
+        labelOne.text = data.name
+        teamOneScore.text = String(data.score)
+    }
+    
     func createLabelWithTeamName(title: String) -> UILabel {
         let label = UILabel()
         label.backgroundColor = .white

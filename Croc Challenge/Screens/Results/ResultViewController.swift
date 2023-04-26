@@ -10,6 +10,7 @@ import UIKit
 class ResultViewController: UIViewController {
 
     private var resultTableView = ResultTableView()
+    private let teamManager = TeamsManager.shared
     
     // MARK: - VC LifeCycle
     
@@ -18,7 +19,7 @@ class ResultViewController: UIViewController {
         self.title = "Таблица лидеров"
         view.backgroundColor = .secondarySystemBackground
         view.addSubview(resultTableView)
-        setupConstrains()
+        setupConstrains()        
     }
     
     override func viewWillAppear(_ animated: Bool) {

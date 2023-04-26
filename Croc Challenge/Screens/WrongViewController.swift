@@ -22,7 +22,7 @@ class WrongViewController: UIViewController {
     
     func updateUI(team1: Teams, team2: Teams) {
         teamNameInFirstView.text = team1.name
-        teamImageInFirstView.image = team1.teamImage
+        teamImageInFirstView.image = UIImage(named: team1.teamImage)
         scoreInFirstView.text = String(team1.score)
         fourthLabelInSecondView.text = "Следующий ход - “\(team2.name)”"
     }
@@ -49,7 +49,7 @@ class WrongViewController: UIViewController {
     
     private lazy var teamImageInFirstView: UIImageView = {
         let element = UIImageView()
-        element.image = teamManager.teamOne!.teamImage
+        element.image = UIImage(named: teamManager.teamOne!.teamImage)
         return element
     }()
     

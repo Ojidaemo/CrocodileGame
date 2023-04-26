@@ -10,11 +10,9 @@ import UIKit
 class TeamViewController: UIViewController {
     
     let globalData = TeamsManager.shared
-//    let questionNumbers = NumbersToResult.shared
-    
-    lazy var imageOne = createImageView(image: globalData.teamOne!.teamImage)
+    lazy var imageOne = createImageView(image: UIImage(named: globalData.teamOne!.teamImage)!)
     lazy var labelOne = createLabelWithTeamName(title: globalData.teamOne?.name ?? "")
-    lazy var imageTwo = createImageView(image: globalData.teamTwo!.teamImage)
+    lazy var imageTwo = createImageView(image: UIImage(named: globalData.teamTwo!.teamImage)!)
     lazy var labelTwo = createLabelWithTeamName(title: globalData.teamTwo?.name ?? "")
     
     override func viewDidLoad() {

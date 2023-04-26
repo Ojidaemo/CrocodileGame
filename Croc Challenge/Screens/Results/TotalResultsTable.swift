@@ -11,6 +11,8 @@ import SnapKit
 class ResultTableView: UIView {
     
     var tableView = UITableView()
+    private let teamManager = TeamsManager.shared
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,7 +61,7 @@ class ResultTableView: UIView {
 extension ResultTableView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return teamManager.teamResults.count
         //        if listMovieNetwork.isEmpty {
         //            return listMovieCoreData.count
         //        } else {
@@ -69,6 +71,8 @@ extension ResultTableView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ResultCell.identifier, for: indexPath) as? ResultCell else { return UITableViewCell() }
+        let result = teamManager.teamResults[indexPath.row]
+        cell.configureCell(with: result)
         return cell
     }
     

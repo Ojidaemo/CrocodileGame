@@ -21,22 +21,26 @@ class GameResultViewController: UIViewController {
         setupConstraints()
         showTeamsAndScores()
         showTeams()
+        teamManager.saveData(team: teamManager.ourTeam)
+        print("saveData \(teamManager.ourTeam)")
+        let totalResults = teamManager.retrieveData()
+        print("totalResults \(totalResults)")
     }
     
     private func showTeamsAndScores() {
         if teamManager.ourTeam[1].score > teamManager.ourTeam[0].score {
             resultsView.labelOne.text = teamManager.teamTwo?.name
-            resultsView.imageOne.image = teamManager.teamTwo?.teamImage
+            resultsView.imageOne.image = UIImage(named: teamManager.teamTwo!.teamImage)
             resultsView.teamOneScore.text = String(teamManager.ourTeam[1].score)
             resultsView.labelTwo.text = teamManager.teamOne?.name
-            resultsView.imageTwo.image = teamManager.teamOne?.teamImage
+            resultsView.imageTwo.image = UIImage(named: teamManager.teamOne!.teamImage)
             resultsView.teamTwoScore.text = String(teamManager.ourTeam[0].score)
         } else {
             resultsView.labelOne.text = teamManager.teamOne?.name
-            resultsView.imageOne.image = teamManager.teamOne?.teamImage
+            resultsView.imageOne.image = UIImage(named: teamManager.teamOne!.teamImage)
             resultsView.teamOneScore.text = String(teamManager.ourTeam[0].score)
             resultsView.labelTwo.text = teamManager.teamTwo?.name
-            resultsView.imageTwo.image = teamManager.teamTwo?.teamImage
+            resultsView.imageTwo.image = UIImage(named: teamManager.teamTwo!.teamImage)
             resultsView.teamTwoScore.text = String(teamManager.ourTeam[1].score)
         }
     }
