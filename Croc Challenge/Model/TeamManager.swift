@@ -53,34 +53,29 @@ class TeamsManager {
     // Saving to UserDefaults
     let defaults = UserDefaults.standard
     
-    func saveData(team toSave: [Teams]) {
-        let data = try? JSONEncoder().encode(toSave)
+    func saveData(dataToSave: [Teams]) {
+        let data = try? JSONEncoder().encode(dataToSave)
         defaults.set(data, forKey: "teamResults")
     }
+    
+//    func loadData(key: String) -> [Result] {
+//        if let savedData = defaults.object(forKey: key) as? Data {
+//            let decoder = JSONDecoder()
+//            if let loadedData = try? decoder.decode([Result].self, from: savedData) {
+//                return loadedData
+//            }
+//        }
+//        return []
+//    }
     
     func retrieveData() -> [Teams] {
         // Retrieving from UserDefaults
         if let savedData = defaults.object(forKey: "teamResults") as? Data,
            let savedTeam = try? JSONDecoder().decode([Teams].self, from: savedData) {
-            teamResults.append(contentsOf: savedTeam)
+            return savedTeam
         }
-        return teamResults
+        return []
     }
 }
 
-func saveData(dataToSave: [Result]) {
-    let encoder = JSONEncoder()
-    if let encoded = try? encoder.encode(dataToSave) {
-        defaults.set(encoded, forKey: "favorite")
-    }
-}
 
-func loadData(key: String) -> [Result] {
-    if let savedData = defaults.object(forKey: key) as? Data {
-        let decoder = JSONDecoder()
-        if let loadedData = try? decoder.decode([Result].self, from: savedData) {
-            return loadedData
-        }
-    }
-    return []
-}

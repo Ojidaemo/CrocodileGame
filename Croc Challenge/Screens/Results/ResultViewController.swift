@@ -19,7 +19,9 @@ class ResultViewController: UIViewController {
         self.title = "Таблица лидеров"
         view.backgroundColor = .secondarySystemBackground
         view.addSubview(resultTableView)
-        setupConstrains()        
+        setupConstrains()
+        teamManager.teamResults = teamManager.retrieveData()
+        print("totalResults \(teamManager.teamResults)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
