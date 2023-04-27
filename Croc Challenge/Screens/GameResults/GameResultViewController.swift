@@ -35,6 +35,8 @@ class GameResultViewController: UIViewController {
         let sortedTeams = teamManager.ourTeam.sorted { $0.score > $1.score }
 
         resultsView.labelOne.text = sortedTeams[0].name
+        resultsView.labelOne.backgroundColor = UIColor(named: Resources.Colors.winColour)
+        resultsView.scoreLabelOne.backgroundColor = UIColor(named: Resources.Colors.winColour)
         resultsView.imageOne.image = UIImage(named: sortedTeams[0].teamImage)
         resultsView.teamOneScore.text = String(sortedTeams[0].score)
 

@@ -16,6 +16,7 @@ enum Resources {
         static let buttonBlue = "CategoryThree"
         static let buttonLightGreen = "CategoryTwo"
         static let buttonOrange = "ButtonOrange"
+        static let winColour = "WinColour"
     }
     
     enum Image {
@@ -28,6 +29,7 @@ enum Resources {
         static let checkmark = "Checkmark"
         static let whiteCircle = "Ellipse"
         static let arrow = "Arrow"
+        static let cross = "Cross"
     }
     
     enum Fonts {

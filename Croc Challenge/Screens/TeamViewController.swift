@@ -21,8 +21,14 @@ class TeamViewController: UIViewController {
     
     lazy var imageFour = createImageView(image: UIImage(named: Resources.Image.teamImages.randomElement()!)!)
     lazy var labelFour = createLabelWithTeamName(title: "")
-
-
+    
+    lazy var crossButtonOne = createCrossButton()
+    lazy var crossButtonTwo = createCrossButton()
+    lazy var crossButtonThree = createCrossButton()
+    lazy var crossButtonFour = createCrossButton()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         globalData.ourTeam.removeAll()
@@ -85,13 +91,14 @@ class TeamViewController: UIViewController {
     //MARK: - Methods
     
     func hideElements() {
-        imageThree.isHidden = true
-        imageFour.isHidden = true
         labelFour.isHidden = true
         labelThree.isHidden = true
+        crossButtonOne.isHidden = true
+        crossButtonTwo.isHidden = true
     }
     
     @objc func addTeamPressed() {
+        print(globalData.ourTeam)
         let maxTeams = 4
         if globalData.ourTeam.count >= maxTeams {
             let alert = UIAlertController(title: "Максимум \(maxTeams) команды", message: "", preferredStyle: .alert)
@@ -107,20 +114,18 @@ class TeamViewController: UIViewController {
         let action = UIAlertAction(title: "Ок", style: .default) { (action) in
             let commandName = alert.textFields?.first?.text ?? ""
             let teamLabel: UILabel
-            let teamImageView: UIImageView
             switch self.globalData.ourTeam.count {
             case 2:
                 teamLabel = self.labelThree
-                teamImageView = self.imageThree
+                self.crossButtonOne.isHidden = false
+                self.crossButtonTwo.isHidden = false
             case 3:
                 teamLabel = self.labelFour
-                teamImageView = self.imageFour
             default:
                 return
             }
             teamLabel.text = commandName
             teamLabel.isHidden = false
-            teamImageView.isHidden = false
             let team = Teams(name: commandName, score: 0, teamImage: Resources.Image.teamImages.randomElement()!)
             self.globalData.ourTeam.append(team)
             print(self.globalData.ourTeam)
@@ -136,15 +141,53 @@ class TeamViewController: UIViewController {
         self.navigationController?.pushViewController(categoryVC, animated: true)
     }
     
-    func createTeamScoreLabel(text: String) -> UILabel {
-        let label = UILabel()
-        label.backgroundColor = .clear
-        label.text = text
-        label.font = UIFont(name: Resources.Fonts.cookie, size: 65)
-        label.textColor = .black
-        label.contentMode = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    func createCrossButton() -> UIButton {
+        let button = UIButton(type: .system)
+        button.setImage (UIImage(named: Resources.Image.cross), for: .normal)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(crossButtonPressed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
+    
+    func teamToRemove(label: UILabel) {
+        if let labelText = label.text,
+           let teamToRemove = globalData.ourTeam.first(where: { $0.name == labelText }) {
+            globalData.ourTeam = globalData.ourTeam.filter { $0 != teamToRemove }
+            print("DELETED \(teamToRemove)")
+        }
+        print(globalData.ourTeam)
+    }
+    
+    @objc func crossButtonPressed(sender: UIButton) {
+        if sender == crossButtonOne {
+            labelOne.isHidden = true
+            teamToRemove(label: labelOne)
+        } else if sender == crossButtonTwo {
+            labelTwo.isHidden = true
+            teamToRemove(label: labelTwo)
+        } else if sender == crossButtonThree {
+            labelThree.isHidden = true
+            teamToRemove(label: labelThree)
+        } else {
+            labelFour.isHidden = true
+            teamToRemove(label: labelFour)
+        }
+        
+        if globalData.ourTeam.count == 2 {
+            if !labelOne.isHidden {
+                crossButtonOne.isHidden = true
+            }
+            if !labelTwo.isHidden {
+                crossButtonTwo.isHidden = true
+            }
+            if !labelThree.isHidden {
+                crossButtonThree.isHidden = true
+            }
+            if !labelFour.isHidden {
+                crossButtonFour.isHidden = true
+            }
+        }
     }
     
     func createImageView(image: UIImage) -> UIImageView {
@@ -159,6 +202,7 @@ class TeamViewController: UIViewController {
     func createLabelWithTeamName(title: String) -> UILabel {
         let label = UILabel()
         label.backgroundColor = .white
+        label.isUserInteractionEnabled = true
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
         label.text = title
@@ -177,10 +221,10 @@ extension TeamViewController {
     
     private func setupConstraints() {
         view.addSubviews(backgroundView, labelStack, playersReadyButton, addTeamButton)
-        labelOne.addSubviewsToLabel(imageOne)
-        labelTwo.addSubviewsToLabel(imageTwo)
-        labelThree.addSubviewsToLabel(imageThree)
-        labelFour.addSubviewsToLabel(imageFour)
+        labelOne.addSubviewsToLabel(imageOne, crossButtonOne)
+        labelTwo.addSubviewsToLabel(imageTwo, crossButtonTwo)
+        labelThree.addSubviewsToLabel(imageThree, crossButtonThree)
+        labelFour.addSubviewsToLabel(imageFour, crossButtonFour)
         labelStack.addArrangedSubviews(labelOne, labelTwo, labelThree, labelFour)
         
         NSLayoutConstraint.activate([
@@ -205,16 +249,23 @@ extension TeamViewController {
             
             imageOne.leadingAnchor.constraint(equalTo: labelOne.leadingAnchor, constant: 25),
             imageOne.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
-
+            crossButtonOne.trailingAnchor.constraint(equalTo: labelOne.trailingAnchor, constant: -10),
+            crossButtonOne.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
+            
             imageTwo.leadingAnchor.constraint(equalTo: labelTwo.leadingAnchor, constant: 25),
             imageTwo.centerYAnchor.constraint(equalTo: labelTwo.centerYAnchor),
+            crossButtonTwo.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -10),
+            crossButtonTwo.centerYAnchor.constraint(equalTo: labelTwo.centerYAnchor),
             
             imageThree.leadingAnchor.constraint(equalTo: labelThree.leadingAnchor, constant: 25),
             imageThree.centerYAnchor.constraint(equalTo: labelThree.centerYAnchor),
-
+            crossButtonThree.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -10),
+            crossButtonThree.centerYAnchor.constraint(equalTo: labelThree.centerYAnchor),
+            
             imageFour.leadingAnchor.constraint(equalTo: labelFour.leadingAnchor, constant: 25),
             imageFour.centerYAnchor.constraint(equalTo: labelFour.centerYAnchor),
-
+            crossButtonFour.trailingAnchor.constraint(equalTo: labelFour.trailingAnchor, constant: -10),
+            crossButtonFour.centerYAnchor.constraint(equalTo: labelFour.centerYAnchor)
         ])
     }
 }
