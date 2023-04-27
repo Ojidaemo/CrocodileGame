@@ -95,12 +95,14 @@ class GameViewController: UIViewController {
         breakRulesButton.isEnabled.toggle()
     }
     
+    //TODO: - chnage from 2 to 5
+    
     func switchToResultVcOrCorrectVc() {
-        if teamManager.question == teamManager.ourTeam.count * 5 {
+        if teamManager.question == teamManager.ourTeam.count * 2 {
             let resultVC = GameResultViewController()
             teamManager.teamCorrectAnswer()
             self.navigationController?.pushViewController(resultVC, animated: true)
-        } else if teamManager.question < teamManager.ourTeam.count * 5 {
+        } else if teamManager.question < teamManager.ourTeam.count * 2 {
             let correctVC = CorrectViewController()
             correctVC.categoryChoise = categoryChoise
             teamManager.teamCorrectAnswer()
@@ -112,10 +114,10 @@ class GameViewController: UIViewController {
     }
     
     func switchToResultVcOrWrongVc() {
-        if teamManager.question == teamManager.ourTeam.count * 5 {
+        if teamManager.question == teamManager.ourTeam.count * 2 {
             let resultVC = GameResultViewController()
             self.navigationController?.pushViewController(resultVC, animated: true)
-        } else if teamManager.question < teamManager.ourTeam.count * 5 {
+        } else if teamManager.question < teamManager.ourTeam.count * 2 {
             let wrongVC = WrongViewController()
             wrongVC.categoryChoise = categoryChoise
             let (currentTeam, nextTeam) = teamManager.nextTeam()

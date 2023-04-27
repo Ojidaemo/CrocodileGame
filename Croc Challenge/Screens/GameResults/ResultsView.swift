@@ -18,18 +18,23 @@ final class ResultsView: UIView {
     lazy var imageOne = createImageView(image: UIImage(named: Resources.Image.cowboy)!)
     lazy var imageTwo = createImageView(image: UIImage(named: Resources.Image.burger)!)
     lazy var imageThree = createImageView(image: UIImage(named: Resources.Image.nails)!)
+    lazy var imageFour = createImageView(image: UIImage(named: Resources.Image.nails)!)
     
     lazy var labelOne = createLabelWithTeamName(title: "")
     lazy var labelTwo = createLabelWithTeamName(title: "")
-    lazy var labelThree = createLabelWithTeamName(title: "")
+    lazy var labelThree = createLabelWithTeamName(title: "123")
+    lazy var labelFour = createLabelWithTeamName(title: "123")
+
     
     lazy var scoreLabelOne = createScoreLabel()
     lazy var scoreLabelTwo = createScoreLabel()
     lazy var scoreLabelThree = createScoreLabel()
+    lazy var scoreLabelFour = createScoreLabel()
     
     lazy var teamOneScore = createTeamScoreLabel(text: "")
     lazy var teamTwoScore = createTeamScoreLabel(text: "")
     lazy var teamThreeScore = createTeamScoreLabel(text: "")
+    lazy var teamFourScore = createTeamScoreLabel(text: "")
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -122,11 +127,12 @@ final class ResultsView: UIView {
     }
     
     private func setupViews() {
-        self.addSubviews(backgroundView, labelStack, restartGame)
         labelOne.addSubviewsToLabel(imageOne, scoreLabelOne, teamOneScore)
         labelTwo.addSubviewsToLabel(imageTwo, scoreLabelTwo, teamTwoScore)
         labelThree.addSubviewsToLabel(imageThree, scoreLabelThree, teamThreeScore)
-        labelStack.addArrangedSubviews(labelOne, labelTwo, labelThree)
+        labelFour.addSubviewsToLabel(imageFour, scoreLabelFour, teamFourScore)
+        labelStack.addArrangedSubviews(labelOne, labelTwo, labelThree, labelFour)
+        self.addSubviews(backgroundView, labelStack, restartGame)
     }
 }
 
@@ -146,8 +152,13 @@ extension ResultsView {
             restartGame.heightAnchor.constraint(equalToConstant: 60),
             restartGame.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -60),
             
+            labelStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            labelStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            labelStack.topAnchor.constraint(equalTo: topAnchor, constant: 110),
+            
             labelOne.heightAnchor.constraint(equalToConstant: 96),
             labelTwo.heightAnchor.constraint(equalToConstant: 96),
+            labelThree.heightAnchor.constraint(equalToConstant: 96),
             labelThree.heightAnchor.constraint(equalToConstant: 96),
             
             imageOne.leadingAnchor.constraint(equalTo: labelOne.leadingAnchor, constant: 25),
@@ -177,9 +188,15 @@ extension ResultsView {
             teamThreeScore.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -15),
             teamThreeScore.centerYAnchor.constraint(equalTo: labelThree.centerYAnchor),
             
-            labelStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            labelStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            labelStack.topAnchor.constraint(equalTo: topAnchor, constant: 110)
+            imageFour.leadingAnchor.constraint(equalTo: labelFour.leadingAnchor, constant: 25),
+            imageFour.centerYAnchor.constraint(equalTo: labelFour.centerYAnchor),
+            
+            scoreLabelFour.trailingAnchor.constraint(equalTo: labelFour.trailingAnchor, constant: -15),
+            scoreLabelFour.bottomAnchor.constraint(equalTo: labelFour.bottomAnchor, constant: -8),
+            
+            teamFourScore.trailingAnchor.constraint(equalTo: labelFour.trailingAnchor, constant: -15),
+            teamFourScore.centerYAnchor.constraint(equalTo: labelFour.centerYAnchor),
+            
         ])
     }
 }

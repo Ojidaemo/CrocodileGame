@@ -20,7 +20,7 @@ class GameResultViewController: UIViewController {
         view.addSubview(resultsView)
         setupConstraints()
         showTeamsAndScores()
-        showTeams()
+        showTeamsLabels()
         saveToDefaults()
     }
     
@@ -32,28 +32,46 @@ class GameResultViewController: UIViewController {
     }
     
     private func showTeamsAndScores() {
-        if teamManager.ourTeam[1].score > teamManager.ourTeam[0].score {
-            resultsView.labelOne.text = teamManager.teamTwo?.name
-            resultsView.imageOne.image = UIImage(named: teamManager.teamTwo!.teamImage)
-            resultsView.teamOneScore.text = String(teamManager.ourTeam[1].score)
-            resultsView.labelTwo.text = teamManager.teamOne?.name
-            resultsView.imageTwo.image = UIImage(named: teamManager.teamOne!.teamImage)
-            resultsView.teamTwoScore.text = String(teamManager.ourTeam[0].score)
-        } else {
-            resultsView.labelOne.text = teamManager.teamOne?.name
-            resultsView.imageOne.image = UIImage(named: teamManager.teamOne!.teamImage)
-            resultsView.teamOneScore.text = String(teamManager.ourTeam[0].score)
-            resultsView.labelTwo.text = teamManager.teamTwo?.name
-            resultsView.imageTwo.image = UIImage(named: teamManager.teamTwo!.teamImage)
-            resultsView.teamTwoScore.text = String(teamManager.ourTeam[1].score)
+        let sortedTeams = teamManager.ourTeam.sorted { $0.score > $1.score }
+
+        resultsView.labelOne.text = sortedTeams[0].name
+        resultsView.imageOne.image = UIImage(named: sortedTeams[0].teamImage)
+        resultsView.teamOneScore.text = String(sortedTeams[0].score)
+
+        resultsView.labelTwo.text = sortedTeams[1].name
+        resultsView.imageTwo.image = UIImage(named: sortedTeams[1].teamImage)
+        resultsView.teamTwoScore.text = String(sortedTeams[1].score)
+
+        if sortedTeams.count >= 3 {
+            resultsView.labelThree.text = sortedTeams[2].name
+            resultsView.imageThree.image = UIImage(named: sortedTeams[2].teamImage)
+            resultsView.teamThreeScore.text = String(sortedTeams[2].score)
+        }
+
+        if sortedTeams.count == 4 {
+            resultsView.labelFour.text = sortedTeams[3].name
+            resultsView.imageFour.image = UIImage(named: sortedTeams[3].teamImage)
+            resultsView.teamFourScore.text = String(sortedTeams[3].score)
         }
     }
     
-    private func showTeams() {
-        if teamManager.ourTeam.count == 2 {
+    private func showTeamsLabels() {
+        switch teamManager.ourTeam.count {
+        case 2:
+            print("Two Teams")
             resultsView.labelThree.isHidden = true
-        } else if teamManager.ourTeam.count == 3 {
+            resultsView.labelFour.isHidden = true
+        case 3:
+            print("Three Teams")
             resultsView.labelThree.isHidden = false
+            resultsView.labelFour.isHidden = true
+        case 4:
+            print("Four Teams")
+            resultsView.labelThree.isHidden = false
+            resultsView.labelFour.isHidden = false
+        default:
+            print("Default")
+            return
         }
     }
     
