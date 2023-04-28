@@ -22,9 +22,9 @@ class CorrectViewController: UIViewController {
     
     func updateUI(team1: Teams, team2: Teams) {
         teamNameInFirstView.text = team1.name
-        teamImageInFirstView.image = UIImage(named: team1.teamImage)
+        teamImage.image = UIImage(named: team1.teamImage)
         scoreInFirstView.text = String(team1.score)
-        fourthLabelInSecondView.text = "Next team - “\(team2.name)”"
+        nextMoveLabel.text = "Next team - “\(team2.name)”"
     }
     
     @objc func transferPressed() {
@@ -40,14 +40,14 @@ class CorrectViewController: UIViewController {
         return element
     }()
     
-    private lazy var firstView: UIView = {
+    private lazy var teamView: UIView = {
         let element = UIView()
         element.backgroundColor = .white
         element.layer.cornerRadius = 10
         return element
     }()
     
-    private lazy var teamImageInFirstView: UIImageView = {
+    private lazy var teamImage: UIImageView = {
         let element = UIImageView()
         element.image = UIImage(named: teamManager.teamOne!.teamImage)
         return element
@@ -84,15 +84,15 @@ class CorrectViewController: UIViewController {
         return element
     }()
     
-    private lazy var firstLabelInSecondView: UILabel = {
+    private lazy var congrLabel: UILabel = {
         let element = UILabel()
-        element.text = "Congratulations"
+        element.text = "Congratulations!"
         element.font = UIFont.boldSystemFont(ofSize: 28)
         element.textColor = .black
         return element
     }()
     
-    private lazy var secondLabelInSecondView: UILabel = {
+    private lazy var youReceiveLabel: UILabel = {
         let element = UILabel()
         element.text = "You recieve"
         element.numberOfLines = 0
@@ -102,13 +102,13 @@ class CorrectViewController: UIViewController {
         return element
     }()
     
-    private lazy var imageInSecondView: UIImageView = {
+    private lazy var starImage: UIImageView = {
         let element = UIImageView()
         element.image = UIImage(named: "Vector")
         return element
     }()
     
-    private lazy var thirdLabelInSecondView: UILabel = {
+    private lazy var scoreInTheStar: UILabel = {
         let element = UILabel()
         element.text = "1"
         element.font = UIFont(name: Resources.Fonts.cookie, size: 80)
@@ -116,7 +116,15 @@ class CorrectViewController: UIViewController {
         return element
     }()
     
-    private lazy var fourthLabelInSecondView: UILabel = {
+    private lazy var scoreUnderStar: UILabel = {
+        let element = UILabel()
+        element.text = "Score"
+        element.font = UIFont(name: Resources.Fonts.bhavuka, size: 13)
+        element.textColor = UIColor(named: Resources.Colors.gold)
+        return element
+    }()
+    
+    private lazy var nextMoveLabel: UILabel = {
         let element = UILabel()
         if let teamName = teamManager.teamTwo?.name {
             element.text = String("Next team - “\(teamName)”")
@@ -143,20 +151,21 @@ extension CorrectViewController {
     
     private func setupViews() {
         view.addSubview(backgroundView)
-        view.addSubview(firstView)
+        view.addSubview(teamView)
         view.addSubview(secondView)
+        view.addSubview(scoreUnderStar)
         view.addSubview(transferButton)
         
-        firstView.addSubview(teamImageInFirstView)
-        firstView.addSubview(teamNameInFirstView)
-        firstView.addSubview(scoreInFirstView)
-        firstView.addSubview(scoreLabelInFirstView)
+        teamView.addSubview(teamImage)
+        teamView.addSubview(teamNameInFirstView)
+        teamView.addSubview(scoreInFirstView)
+        teamView.addSubview(scoreLabelInFirstView)
         
-        secondView.addSubview(firstLabelInSecondView)
-        secondView.addSubview(secondLabelInSecondView)
-        secondView.addSubview(imageInSecondView)
-        secondView.addSubview(thirdLabelInSecondView)
-        secondView.addSubview(fourthLabelInSecondView)
+        secondView.addSubview(congrLabel)
+        secondView.addSubview(youReceiveLabel)
+        secondView.addSubview(starImage)
+        starImage.addSubview(scoreInTheStar)
+        secondView.addSubview(nextMoveLabel)
         
         addConstraints()
     }
@@ -166,7 +175,7 @@ extension CorrectViewController {
             make.top.bottom.leading.trailing.equalToSuperview()
         }
         
-        firstView.snp.makeConstraints { make in
+        teamView.snp.makeConstraints { make in
             make.height.equalTo(view.frame.size.height * 0.13)
             make.top.equalTo(view.safeAreaLayoutGuide).inset(38)
             make.leading.trailing.equalToSuperview().inset(12)
@@ -175,7 +184,7 @@ extension CorrectViewController {
         secondView.snp.makeConstraints { make in
             make.height.equalTo(view.frame.size.height * 0.45)
             make.leading.trailing.equalToSuperview().inset(12)
-            make.bottom.equalTo(transferButton.snp.top).inset(-144)
+            make.bottom.equalTo(transferButton.snp.top).inset(-view.frame.height * 0.16)
         }
         
         transferButton.snp.makeConstraints { make in
@@ -184,7 +193,7 @@ extension CorrectViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(10)
         }
         
-        teamImageInFirstView.snp.makeConstraints { make in
+        teamImage.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().inset(15)
         }
@@ -204,29 +213,34 @@ extension CorrectViewController {
             make.bottom.equalToSuperview().inset(8)
         }
         
-        firstLabelInSecondView.snp.makeConstraints { make in
+        congrLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().inset(39)
+            make.top.equalToSuperview().inset(10)
         }
         
-        secondLabelInSecondView.snp.makeConstraints { make in
+        youReceiveLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(imageInSecondView.snp.top).inset(-5)
+            make.bottom.equalTo(starImage.snp.top).inset(-10)
         }
         
-        imageInSecondView.snp.makeConstraints { make in
+        starImage.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().inset(view.frame.height * 0.15)
+        }
+        
+        scoreUnderStar.snp.makeConstraints { make in
+            make.top.equalTo(starImage.snp.bottom).inset(5)
+            make.centerX.equalToSuperview()
+        }
+        
+        scoreInTheStar.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
         
-        thirdLabelInSecondView.snp.makeConstraints { make in
+        nextMoveLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-        }
-        
-        fourthLabelInSecondView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().inset(46)
+            make.top.equalTo(starImage.snp.bottom).inset(-20)
         }
     }
 }

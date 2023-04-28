@@ -464,7 +464,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DQGB7M9JG9;
+				DEVELOPMENT_TEAM = 3J42942YG2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Croc Challenge/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -477,7 +477,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Artem-Gorelov.Croc-Challenge";
+				PRODUCT_BUNDLE_IDENTIFIER = "VitaliMartsinovich.Croc-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -496,7 +496,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DQGB7M9JG9;
+				DEVELOPMENT_TEAM = 3J42942YG2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Croc Challenge/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -509,7 +509,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Artem-Gorelov.Croc-Challenge";
+				PRODUCT_BUNDLE_IDENTIFIER = "VitaliMartsinovich.Croc-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

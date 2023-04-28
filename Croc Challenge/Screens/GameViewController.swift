@@ -197,7 +197,7 @@ class GameViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Correct", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
@@ -209,7 +209,7 @@ class GameViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Broke the rules", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: Resources.Colors.buttonRed)
@@ -221,7 +221,7 @@ class GameViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Reset", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .gray

@@ -176,7 +176,7 @@ extension WrongViewController {
         secondView.snp.makeConstraints { make in
             make.height.equalTo(view.frame.size.height * 0.45)
             make.leading.trailing.equalToSuperview().inset(12)
-            make.bottom.equalTo(transferButton.snp.top).inset(-144)
+            make.bottom.equalTo(transferButton.snp.top).inset(-view.frame.height * 0.16)
         }
         
         transferButton.snp.makeConstraints { make in
@@ -207,17 +207,18 @@ extension WrongViewController {
         
         firstLabelInSecondView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().inset(39)
+            make.top.equalToSuperview().inset(10)
         }
         
         secondLabelInSecondView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(imageInSecondView.snp.top).inset(-5)
+            make.bottom.equalTo(imageInSecondView.snp.top).inset(-10)
+            make.width.equalToSuperview().inset(15)
         }
         
         imageInSecondView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
+            make.bottom.equalToSuperview().inset(view.frame.height * 0.15)
         }
         
         thirdLabelInSecondView.snp.makeConstraints { make in
@@ -227,7 +228,7 @@ extension WrongViewController {
         
         fourthLabelInSecondView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().inset(46)
+            make.top.equalTo(imageInSecondView.snp.bottom).inset(-20)
         }
     }
 }

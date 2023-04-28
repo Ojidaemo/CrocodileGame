@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,18 +14,36 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Untitled (Phone Wallpaper)" translatesAutoresizingMaskIntoConstraints="NO" id="prS-9i-4g5">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="So4-UF-cd5">
+                                <rect key="frame" x="0.0" y="176" width="393" height="500"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.66274511810000003" green="0.89411771299999998" blue="0.98823523520000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="So4-UF-cd5" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="9ld-Zy-opy"/>
+                            <constraint firstItem="prS-9i-4g5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Hog-Gy-49N"/>
+                            <constraint firstAttribute="bottom" secondItem="prS-9i-4g5" secondAttribute="bottom" id="KAS-Mt-kCg"/>
+                            <constraint firstItem="So4-UF-cd5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MFT-I2-3Zu"/>
+                            <constraint firstItem="prS-9i-4g5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ag7-Cf-02O"/>
+                            <constraint firstItem="So4-UF-cd5" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gJL-Br-eOw"/>
+                            <constraint firstItem="prS-9i-4g5" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="leh-x6-gCM"/>
+                            <constraint firstItem="So4-UF-cd5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rT7-HY-Jm5"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="Logo" width="500" height="500"/>
+        <image name="Untitled (Phone Wallpaper)" width="1080" height="1920"/>
     </resources>
 </document>

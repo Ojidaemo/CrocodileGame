@@ -17,6 +17,7 @@ enum Resources {
         static let buttonLightGreen = "CategoryTwo"
         static let buttonOrange = "ButtonOrange"
         static let winColour = "WinColour"
+        static let gold = "Yellow"
     }
     
     enum Image {
@@ -33,7 +34,8 @@ enum Resources {
     }
     
     enum Fonts {
-        static let bhavuka = "Bhavuka"
+//        static let bhavuka = "Bhavuka"
+        static let bhavuka = "Changa"
         static let cookie = "Cookie"
         static let changa = "Changa"
         static let changaBold = "Changa-Bold"

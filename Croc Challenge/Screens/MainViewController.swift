@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Start Game", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
@@ -60,7 +60,7 @@ class MainViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Rules", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
@@ -79,7 +79,7 @@ class MainViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Results", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: Resources.Colors.buttonOrange)
