@@ -97,9 +97,10 @@ class ResultCell: UITableViewCell {
 extension ResultCell {
     
     private func setupConstraints() {
+        print(self.frame.size.height)
         NSLayoutConstraint.activate([
             
-            labelOne.heightAnchor.constraint(equalToConstant: 96),
+            labelOne.heightAnchor.constraint(equalToConstant: self.frame.size.height * 1.96),
             labelOne.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             labelOne.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             

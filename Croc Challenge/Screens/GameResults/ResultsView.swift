@@ -39,7 +39,6 @@ final class ResultsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
-        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -140,7 +139,9 @@ final class ResultsView: UIView {
 
 extension ResultsView {
     
-    private func setupConstraints() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    
         NSLayoutConstraint.activate([
             backgroundView.topAnchor.constraint(equalTo: topAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -156,10 +157,10 @@ extension ResultsView {
             labelStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             labelStack.topAnchor.constraint(equalTo: topAnchor, constant: 110),
             
-            labelOne.heightAnchor.constraint(equalToConstant: 96),
-            labelTwo.heightAnchor.constraint(equalToConstant: 96),
-            labelThree.heightAnchor.constraint(equalToConstant: 96),
-            labelThree.heightAnchor.constraint(equalToConstant: 96),
+            labelOne.heightAnchor.constraint(equalToConstant: frame.size.height * 0.13),
+            labelTwo.heightAnchor.constraint(equalToConstant: frame.size.height * 0.13),
+            labelThree.heightAnchor.constraint(equalToConstant: frame.size.height * 0.13),
+            labelThree.heightAnchor.constraint(equalToConstant: frame.size.height * 0.13),
             
             imageOne.leadingAnchor.constraint(equalTo: labelOne.leadingAnchor, constant: 25),
             imageOne.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),

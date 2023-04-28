@@ -71,7 +71,7 @@ class WrongViewController: UIViewController {
     
     private lazy var scoreLabelInFirstView: UILabel = {
         let element = UILabel()
-        element.text = "Score"
+        element.text = "Scores"
         element.font = UIFont(name: Resources.Fonts.bhavuka, size: 15)
         element.textColor = .black
         return element
@@ -168,13 +168,13 @@ extension WrongViewController {
         }
         
         firstView.snp.makeConstraints { make in
-            make.height.equalTo(96)
+            make.height.equalTo(view.frame.size.height * 0.13)
             make.top.equalTo(view.safeAreaLayoutGuide).inset(38)
             make.leading.trailing.equalToSuperview().inset(12)
         }
         
         secondView.snp.makeConstraints { make in
-            make.height.equalTo(301)
+            make.height.equalTo(view.frame.size.height * 0.45)
             make.leading.trailing.equalToSuperview().inset(12)
             make.bottom.equalTo(transferButton.snp.top).inset(-144)
         }
@@ -182,7 +182,7 @@ extension WrongViewController {
         transferButton.snp.makeConstraints { make in
             make.height.equalTo(60)
             make.leading.trailing.equalToSuperview().inset(12)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(9)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(10)
         }
         
         teamImageInFirstView.snp.makeConstraints { make in
@@ -212,13 +212,12 @@ extension WrongViewController {
         
         secondLabelInSecondView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.top.equalTo(firstLabelInSecondView.snp.bottom).inset(-20)
+            make.bottom.equalTo(imageInSecondView.snp.top).inset(-5)
         }
         
         imageInSecondView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().inset(75)
+            make.centerY.equalToSuperview()
         }
         
         thirdLabelInSecondView.snp.makeConstraints { make in

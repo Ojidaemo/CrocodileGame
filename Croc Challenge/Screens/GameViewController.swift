@@ -268,8 +268,8 @@ class GameViewController: UIViewController {
         NSLayoutConstraint.activate([
             crocoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             crocoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            crocoImage.widthAnchor.constraint(equalToConstant: 139),
-            crocoImage.heightAnchor.constraint(equalToConstant: 139)
+            crocoImage.widthAnchor.constraint(equalToConstant: view.frame.height * 0.2),
+            crocoImage.heightAnchor.constraint(equalToConstant: view.frame.height * 0.2)
         ])
     }
     
@@ -307,8 +307,7 @@ class GameViewController: UIViewController {
             stackViewButtons.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 70),
             stackViewButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
             stackViewButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
-            stackViewButtons.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            stackViewButtons.heightAnchor.constraint(equalToConstant: 205)
+            stackViewButtons.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
         ])
     }
 }

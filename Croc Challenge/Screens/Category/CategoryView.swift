@@ -26,9 +26,11 @@ final class CategoryView: UIView {
         setupViews()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     var checkmarkImageOne: UIImageView!
     var checkmarkImageTwo: UIImageView!
@@ -177,6 +179,7 @@ final class CategoryView: UIView {
 extension CategoryView {
     
     private func setupViews() {
+        
         categoryOne.addSubviewsToButton(imageEllipse, checkmarkImageOne)
         categoryTwo.addSubviewsToButton(imageTwo, checkmarkImageTwo)
         categoryThree.addSubviewsToButton(imageThree, checkmarkImageThree)
@@ -184,10 +187,11 @@ extension CategoryView {
         imageEllipse.addSubview(imageOne)
         buttonsStack.addArrangedSubviews(categoryOne, categoryTwo, categoryThree, categoryFour)
         self.addSubviews(backgroundView, startGame, buttonsStack)
-        setupConstraints()
     }
     
-    private func setupConstraints() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
         NSLayoutConstraint.activate([
             backgroundView.topAnchor.constraint(equalTo: topAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -228,8 +232,9 @@ extension CategoryView {
             
             buttonsStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             buttonsStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            buttonsStack.topAnchor.constraint(equalTo: topAnchor, constant: 180),
+            buttonsStack.topAnchor.constraint(equalTo: topAnchor, constant: bounds.height * 0.14),
             buttonsStack.bottomAnchor.constraint(equalTo: startGame.topAnchor, constant: -50)
+            
         ])
     }
 }

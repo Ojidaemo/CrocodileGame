@@ -34,10 +34,14 @@ class TeamViewController: UIViewController {
         globalData.ourTeam.removeAll()
         globalData.generateRandomTeams()
         globalData.question = 0
-        self.title = "Who plays?"
         view.backgroundColor = .clear
         hideElements()
         setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Who plays?"
     }
     
     private let backgroundView: UIImageView = {
@@ -210,7 +214,7 @@ class TeamViewController: UIViewController {
         label.textColor = .black
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.heightAnchor.constraint(equalToConstant: 96).isActive = true
+        label.heightAnchor.constraint(equalToConstant: view.frame.size.height * 0.12).isActive = true
         return label
     }
 }
@@ -227,47 +231,47 @@ extension TeamViewController {
         labelFour.addSubviewsToLabel(imageFour, crossButtonFour)
         labelStack.addArrangedSubviews(labelOne, labelTwo, labelThree, labelFour)
         
-        NSLayoutConstraint.activate([
-            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            addTeamButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            addTeamButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            addTeamButton.heightAnchor.constraint(equalToConstant: 63),
-            addTeamButton.bottomAnchor.constraint(equalTo: playersReadyButton.topAnchor,constant: -10),
-            
-            labelStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            labelStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            labelStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 110),
-            
-            playersReadyButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            playersReadyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            playersReadyButton.heightAnchor.constraint(equalToConstant: 63),
-            playersReadyButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -60),
-            
-            imageOne.leadingAnchor.constraint(equalTo: labelOne.leadingAnchor, constant: 25),
-            imageOne.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
-            crossButtonOne.trailingAnchor.constraint(equalTo: labelOne.trailingAnchor, constant: -10),
-            crossButtonOne.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
-            
-            imageTwo.leadingAnchor.constraint(equalTo: labelTwo.leadingAnchor, constant: 25),
-            imageTwo.centerYAnchor.constraint(equalTo: labelTwo.centerYAnchor),
-            crossButtonTwo.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -10),
-            crossButtonTwo.centerYAnchor.constraint(equalTo: labelTwo.centerYAnchor),
-            
-            imageThree.leadingAnchor.constraint(equalTo: labelThree.leadingAnchor, constant: 25),
-            imageThree.centerYAnchor.constraint(equalTo: labelThree.centerYAnchor),
-            crossButtonThree.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -10),
-            crossButtonThree.centerYAnchor.constraint(equalTo: labelThree.centerYAnchor),
-            
-            imageFour.leadingAnchor.constraint(equalTo: labelFour.leadingAnchor, constant: 25),
-            imageFour.centerYAnchor.constraint(equalTo: labelFour.centerYAnchor),
-            crossButtonFour.trailingAnchor.constraint(equalTo: labelFour.trailingAnchor, constant: -10),
-            crossButtonFour.centerYAnchor.constraint(equalTo: labelFour.centerYAnchor)
-        ])
-    }
+    NSLayoutConstraint.activate([
+        backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
+        backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        
+        addTeamButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+        addTeamButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+        addTeamButton.heightAnchor.constraint(equalToConstant: view.frame.size.height * 0.1),
+        addTeamButton.bottomAnchor.constraint(equalTo: playersReadyButton.topAnchor,constant: -10),
+        
+        labelStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+        labelStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+        labelStack.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.size.height * 0.14),
+        
+        playersReadyButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+        playersReadyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+        playersReadyButton.heightAnchor.constraint(equalToConstant: view.frame.size.height * 0.1),
+        playersReadyButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -10),
+        
+        imageOne.leadingAnchor.constraint(equalTo: labelOne.leadingAnchor, constant: 25),
+        imageOne.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
+        crossButtonOne.trailingAnchor.constraint(equalTo: labelOne.trailingAnchor, constant: -10),
+        crossButtonOne.centerYAnchor.constraint(equalTo: labelOne.centerYAnchor),
+        
+        imageTwo.leadingAnchor.constraint(equalTo: labelTwo.leadingAnchor, constant: 25),
+        imageTwo.centerYAnchor.constraint(equalTo: labelTwo.centerYAnchor),
+        crossButtonTwo.trailingAnchor.constraint(equalTo: labelTwo.trailingAnchor, constant: -10),
+        crossButtonTwo.centerYAnchor.constraint(equalTo: labelTwo.centerYAnchor),
+        
+        imageThree.leadingAnchor.constraint(equalTo: labelThree.leadingAnchor, constant: 25),
+        imageThree.centerYAnchor.constraint(equalTo: labelThree.centerYAnchor),
+        crossButtonThree.trailingAnchor.constraint(equalTo: labelThree.trailingAnchor, constant: -10),
+        crossButtonThree.centerYAnchor.constraint(equalTo: labelThree.centerYAnchor),
+        
+        imageFour.leadingAnchor.constraint(equalTo: labelFour.leadingAnchor, constant: 25),
+        imageFour.centerYAnchor.constraint(equalTo: labelFour.centerYAnchor),
+        crossButtonFour.trailingAnchor.constraint(equalTo: labelFour.trailingAnchor, constant: -10),
+        crossButtonFour.centerYAnchor.constraint(equalTo: labelFour.centerYAnchor)
+    ])
+}
 }
 
 
