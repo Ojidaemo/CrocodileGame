@@ -32,7 +32,7 @@ class ResultTableView: UIView {
     
     private lazy var resetButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Очистить результаты", for: .normal)
+        button.setTitle("Clear results", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
@@ -94,11 +94,6 @@ extension ResultTableView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return teamManager.teamResults.count
-        //        if listMovieNetwork.isEmpty {
-        //            return listMovieCoreData.count
-        //        } else {
-        //            return listMovieNetwork.count
-        //        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

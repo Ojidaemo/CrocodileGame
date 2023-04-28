@@ -42,18 +42,18 @@ class RulesViewController: UIViewController {
         text.numberOfLines = 0
         text.font = .systemFont(ofSize: 20, weight: .regular)
         text.text = """
-        В игру играют командами из двух или более человек.
         
-        Задача каждого игрока команды - объяснить слово, которое он видит на экране, следуя условиям, которые дополнительно указаны под загаданным словом.
+        The game is played in teams of two to four teams.
+
+        The task of each player in the team is to explain the word they see on the screen, following the conditions that are additionally indicated under the guessed word.
+
+        Each team is given an attempt to guess five words. One minute is given to guess each word.
+
+        If the rules of explaining the word are violated, the turn is passed to the next team.
+
+        The more words the team guesses, the more points they earn. The team that scores the most points wins.
         
-        Чем больше слов отгадала команда, тем больше она заработает баллов.
-        
-        Выигрывает команда, набравшая больше всего баллов.
-         На отгадывание слова дается одна минуту. 
-        При нарушении правил объяснения слова, ход передается следующей команде.
-        
-        ...
-        ...
+        Let's play!
         """
         return text
     }()
