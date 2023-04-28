@@ -34,7 +34,7 @@ class TeamViewController: UIViewController {
         globalData.ourTeam.removeAll()
         globalData.generateRandomTeams()
         globalData.question = 0
-        self.title = "Кто играет?"
+        self.title = "Who plays?"
         view.backgroundColor = .clear
         hideElements()
         setupConstraints()
@@ -61,7 +61,7 @@ class TeamViewController: UIViewController {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
         button.layer.cornerRadius = 10
-        button.setTitle("Игроки готовы", for: .normal)
+        button.setTitle("Teams ready", for: .normal)
         button.titleLabel?.numberOfLines = 0
         button.setTitleColor(.white, for: .normal)
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
@@ -76,7 +76,7 @@ class TeamViewController: UIViewController {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(named: Resources.Colors.buttonOrange)
         button.layer.cornerRadius = 10
-        button.setTitle("Добавить команду", for: .normal)
+        button.setTitle("Add team", for: .normal)
         button.titleLabel?.numberOfLines = 0
         button.setTitleColor(.white, for: .normal)
         button.layer.shadowOffset = CGSize(width: 0, height: 4)
@@ -101,16 +101,16 @@ class TeamViewController: UIViewController {
         print(globalData.ourTeam)
         let maxTeams = 4
         if globalData.ourTeam.count >= maxTeams {
-            let alert = UIAlertController(title: "Максимум \(maxTeams) команды", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Max \(maxTeams) teams", message: "", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default))
             present(alert, animated: true)
             return
         }
-        let alert = UIAlertController(title: "Добавить команду", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add team", message: "", preferredStyle: .alert)
         alert.addTextField(configurationHandler: { (textField) in
-            textField.placeholder = "Введите название"
+            textField.placeholder = "Enter team name"
         })
-        let cancel = UIAlertAction(title: "Отмена", style: .default) { (action) in }
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (action) in }
         let action = UIAlertAction(title: "Ок", style: .default) { (action) in
             let commandName = alert.textFields?.first?.text ?? ""
             let teamLabel: UILabel

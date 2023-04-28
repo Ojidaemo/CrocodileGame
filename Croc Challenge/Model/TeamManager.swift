@@ -19,10 +19,10 @@ class TeamsManager {
     var teamResults: [Teams] = []
     
     var teams: [Teams] = [
-        Teams(name: "Ковбои", score: 0, teamImage: Resources.Image.cowboy),
-        Teams(name: "Стройняшки", score: 0, teamImage: Resources.Image.burger),
-        Teams(name: "Красотки", score: 0, teamImage: Resources.Image.nails),
-        Teams(name: "Лягушки", score: 0, teamImage: Resources.Image.frog)
+        Teams(name: "Cowboys", score: 0, teamImage: Resources.Image.cowboy),
+        Teams(name: "Fit ladies", score: 0, teamImage: Resources.Image.burger),
+        Teams(name: "Beauties", score: 0, teamImage: Resources.Image.nails),
+        Teams(name: "Frogs", score: 0, teamImage: Resources.Image.frog)
     ]
     
     func generateRandomTeams() {

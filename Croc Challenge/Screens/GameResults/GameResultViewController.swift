@@ -14,7 +14,7 @@ class GameResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Результаты"
+        self.title = "Results"
         view.backgroundColor = .clear
         setDelegates()
         view.addSubview(resultsView)

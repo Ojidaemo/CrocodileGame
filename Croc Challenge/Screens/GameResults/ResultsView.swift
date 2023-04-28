@@ -67,7 +67,7 @@ final class ResultsView: UIView {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
         button.layer.cornerRadius = 10
-        button.setTitle("Начать сначала", for: .normal)
+        button.setTitle("Restart game", for: .normal)
         button.titleLabel?.numberOfLines = 0
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
@@ -98,7 +98,7 @@ final class ResultsView: UIView {
     func createScoreLabel() -> UILabel {
         let label = UILabel()
         label.backgroundColor = .white
-        label.text = "Очки"
+        label.text = "Scores"
         label.font = UIFont(name: Resources.Fonts.bhavuka, size: 15)
         label.textColor = .black
         label.contentMode = .center

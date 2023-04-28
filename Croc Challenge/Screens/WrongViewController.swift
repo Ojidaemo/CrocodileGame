@@ -24,7 +24,7 @@ class WrongViewController: UIViewController {
         teamNameInFirstView.text = team1.name
         teamImageInFirstView.image = UIImage(named: team1.teamImage)
         scoreInFirstView.text = String(team1.score)
-        fourthLabelInSecondView.text = "Следующий ход - “\(team2.name)”"
+        fourthLabelInSecondView.text = "Next team - “\(team2.name)”"
     }
     
     @objc func transferPressed() {
@@ -71,7 +71,7 @@ class WrongViewController: UIViewController {
     
     private lazy var scoreLabelInFirstView: UILabel = {
         let element = UILabel()
-        element.text = "Очки"
+        element.text = "Score"
         element.font = UIFont(name: Resources.Fonts.bhavuka, size: 15)
         element.textColor = .black
         return element
@@ -86,7 +86,7 @@ class WrongViewController: UIViewController {
     
     private lazy var firstLabelInSecondView: UILabel = {
         let element = UILabel()
-        element.text = "УВЫ И АХ!"
+        element.text = "Alas and Oh!"
         element.font = UIFont.boldSystemFont(ofSize: 28)
         element.textColor = .black
         return element
@@ -94,7 +94,7 @@ class WrongViewController: UIViewController {
     
     private lazy var secondLabelInSecondView: UILabel = {
         let element = UILabel()
-        element.text = "Вы не отгадали слово и не получаете очков!"
+        element.text = "You did not guess the word and did not earn any points!"
         element.numberOfLines = 0
         element.textAlignment = .center
         element.font = UIFont(name: Resources.Fonts.bhavuka, size: 16)
@@ -119,7 +119,7 @@ class WrongViewController: UIViewController {
     private lazy var fourthLabelInSecondView: UILabel = {
         let element = UILabel()
         if let teamName = teamManager.teamTwo?.name {
-            element.text = String("Следующий ход - “\(teamName)”")
+            element.text = String("Next team - “\(teamName)”")
         }
         element.font = UIFont(name: Resources.Fonts.bhavuka, size: 16)
         element.textColor = .black
@@ -129,7 +129,7 @@ class WrongViewController: UIViewController {
     private lazy var transferButton: UIButton = {
         let element = UIButton()
         element.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
-        element.setTitle("Передать ход", for: .normal)
+        element.setTitle("Pass the move", for: .normal)
         element.titleLabel?.textAlignment = .center
         element.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 17)
         element.layer.cornerRadius = 10

@@ -16,7 +16,7 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
-        self.title = "Категории"
+        self.title = "Categories"
         setDelegates()
         view.addSubview(categoryView)
         setupConstraints()
@@ -42,7 +42,7 @@ extension CategoryViewController: startGameProtocol, ButtonTargetDelegate {
     func startGamePressed(sender: UIButton) {
         self.navigationController?.isNavigationBarHidden = true
         if categoryChoise == "" {
-            let alert = UIAlertController(title: "", message: "Выберите категорию", preferredStyle: .alert)
+            let alert = UIAlertController(title: "", message: "Select a category", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ок", style: .default) { (action) in }
             alert.addAction(action)
             present(alert, animated: true)

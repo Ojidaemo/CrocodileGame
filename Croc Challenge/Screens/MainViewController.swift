@@ -40,7 +40,7 @@ class MainViewController: UIViewController {
     
     private lazy var startGameButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Старт Игры", for: .normal)
+        button.setTitle("Start Game", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
     
     private lazy var rulesButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Правила", for: .normal)
+        button.setTitle("Rules", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
@@ -77,7 +77,7 @@ class MainViewController: UIViewController {
     
     private lazy var resultButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Результаты", for: .normal)
+        button.setTitle("Results", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10

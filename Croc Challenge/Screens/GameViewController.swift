@@ -53,7 +53,7 @@ class GameViewController: UIViewController {
                 self.timeLabel.text = String(format: "%02d:%02d", self.secondRemaining / 60, self.secondRemaining % 60)
             } else {
                 timer.invalidate()
-                self.timeLabel.text = "Время вышло!"
+                self.timeLabel.text = "Time is over!"
                 self.timeLabel.textColor = .red
                 self.timeLabel.font = .systemFont(ofSize: 20, weight: .bold)
             }
@@ -135,12 +135,12 @@ class GameViewController: UIViewController {
     }
     
     func alertForResetButton() {
-        let alert = UIAlertController(title: "Сбросить игру?", message: "Вы хотите сбросить игру и вернуться в главное меню?", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "Отмена", style: .default) { (cancel) in
+        let alert = UIAlertController(title: "Reset the game?", message: "Are you sure you want to reset the game and get back to Main menu?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (cancel) in
             self.player?.play()
             self.callTimer()
         }
-        let action = UIAlertAction(title: "Да", style: .default) { (action) in
+        let action = UIAlertAction(title: "Yes", style: .default) { (action) in
             let mainVC = MainViewController()
             self.navigationController?.pushViewController(mainVC, animated: true)
         }
@@ -195,7 +195,7 @@ class GameViewController: UIViewController {
     
     private lazy var correctButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Правильно", for: .normal)
+        button.setTitle("Correct", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
@@ -207,7 +207,7 @@ class GameViewController: UIViewController {
     
     private lazy var breakRulesButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Нарушил Правила", for: .normal)
+        button.setTitle("Broke the rules", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
@@ -219,7 +219,7 @@ class GameViewController: UIViewController {
     
     private lazy var restartGameButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Сбросить", for: .normal)
+        button.setTitle("Reset", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10

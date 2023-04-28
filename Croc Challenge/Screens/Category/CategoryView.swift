@@ -62,7 +62,7 @@ final class CategoryView: UIView {
         button.tag = 1
         button.backgroundColor = UIColor(named: Resources.Colors.buttonViolet)
         button.layer.cornerRadius = 10
-        button.setTitle("Животные", for: .normal)
+        button.setTitle("Animals", for: .normal)
         button.setTitleColor(.white, for: .selected)
         button.setTitleColor(.white, for: .normal)
         button.tintColor = .clear
@@ -86,7 +86,7 @@ final class CategoryView: UIView {
         button.tag = 2
         button.backgroundColor = UIColor(named: Resources.Colors.buttonLightGreen)
         button.layer.cornerRadius = 10
-        button.setTitle("Еда", for: .normal)
+        button.setTitle("Food", for: .normal)
         button.setTitleColor(.white, for: .selected)
         button.setTitleColor(.white, for: .normal)
         button.tintColor = .clear
@@ -101,7 +101,7 @@ final class CategoryView: UIView {
         button.tag = 3
         button.backgroundColor = UIColor(named: Resources.Colors.buttonBlue)
         button.layer.cornerRadius = 10
-        button.setTitle("Личности", for: .normal)
+        button.setTitle("Personalities", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
@@ -114,7 +114,7 @@ final class CategoryView: UIView {
         button.tag = 4
         button.backgroundColor = UIColor(named: Resources.Colors.buttonRed)
         button.layer.cornerRadius = 10
-        button.setTitle("Хобби", for: .normal)
+        button.setTitle("Hobbies", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
@@ -126,7 +126,7 @@ final class CategoryView: UIView {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(named: Resources.Colors.buttonGreen)
         button.layer.cornerRadius = 10
-        button.setTitle("Начать игру", for: .normal)
+        button.setTitle("Start game", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: Resources.Fonts.bhavuka, size: 20)
         button.addTarget(self, action: #selector(startGamePressed), for: .touchUpInside)

@@ -16,7 +16,7 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Таблица лидеров"
+        self.title = "Leader results"
         view.backgroundColor = .secondarySystemBackground
         view.addSubview(resultTableView)
         setupConstrains()

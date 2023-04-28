@@ -12,7 +12,7 @@ class ResultCell: UITableViewCell {
     static let identifier = "ResultCell"
     
     lazy var imageOne = createImageView(image: UIImage(named: Resources.Image.cowboy)!)
-    lazy var labelOne = createLabelWithTeamName(title: "Ковбои")
+    lazy var labelOne = createLabelWithTeamName(title: "Cowboys")
     lazy var scoreLabelOne = createScoreLabel()
     lazy var teamOneScore = createTeamScoreLabel(text: "10")
     
@@ -56,7 +56,7 @@ class ResultCell: UITableViewCell {
     func createScoreLabel() -> UILabel {
         let label = UILabel()
         label.backgroundColor = .white
-        label.text = "Очки"
+        label.text = "Scores"
         label.font = UIFont(name: Resources.Fonts.bhavuka, size: 15)
         label.textColor = .black
         label.contentMode = .center
