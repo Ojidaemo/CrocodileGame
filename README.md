@@ -1,5 +1,5 @@
 # Game "Crocodile"
-### The 1st Challenge out of 3 within Swift Marathon 7.0](https://swiftmarathon.com/)
+### The 1st Challenge out of 3 within [Swift Marathon 7.0](https://swiftmarathon.com/)
 
 This project was originally developed by a team and was finalized by me with some additional functionality, such as saving results to user defaults and the opportunity to create your own teams.
 
@@ -10,6 +10,9 @@ This project was originally developed by a team and was finalized by me with som
 ### About the project:
 
 Crocodile is a word guessing game that allows 2 to 4 teams to play simultaneously. Players take turns guessing words from various categories, such as animals, food, personalities, and hobbies. The app comes with a built-in timer to make the game more challenging and exciting. It also keeps track of scores for each team and has a leaderboard to save game results.
+
+![Game demo](https://github.com/Ojidaemo/CrocodileGame/blob/146af5d3df3e30082bef036070abaf441395a8d0/CrocodileDemo.gif)
+
 
 #### Features
 - **Play together**: Simultaneously can play from 2 to 4 teams. You can create teams with your own names. By default, the app generates two random teams.
